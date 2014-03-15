@@ -9,23 +9,44 @@
 #import "flexiAppDelegate.h"
 #import <CouchbaseLite/CouchbaseLite.h>
 #import <CouchbaseLite/CBLManager.h>
+#import <CouchbaseLite/CBLDocument.h>
+#import "Profile.h"
+
+// name of local database stored in iOS
+#define localDBName @"flexi-sync"
+// remote DB URL
+#define remoteDBUrl @"http://sync.couchbasecloud.com/flexidb/"
+#define kFBAppId @"100000484437633"
+
 
 @implementation flexiAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    // create a shared instance of CBLManager
-    CBLManager *manager = [CBLManager sharedInstance];
+
+// store remoteDBUrl in UserDefaults
+#ifdef remoteDBUrl
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *appdefaults = [NSDictionary dictionaryWithObject:remoteDBUrl
+                                                            forKey:@"syncpoint"];
+    [defaults registerDefaults:appdefaults];
+    [defaults synchronize];
+#endif
     
-    // create a database
-    NSLog(@"Opening database...");
-    NSError *error;
-    self.database = [manager databaseNamed: @"flexidb"error: &error];
+    // Initialize Couchbase Lite and find/create my database:
+    NSError* error;
+    self.database = [[CBLManager sharedInstance] databaseNamed:localDBName error: &error];
     if (!self.database)
-        NSLog(@"Couldn't open database %@" , error);
-    else
-        NSLog(@"DB opened successfully");
+        [self showAlert: @"Couldn't open database" error: error fatal: YES];
+    
+    NSLog(@"DB url: %@", [defaults stringForKey:@"syncpoint"]);
+    [self setupCBLSync];
+    
+    // Tell the RootViewController about the database:
+  /*  RootViewController* root = (RootViewController*)navigationController.topViewController;
+    [root useDatabase: database];
+    */
+    
     return YES;
 }
 							
@@ -55,5 +76,119 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (BOOL) sayHello
+{
+    NSError *error;
+    CBLManager *manager = [CBLManager sharedInstance];
+    
+    if (!manager) {
+        NSLog (@"Cannot create shared instance of CBLManager");
+        return NO;
+    }
+    
+    NSString *dbName = @"flexidb";
+    if (![CBLManager isValidDatabaseName:dbName]) {
+        NSLog(@"not a valid name");
+        return NO;
+    }
+    
+    if (!self.database) {
+        return NO;
+    }
+    
+    NSDictionary *myDictionary =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     @"Hello Couchbase Lite!", @"message",
+     [[NSDate date] description], @"timestamp",
+     nil];
+    
+    NSLog (@"This is the data for the document: %@", myDictionary);
+    
+    CBLDocument *doc = [self.database createDocument];
+    CBLRevision *newRevision = [doc putProperties:myDictionary error:&error];
+    
+    if (!newRevision) {
+        NSLog (@"Cannot write document to database. Error message: %@", error.localizedDescription);
+    }
+    
+    
+    CBLQuery *query = [self.database createAllDocumentsQuery];
+    query.descending = YES;
+    
+    CBLQueryEnumerator *rowEnum = [query run:&error];
+    
+    for (CBLQueryRow *row in rowEnum) {
+        NSLog(@"doc id: %@", row.key);
+        NSLog(@"doc: %@", row.document.properties);
+    }
+    
+    
+    /*
+    // save the ID of the new document
+    NSString *docID = doc.documentID;
+    
+    // retrieve the document from the database
+    CBLDocument *retrievedDoc = [self.database documentWithID: docID];
+    
+    // display the retrieved document
+    NSLog(@"The retrieved document contains: %@", retrievedDoc.properties);
+    */
+    
+
+    
+    
+    return YES;
+    
+}
+
+// Display an error alert, without blocking.
+// If 'fatal' is true, the app will quit when it's dismissed.
+- (void)showAlert: (NSString*)message error: (NSError*)error fatal: (BOOL)fatal {
+    if (error) {
+        message = [NSString stringWithFormat: @"%@\n\n%@", message, error.localizedDescription];
+    }
+    NSLog(@"ALERT: %@ (error=%@)", message, error);
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle: (fatal ? @"Fatal Error" : @"Error")
+                                                    message: message
+                                                   delegate: (fatal ? self : nil)
+                                          cancelButtonTitle: (fatal ? @"Quit" : @"Sorry")
+                                          otherButtonTitles: nil];
+    [alert show];
+}
+
+
+- (void) setupCBLSync {
+    _cblSync = [[CBLSyncManager alloc] initSyncForDatabase:_database withURL:[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] stringForKey:@"syncpoint"]]];
+    
+    // Tell the Sync Manager to use Facebook for login.
+    _cblSync.authenticator = [[CBLFacebookAuthenticator alloc] initWithAppID:kFBAppId];
+    
+    if (_cblSync.userID) {
+        //        we are logged in, go ahead and sync
+        [_cblSync start];
+        NSLog(@"logged in! cool");
+    } else {
+        // Application callback to create the user profile.
+        // this will be triggered after we call [_cblSync start]
+        NSLog(@"not logged in");
+        [_cblSync beforeFirstSync:^(NSString *userID, NSDictionary *userData,  NSError **outError) {
+            // This is a first run, setup the profile but don't save it yet.
+            Profile *myProfile = [[Profile alloc] initCurrentUserProfileInDatabase:self.database withName:userData[@"name"] andUserID:userID];
+            
+            
+            // Sync doesn't start until after this block completes, so
+            // all this data will be tagged.
+            if (!outError) {
+                [myProfile save:outError];
+            }
+            else {
+                NSLog(@"DUPA");
+            }
+        }];
+    }
+}
+
+
 
 @end
