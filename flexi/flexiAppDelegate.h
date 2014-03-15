@@ -20,6 +20,7 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) CBLDatabase *database;
 @property (strong, nonatomic) CBLSyncManager *cblSync;
+@property (strong, nonatomic) UINavigationController *navigationController;
 
 
 @end

@@ -7,16 +7,19 @@
 //
 
 #import "flexiAppDelegate.h"
+#import "LoginViewController.h"
 #import <CouchbaseLite/CouchbaseLite.h>
 #import <CouchbaseLite/CBLManager.h>
 #import <CouchbaseLite/CBLDocument.h>
+#import <FacebookSDK/FacebookSDK.h>
+
 #import "Profile.h"
 
 // name of local database stored in iOS
 #define localDBName @"flexi-sync"
 // remote DB URL
 #define remoteDBUrl @"http://sync.couchbasecloud.com/flexidb/"
-#define kFBAppId @"100000484437633"
+#define kFBAppId @"241876219329233"
 
 
 @implementation flexiAppDelegate
@@ -33,7 +36,23 @@
     [defaults synchronize];
 #endif
     
+    // UINavigation controller try
+    /*
+    UIViewController *myViewController = [[LoginViewController alloc] init];
+    self.navigationController = [[UINavigationController alloc]
+                            initWithRootViewController:myViewController];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = self.navigationController;
+    [self.window makeKeyAndVisible];
+    */
+    
+    
+    
+    
+    
     // Initialize Couchbase Lite and find/create my database:
+    /*
     NSError* error;
     self.database = [[CBLManager sharedInstance] databaseNamed:localDBName error: &error];
     if (!self.database)
@@ -41,11 +60,8 @@
     
     NSLog(@"DB url: %@", [defaults stringForKey:@"syncpoint"]);
     [self setupCBLSync];
+*/
     
-    // Tell the RootViewController about the database:
-  /*  RootViewController* root = (RootViewController*)navigationController.topViewController;
-    [root useDatabase: database];
-    */
     
     return YES;
 }
@@ -76,6 +92,24 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    
+    // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
+    BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    
+    // You can add your app-specific url handling code here if needed
+    NSLog(@"Handled? : %hhd", wasHandled);
+    NSLog(@"Url info : %@", url);
+    NSLog(@"Source app info : %@", sourceApplication);
+    NSLog(@"annotation info : %@", annotation);
+    
+    return wasHandled;
+}
+
 
 - (BOOL) sayHello
 {
