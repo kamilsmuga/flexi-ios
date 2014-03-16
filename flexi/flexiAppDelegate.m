@@ -19,7 +19,7 @@
 #define localDBName @"flexi-sync"
 // remote DB URL
 #define remoteDBUrl @"http://sync.couchbasecloud.com/flexidb/"
-#define kFBAppId @"241876219329233"
+// #define kFBAppId @"241876219329233"
 
 
 @implementation flexiAppDelegate
@@ -36,33 +36,7 @@
     [defaults synchronize];
 #endif
     
-    // UINavigation controller try
-    /*
-    UIViewController *myViewController = [[LoginViewController alloc] init];
-    self.navigationController = [[UINavigationController alloc]
-                            initWithRootViewController:myViewController];
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = self.navigationController;
-    [self.window makeKeyAndVisible];
-    */
-    
-    
-    
-    
-    
-    // Initialize Couchbase Lite and find/create my database:
-    /*
-    NSError* error;
-    self.database = [[CBLManager sharedInstance] databaseNamed:localDBName error: &error];
-    if (!self.database)
-        [self showAlert: @"Couldn't open database" error: error fatal: YES];
-    
-    NSLog(@"DB url: %@", [defaults stringForKey:@"syncpoint"]);
-    [self setupCBLSync];
-*/
-    
-    
+    [FBProfilePictureView class];
     return YES;
 }
 							
@@ -100,12 +74,6 @@
     
     // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
     BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
-    
-    // You can add your app-specific url handling code here if needed
-    NSLog(@"Handled? : %hhd", wasHandled);
-    NSLog(@"Url info : %@", url);
-    NSLog(@"Source app info : %@", sourceApplication);
-    NSLog(@"annotation info : %@", annotation);
     
     return wasHandled;
 }
@@ -191,6 +159,7 @@
     [alert show];
 }
 
+/*
 
 - (void) setupCBLSync {
     _cblSync = [[CBLSyncManager alloc] initSyncForDatabase:_database withURL:[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] stringForKey:@"syncpoint"]]];
@@ -223,6 +192,7 @@
     }
 }
 
+*/
 
 
 @end

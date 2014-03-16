@@ -20,9 +20,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+   
     FBLoginView *loginView = [[FBLoginView alloc] init];
     loginView.delegate = self;
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -33,27 +33,33 @@
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
+    
     self.profilePictureView.profileID = user.id;
-    self.nameLabel.text = user.name;
+    self.name = user.name;
+    
 }
 
 // Logged-in user experience
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
-    self.statusLabel.text = @"You're logged in as";
-    NSLog(@"I'm logged in!!!");
-
-    MainViewController *mainView = [[MainViewController alloc]init];
-    UINavigationController *navigationController = [[UINavigationController alloc]
-                                                    initWithRootViewController:mainView];
-    [self presentViewController:navigationController animated:NO completion: nil];
     
+    [self performSegueWithIdentifier:@"toMainView" sender:self];
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"toMainView"]) {
+        MainViewController *secondController = [segue destinationViewController];
+        secondController.name = self.name;
+        secondController.FBPic = self.profilePictureView;
+    }
 }
 
 // Logged-out user experience
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
+    
     self.profilePictureView.profileID = nil;
-    self.nameLabel.text = @"";
-    self.statusLabel.text= @"You're not logged in!";
+    self.name = nil;
 }
 
 

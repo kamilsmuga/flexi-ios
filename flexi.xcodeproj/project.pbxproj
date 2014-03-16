@@ -34,8 +34,6 @@
 		122B69F218D46468004AF481 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 122B69F018D46468004AF481 /* FacebookSDK.framework */; };
 		122B69F518D475A2004AF481 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 122B69F418D475A2004AF481 /* MainViewController.m */; };
 		122B69F618D475A2004AF481 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 122B69F418D475A2004AF481 /* MainViewController.m */; };
-		122B69F818D477CA004AF481 /* testStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 122B69F718D477CA004AF481 /* testStoryboard.storyboard */; };
-		122B69F918D477CA004AF481 /* testStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 122B69F718D477CA004AF481 /* testStoryboard.storyboard */; };
 		4823FA711888A41B0098E269 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA701888A41B0098E269 /* Foundation.framework */; };
 		4823FA731888A41B0098E269 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA721888A41B0098E269 /* CoreGraphics.framework */; };
 		4823FA751888A41B0098E269 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA741888A41B0098E269 /* UIKit.framework */; };
@@ -86,7 +84,6 @@
 		122B69F018D46468004AF481 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		122B69F318D475A2004AF481 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = ../MainViewController.h; sourceTree = "<group>"; };
 		122B69F418D475A2004AF481 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = ../MainViewController.m; sourceTree = "<group>"; };
-		122B69F718D477CA004AF481 /* testStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = testStoryboard.storyboard; sourceTree = "<group>"; };
 		4823FA6D1888A41B0098E269 /* flexi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flexi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4823FA701888A41B0098E269 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4823FA721888A41B0098E269 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -244,7 +241,6 @@
 				4823FA861888A41B0098E269 /* LoginViewController.m */,
 				4823FA881888A41B0098E269 /* Images.xcassets */,
 				4823FA771888A41B0098E269 /* Supporting Files */,
-				122B69F718D477CA004AF481 /* testStoryboard.storyboard */,
 			);
 			path = flexi;
 			sourceTree = "<group>";
@@ -413,7 +409,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4823FA891888A41B0098E269 /* Images.xcassets in Resources */,
-				122B69F818D477CA004AF481 /* testStoryboard.storyboard in Resources */,
 				4823FA7B1888A41B0098E269 /* InfoPlist.strings in Resources */,
 				4823FA841888A41B0098E269 /* Main.storyboard in Resources */,
 			);
@@ -424,7 +419,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4823FA9A1888A41B0098E269 /* InfoPlist.strings in Resources */,
-				122B69F918D477CA004AF481 /* testStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -772,6 +766,7 @@
 				122B69CB18D44FB8004AF481 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		122B69CF18D44FB8004AF481 /* Build configuration list for PBXNativeTarget "wtfTests" */ = {
 			isa = XCConfigurationList;
@@ -780,6 +775,7 @@
 				122B69CD18D44FB8004AF481 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4823FA681888A41B0098E269 /* Build configuration list for PBXProject "flexi" */ = {
 			isa = XCConfigurationList;
