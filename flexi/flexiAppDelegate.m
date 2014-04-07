@@ -9,11 +9,8 @@
 #import "flexiAppDelegate.h"
 #import "LoginViewController.h"
 #import <CouchbaseLite/CouchbaseLite.h>
-#import <CouchbaseLite/CBLManager.h>
-#import <CouchbaseLite/CBLDocument.h>
 #import <FacebookSDK/FacebookSDK.h>
 
-#import "Profile.h"
 
 // name of local database stored in iOS
 #define localDBName @"flexi-sync"
@@ -26,17 +23,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
-// store remoteDBUrl in UserDefaults
-#ifdef remoteDBUrl
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *appdefaults = [NSDictionary dictionaryWithObject:remoteDBUrl
-                                                            forKey:@"syncpoint"];
-    [defaults registerDefaults:appdefaults];
-    [defaults synchronize];
-#endif
-    
     [FBProfilePictureView class];
+
+    // store remoteDBUrl in UserDefaults
+    #ifdef remoteDBUrl
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSDictionary *appdefaults = [NSDictionary dictionaryWithObject:remoteDBUrl
+                                                            forKey:@"syncpoint"];
+        [defaults registerDefaults:appdefaults];
+        [defaults synchronize];
+    #endif
+    
+    // create or attach to a local DB in iOS
+    CBLManager *manager = [CBLManager sharedInstance];
+    NSError *error;
+    self.database = [manager databaseNamed: @"flexi" error: &error];
+    if (error) {
+        NSLog(@"error getting database %@",error);
+        exit(-1);
+    }    
     return YES;
 }
 							

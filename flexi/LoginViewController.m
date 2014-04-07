@@ -1,5 +1,5 @@
 //
-//  flexiViewController.m
+//  LoginViewController.m
 //  flexi
 //
 //  Created by Kamil Smuga on 16/01/2014.
@@ -11,7 +11,8 @@
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface LoginViewController ()
-
+@property (strong, nonatomic) IBOutlet FBProfilePictureView *profilePictureView;
+@property (strong, nonatomic) FBLoginView *fbView;
 @end
 
 @implementation LoginViewController
@@ -19,10 +20,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-   
-    FBLoginView *loginView = [[FBLoginView alloc] init];
-    loginView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -31,29 +28,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
-                            user:(id<FBGraphUser>)user {
-    
-    self.profilePictureView.profileID = user.id;
-    self.name = user.name;
-    
-}
-
 // Logged-in user experience
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
-    
+    self.fbView = loginView;
     [self performSegueWithIdentifier:@"toMainView" sender:self];
     
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if ([[segue identifier] isEqualToString:@"toMainView"]) {
-        MainViewController *secondController = [segue destinationViewController];
-        secondController.name = self.name;
-        secondController.FBPic = self.profilePictureView;
-    }
-}
 
 // Logged-out user experience
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
@@ -106,5 +87,12 @@
     }
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"toMainView"]) {
+        MainViewController *secondController = [segue destinationViewController];
+        self.fbView.delegate = secondController;
+    }
+}
 
 @end

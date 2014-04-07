@@ -1,31 +1,34 @@
 //
 //  Profile.h
-//  TodoLite7
+//  flexi
 //
-//  Created by Chris Anderson on 11/15/13.
-//  Copyright (c) 2013 Chris Anderson. All rights reserved.
+//  Created by Kamil Smuga on 3/15/14.
+//  Copyright (c) 2014 iOSGo!. All rights reserved.
 //
+
 
 #import <CouchbaseLite/CouchbaseLite.h>
 
 @interface Profile : CBLModel
 
-/** Returns a query for all the profiles in a database. */
+// return all profiles in DB
 + (CBLQuery*) queryProfilesInDatabase: (CBLDatabase*)db;
 
+// find a profile using user ID
 + (instancetype) profileInDatabase: (CBLDatabase*)db forUserID: (NSString*)userID;
 
+// init DB with provided details
 - (instancetype) initCurrentUserProfileInDatabase: (CBLDatabase*)database
-                       withName: (NSString*)name
-                       andUserID: (NSString*)userId;
+                                         withName: (NSString*)name
+                                        andUserID: (NSString*)userId;
 
-/** The readwrite full name. */
+// full user name
 @property (readwrite) NSString* name;
 
-/** The user_id is usually an email address. */
+// user ID - email
 @property (readwrite) NSString* user_id;
 
-/** The type is "profile". */
+// type - profile
 @property (readwrite) NSString* type;
 
 

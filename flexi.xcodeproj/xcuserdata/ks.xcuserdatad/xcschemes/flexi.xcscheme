@@ -38,6 +38,16 @@
                ReferencedContainer = "container:flexi.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "122B69BB18D44FB8004AF481"
+               BuildableName = "wtfTests.xctest"
+               BlueprintName = "wtfTests"
+               ReferencedContainer = "container:flexi.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

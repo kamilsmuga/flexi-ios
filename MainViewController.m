@@ -7,26 +7,62 @@
 //
 
 #import "MainViewController.h"
+#import "Profile.h"
+#import <CouchbaseLite/CouchbaseLite.h>
+#import "flexiAppDelegate.h"
 
 @interface MainViewController ()
-
+@property (nonatomic, weak) CBLDatabase *db;
 @end
 
 @implementation MainViewController
 
 
+-(CBLDatabase *)db
+{
+    if (!_db) {
+        _db = ((flexiAppDelegate*)[UIApplication sharedApplication].delegate).database;
+    }
+    return _db;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
-    FBLoginView *loginView = [[FBLoginView alloc] init];
-    loginView.delegate = self;
     
-    self.FBPicOutlet = self.FBPic;
-    self.nameLabel.text = self.name;
-
+}
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
+                            user:(id<FBGraphUser>)user {
     
+    NSString *email = [user objectForKey:@"email"];
+    
+    CBLQuery *q = [Profile queryProfilesInDatabase:self.db];
+    
+    
+    NSError *error = nil;
+    CBLQueryEnumerator *rowEnum = [q run: &error];
+    for (CBLQueryRow* row in rowEnum) {
+        NSLog(@"Doc ID = %@", row.key);
+    }
+    
+    Profile *test = [Profile profileInDatabase:self.db  forUserID:email];
+    
+    if (!test) {
+        NSError *error = nil;
+        Profile *profile = [[Profile alloc] initCurrentUserProfileInDatabase:self.db withName:user.name andUserID:email];
+        if (error) {
+            NSLog(@"Cos poszlo nie tak przy zapisywaniu do bazy profilu!");
+        }
+        [profile save:&error];
+        NSLog(@"New user!");
+    }
+    else {
+        NSLog(@"Stary pryk");
+    }
+    
+    self.FBPicOutlet.profileID = user.id;
+    self.nameLabel.text = user.name;
 }
 
 - (void)didReceiveMemoryWarning

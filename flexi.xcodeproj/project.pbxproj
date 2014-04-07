@@ -18,16 +18,6 @@
 		122B69D218D452E5004AF481 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FAAF1888A7EC0098E269 /* SystemConfiguration.framework */; };
 		122B69D318D452F5004AF481 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FAB11888A7FA0098E269 /* libsqlite3.dylib */; };
 		122B69D418D452FC004AF481 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FAB31888A8020098E269 /* libz.dylib */; };
-		122B69D818D45365004AF481 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 122B69D718D45365004AF481 /* CouchbaseLite.framework */; };
-		122B69D918D45365004AF481 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 122B69D718D45365004AF481 /* CouchbaseLite.framework */; };
-		122B69E318D4547E004AF481 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 122B69DC18D4547E004AF481 /* List.m */; };
-		122B69E418D4547E004AF481 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 122B69DC18D4547E004AF481 /* List.m */; };
-		122B69E518D4547E004AF481 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 122B69DE18D4547E004AF481 /* Profile.m */; };
-		122B69E618D4547E004AF481 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 122B69DE18D4547E004AF481 /* Profile.m */; };
-		122B69E718D4547E004AF481 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 122B69E018D4547E004AF481 /* Task.m */; };
-		122B69E818D4547E004AF481 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 122B69E018D4547E004AF481 /* Task.m */; };
-		122B69E918D4547E004AF481 /* Titled.m in Sources */ = {isa = PBXBuildFile; fileRef = 122B69E218D4547E004AF481 /* Titled.m */; };
-		122B69EA18D4547E004AF481 /* Titled.m in Sources */ = {isa = PBXBuildFile; fileRef = 122B69E218D4547E004AF481 /* Titled.m */; };
 		122B69ED18D454C4004AF481 /* CBLSyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 122B69EC18D454C4004AF481 /* CBLSyncManager.m */; };
 		122B69EE18D454C4004AF481 /* CBLSyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 122B69EC18D454C4004AF481 /* CBLSyncManager.m */; };
 		122B69F118D46468004AF481 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 122B69F018D46468004AF481 /* FacebookSDK.framework */; };
@@ -48,6 +38,8 @@
 		4823FA921888A41B0098E269 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA741888A41B0098E269 /* UIKit.framework */; };
 		4823FA9A1888A41B0098E269 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4823FA981888A41B0098E269 /* InfoPlist.strings */; };
 		4823FA9C1888A41B0098E269 /* flexiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4823FA9B1888A41B0098E269 /* flexiTests.m */; };
+		488AFA2918F2C40B00621DDE /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 488AFA2818F2C40B00621DDE /* CouchbaseLite.framework */; };
+		488AFA2D18F2C68A00621DDE /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 488AFA2C18F2C68A00621DDE /* Profile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,20 +62,11 @@
 /* Begin PBXFileReference section */
 		122B699D18D44FB7004AF481 /* wtf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wtf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		122B69BC18D44FB8004AF481 /* wtfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wtfTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		122B69D718D45365004AF481 /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CouchbaseLite.framework; path = "../../Downloads/couchbase-lite-community-ios_1.0-beta3/CouchbaseLite.framework"; sourceTree = "<group>"; };
-		122B69DB18D4547E004AF481 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
-		122B69DC18D4547E004AF481 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
-		122B69DD18D4547E004AF481 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
-		122B69DE18D4547E004AF481 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
-		122B69DF18D4547E004AF481 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
-		122B69E018D4547E004AF481 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
-		122B69E118D4547E004AF481 /* Titled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Titled.h; sourceTree = "<group>"; };
-		122B69E218D4547E004AF481 /* Titled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Titled.m; sourceTree = "<group>"; };
-		122B69EB18D454C4004AF481 /* CBLSyncManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBLSyncManager.h; path = "../../ToDoLite-iOS/TodoLite7/CBLSyncManager.h"; sourceTree = "<group>"; };
-		122B69EC18D454C4004AF481 /* CBLSyncManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBLSyncManager.m; path = "../../ToDoLite-iOS/TodoLite7/CBLSyncManager.m"; sourceTree = "<group>"; };
+		122B69EB18D454C4004AF481 /* CBLSyncManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBLSyncManager.h; path = "../ToDoLite-iOS/TodoLite7/CBLSyncManager.h"; sourceTree = "<group>"; };
+		122B69EC18D454C4004AF481 /* CBLSyncManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBLSyncManager.m; path = "../ToDoLite-iOS/TodoLite7/CBLSyncManager.m"; sourceTree = "<group>"; };
 		122B69F018D46468004AF481 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		122B69F318D475A2004AF481 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = ../MainViewController.h; sourceTree = "<group>"; };
-		122B69F418D475A2004AF481 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = ../MainViewController.m; sourceTree = "<group>"; };
+		122B69F318D475A2004AF481 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		122B69F418D475A2004AF481 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		4823FA6D1888A41B0098E269 /* flexi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flexi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4823FA701888A41B0098E269 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4823FA721888A41B0098E269 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -95,8 +78,8 @@
 		4823FA7F1888A41B0098E269 /* flexiAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = flexiAppDelegate.h; sourceTree = "<group>"; };
 		4823FA801888A41B0098E269 /* flexiAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = flexiAppDelegate.m; sourceTree = "<group>"; };
 		4823FA831888A41B0098E269 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4823FA851888A41B0098E269 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		4823FA861888A41B0098E269 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		4823FA851888A41B0098E269 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = flexi/LoginViewController.h; sourceTree = "<group>"; };
+		4823FA861888A41B0098E269 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = flexi/LoginViewController.m; sourceTree = "<group>"; };
 		4823FA881888A41B0098E269 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4823FA8E1888A41B0098E269 /* flexiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = flexiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4823FA8F1888A41B0098E269 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -108,6 +91,9 @@
 		4823FAAF1888A7EC0098E269 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4823FAB11888A7FA0098E269 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		4823FAB31888A8020098E269 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		488AFA2818F2C40B00621DDE /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLite.framework; sourceTree = "<group>"; };
+		488AFA2B18F2C67F00621DDE /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
+		488AFA2C18F2C68A00621DDE /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,12 +121,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				488AFA2918F2C40B00621DDE /* CouchbaseLite.framework in Frameworks */,
 				122B69D418D452FC004AF481 /* libz.dylib in Frameworks */,
 				122B69F118D46468004AF481 /* FacebookSDK.framework in Frameworks */,
 				122B69D318D452F5004AF481 /* libsqlite3.dylib in Frameworks */,
 				122B69D218D452E5004AF481 /* SystemConfiguration.framework in Frameworks */,
 				122B69D118D452DB004AF481 /* CFNetwork.framework in Frameworks */,
-				122B69D818D45365004AF481 /* CouchbaseLite.framework in Frameworks */,
 				122B69D018D452D3004AF481 /* Security.framework in Frameworks */,
 				4823FA731888A41B0098E269 /* CoreGraphics.framework in Frameworks */,
 				4823FA751888A41B0098E269 /* UIKit.framework in Frameworks */,
@@ -155,7 +141,6 @@
 				4823FA901888A41B0098E269 /* XCTest.framework in Frameworks */,
 				122B69F218D46468004AF481 /* FacebookSDK.framework in Frameworks */,
 				4823FA921888A41B0098E269 /* UIKit.framework in Frameworks */,
-				122B69D918D45365004AF481 /* CouchbaseLite.framework in Frameworks */,
 				4823FA911888A41B0098E269 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,32 +148,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		122B69DA18D4547E004AF481 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				122B69DB18D4547E004AF481 /* List.h */,
-				122B69DC18D4547E004AF481 /* List.m */,
-				122B69DD18D4547E004AF481 /* Profile.h */,
-				122B69DE18D4547E004AF481 /* Profile.m */,
-				122B69DF18D4547E004AF481 /* Task.h */,
-				122B69E018D4547E004AF481 /* Task.m */,
-				122B69E118D4547E004AF481 /* Titled.h */,
-				122B69E218D4547E004AF481 /* Titled.m */,
-			);
-			name = Models;
-			path = "../../ToDoLite-iOS/Models";
-			sourceTree = "<group>";
-		};
-		122B69EF18D460B7004AF481 /* Integration */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Integration;
-			sourceTree = "<group>";
-		};
 		4823FA641888A41B0098E269 = {
 			isa = PBXGroup;
 			children = (
+				488AFA2F18F2F8A500621DDE /* Synch */,
+				488AFA2E18F2F88700621DDE /* Controller */,
+				488AFA2A18F2C5FF00621DDE /* Model */,
 				4823FA761888A41B0098E269 /* flexi */,
 				4823FA951888A41B0098E269 /* flexiTests */,
 				4823FA6F1888A41B0098E269 /* Frameworks */,
@@ -210,8 +175,8 @@
 		4823FA6F1888A41B0098E269 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				488AFA2818F2C40B00621DDE /* CouchbaseLite.framework */,
 				122B69F018D46468004AF481 /* FacebookSDK.framework */,
-				122B69D718D45365004AF481 /* CouchbaseLite.framework */,
 				4823FAB31888A8020098E269 /* libz.dylib */,
 				4823FAB11888A7FA0098E269 /* libsqlite3.dylib */,
 				4823FAAF1888A7EC0098E269 /* SystemConfiguration.framework */,
@@ -228,17 +193,9 @@
 		4823FA761888A41B0098E269 /* flexi */ = {
 			isa = PBXGroup;
 			children = (
-				122B69DA18D4547E004AF481 /* Models */,
-				122B69EF18D460B7004AF481 /* Integration */,
-				122B69F318D475A2004AF481 /* MainViewController.h */,
-				122B69F418D475A2004AF481 /* MainViewController.m */,
-				122B69EB18D454C4004AF481 /* CBLSyncManager.h */,
-				122B69EC18D454C4004AF481 /* CBLSyncManager.m */,
 				4823FA7F1888A41B0098E269 /* flexiAppDelegate.h */,
 				4823FA801888A41B0098E269 /* flexiAppDelegate.m */,
 				4823FA821888A41B0098E269 /* Main.storyboard */,
-				4823FA851888A41B0098E269 /* LoginViewController.h */,
-				4823FA861888A41B0098E269 /* LoginViewController.m */,
 				4823FA881888A41B0098E269 /* Images.xcassets */,
 				4823FA771888A41B0098E269 /* Supporting Files */,
 			);
@@ -272,6 +229,35 @@
 				4823FA981888A41B0098E269 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		488AFA2A18F2C5FF00621DDE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				488AFA2B18F2C67F00621DDE /* Profile.h */,
+				488AFA2C18F2C68A00621DDE /* Profile.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		488AFA2E18F2F88700621DDE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4823FA851888A41B0098E269 /* LoginViewController.h */,
+				4823FA861888A41B0098E269 /* LoginViewController.m */,
+				122B69F318D475A2004AF481 /* MainViewController.h */,
+				122B69F418D475A2004AF481 /* MainViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		488AFA2F18F2F8A500621DDE /* Synch */ = {
+			isa = PBXGroup;
+			children = (
+				122B69EB18D454C4004AF481 /* CBLSyncManager.h */,
+				122B69EC18D454C4004AF481 /* CBLSyncManager.m */,
+			);
+			name = Synch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,13 +430,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4823FA871888A41B0098E269 /* LoginViewController.m in Sources */,
-				122B69E518D4547E004AF481 /* Profile.m in Sources */,
-				122B69E318D4547E004AF481 /* List.m in Sources */,
-				122B69E918D4547E004AF481 /* Titled.m in Sources */,
 				122B69F518D475A2004AF481 /* MainViewController.m in Sources */,
 				122B69ED18D454C4004AF481 /* CBLSyncManager.m in Sources */,
+				488AFA2D18F2C68A00621DDE /* Profile.m in Sources */,
 				4823FA7D1888A41B0098E269 /* main.m in Sources */,
-				122B69E718D4547E004AF481 /* Task.m in Sources */,
 				4823FA811888A41B0098E269 /* flexiAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,12 +443,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				122B69EE18D454C4004AF481 /* CBLSyncManager.m in Sources */,
-				122B69E818D4547E004AF481 /* Task.m in Sources */,
-				122B69E618D4547E004AF481 /* Profile.m in Sources */,
-				122B69EA18D4547E004AF481 /* Titled.m in Sources */,
 				122B69F618D475A2004AF481 /* MainViewController.m in Sources */,
 				4823FA9C1888A41B0098E269 /* flexiTests.m in Sources */,
-				122B69E418D4547E004AF481 /* List.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,6 +657,7 @@
 					"/Users/ks/workspace/flexi/pkg/couchbase-lite-community-ios_1.0-beta2",
 					"/Users/ksmuga/Downloads/couchbase-lite-community-ios_1.0-beta3",
 					"$(PROJECT_DIR)",
+					/Users/ks/workspace/flexi,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "flexi/flexi-Prefix.pch";
@@ -701,6 +681,7 @@
 					"/Users/ks/workspace/flexi/pkg/couchbase-lite-community-ios_1.0-beta2",
 					"/Users/ksmuga/Downloads/couchbase-lite-community-ios_1.0-beta3",
 					"$(PROJECT_DIR)",
+					/Users/ks/workspace/flexi,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "flexi/flexi-Prefix.pch";
