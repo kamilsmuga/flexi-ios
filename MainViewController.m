@@ -13,6 +13,7 @@
 
 @interface MainViewController ()
 @property (nonatomic, weak) CBLDatabase *db;
+@property (nonatomic) BOOL debug;
 @end
 
 @implementation MainViewController
@@ -35,30 +36,36 @@
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
     
+    self.debug = YES;
+    NSError *error = nil;
+    
     NSString *email = [user objectForKey:@"email"];
     
-    CBLQuery *q = [Profile queryProfilesInDatabase:self.db];
-    
-    
-    NSError *error = nil;
-    CBLQueryEnumerator *rowEnum = [q run: &error];
-    for (CBLQueryRow* row in rowEnum) {
-        NSLog(@"Doc ID = %@", row.key);
-    }
-    
-    Profile *test = [Profile profileInDatabase:self.db  forUserID:email];
-    
-    if (!test) {
-        NSError *error = nil;
+    Profile *existingProfile = [Profile profileInDatabase:self.db  forUserID:email];
+
+    if (!existingProfile) {
         Profile *profile = [[Profile alloc] initCurrentUserProfileInDatabase:self.db withName:user.name andUserID:email];
-        if (error) {
-            NSLog(@"Cos poszlo nie tak przy zapisywaniu do bazy profilu!");
-        }
         [profile save:&error];
-        NSLog(@"New user!");
+        if (self.debug) {
+            NSLog(@"New user created!");
+            NSLog(@"profile email: %@", profile.userID);
+            NSLog(@"member since: %@", profile.joined);
+            NSLog(@"profile id: %@", [profile getValueOfProperty: @"_id"]);
+        }
     }
     else {
-        NSLog(@"Stary pryk");
+        existingProfile.lastLogin = [NSDate date];
+        [existingProfile save:&error];
+        
+        if (self.debug) {
+           NSLog(@"This is an existing user.");
+           NSLog(@"profile id: %@", existingProfile.userID);
+           NSLog(@"member since: %@", existingProfile.joined);
+           NSLog(@"last login: %@", existingProfile.lastLogin);
+        }
+    }
+    if (error) {
+        NSLog(@"Error while trying to save the profile. This is bad!");
     }
     
     self.FBPicOutlet.profileID = user.id;

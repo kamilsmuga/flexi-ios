@@ -26,10 +26,15 @@
 @property (readwrite) NSString* name;
 
 // user ID - email
-@property (readwrite) NSString* user_id;
+@property (readwrite) NSString* userID;
 
 // type - profile
 @property (readwrite) NSString* type;
 
+// member since date
+@property (readwrite) NSDate* joined;
+
+// last login
+@property (readwrite) NSDate* lastLogin;
 
 @end

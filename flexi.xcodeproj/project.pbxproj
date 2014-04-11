@@ -40,6 +40,7 @@
 		4823FA9C1888A41B0098E269 /* flexiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4823FA9B1888A41B0098E269 /* flexiTests.m */; };
 		488AFA2918F2C40B00621DDE /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 488AFA2818F2C40B00621DDE /* CouchbaseLite.framework */; };
 		488AFA2D18F2C68A00621DDE /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 488AFA2C18F2C68A00621DDE /* Profile.m */; };
+		488AFA3218F8269100621DDE /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 488AFA3118F8269100621DDE /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,8 @@
 		488AFA2818F2C40B00621DDE /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLite.framework; sourceTree = "<group>"; };
 		488AFA2B18F2C67F00621DDE /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
 		488AFA2C18F2C68A00621DDE /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
+		488AFA3018F8269100621DDE /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		488AFA3118F8269100621DDE /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +250,8 @@
 				4823FA861888A41B0098E269 /* LoginViewController.m */,
 				122B69F318D475A2004AF481 /* MainViewController.h */,
 				122B69F418D475A2004AF481 /* MainViewController.m */,
+				488AFA3018F8269100621DDE /* ProfileViewController.h */,
+				488AFA3118F8269100621DDE /* ProfileViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -433,6 +438,7 @@
 				122B69F518D475A2004AF481 /* MainViewController.m in Sources */,
 				122B69ED18D454C4004AF481 /* CBLSyncManager.m in Sources */,
 				488AFA2D18F2C68A00621DDE /* Profile.m in Sources */,
+				488AFA3218F8269100621DDE /* ProfileViewController.m in Sources */,
 				4823FA7D1888A41B0098E269 /* main.m in Sources */,
 				4823FA811888A41B0098E269 /* flexiAppDelegate.m in Sources */,
 			);

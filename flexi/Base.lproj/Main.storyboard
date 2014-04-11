@@ -79,7 +79,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="qz2-Jh-FFJ"/>
                     <connections>
                         <outlet property="FBPicOutlet" destination="LEA-i6-eXW" id="RuK-AQ-A25"/>
                         <outlet property="nameLabel" destination="XPG-QP-9nf" id="SsR-Ty-dZa"/>
@@ -87,7 +86,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ppd-6R-HL0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="410" y="158"/>
+            <point key="canvasLocation" x="413" y="158"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="Y6t-Rn-5Fk">
+            <objects>
+                <viewController id="Aj1-iZ-May" customClass="ProfileViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L4A-HJ-Eyl"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mek-KC-O9j"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z66-b2-8bO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4bS-eK-QTC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="862" y="-495"/>
         </scene>
     </scenes>
     <resources>

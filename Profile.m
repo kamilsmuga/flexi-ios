@@ -12,6 +12,8 @@
 
 @implementation Profile
 
+@dynamic userID, name, type, joined;
+
 + (CBLQuery*) queryProfilesInDatabase: (CBLDatabase*)db {
     CBLView* view = [db viewNamed: @"profiles"];
     if (!view.mapBlock) {
@@ -29,9 +31,11 @@
     NSString* profileDocId = [@"p:" stringByAppendingString:userID];
     CBLDocument *doc;
     if (profileDocId.length > 0)
-        doc = [db documentWithID: profileDocId];
+        doc = [db existingDocumentWithID: profileDocId];
     return doc ? [Profile modelForDocument: doc] : nil;
 }
+
+
 
 - (instancetype) initCurrentUserProfileInDatabase: (CBLDatabase*)database
                                          withName: (NSString*)name
@@ -46,11 +50,14 @@
     self = [super initWithDocument:doc];
     if (self) {
         self.name = name;
-        self.user_id = userId;
+        self.userID = userId;
         self.type = kProfileDocType;
+        self.joined = [NSDate date];
+        self.lastLogin = self.joined;
     }
     
     return self;
 }
+
 
 @end
