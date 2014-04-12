@@ -10,6 +10,7 @@
 #import "Profile.h"
 #import <CouchbaseLite/CouchbaseLite.h>
 #import "flexiAppDelegate.h"
+#import "DBTestDataFeed.h"
 
 @interface MainViewController ()
 @property (nonatomic, weak) CBLDatabase *db;
@@ -67,6 +68,8 @@
     if (error) {
         NSLog(@"Error while trying to save the profile. This is bad!");
     }
+    
+    [DBTestDataFeed populateRandomNotesInDB:self.db forUserID:email];
     
     self.FBPicOutlet.profileID = user.id;
     self.nameLabel.text = user.name;

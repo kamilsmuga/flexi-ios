@@ -24,6 +24,9 @@
 		122B69F218D46468004AF481 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 122B69F018D46468004AF481 /* FacebookSDK.framework */; };
 		122B69F518D475A2004AF481 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 122B69F418D475A2004AF481 /* MainViewController.m */; };
 		122B69F618D475A2004AF481 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 122B69F418D475A2004AF481 /* MainViewController.m */; };
+		12AE5F5018F934EB00DDA457 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AE5F4F18F934EB00DDA457 /* Note.m */; };
+		12AE5F5218F9562700DDA457 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AE5F5118F9562700DDA457 /* CoreLocation.framework */; };
+		12AE5F5518F9693900DDA457 /* DBTestDataFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AE5F5418F9693900DDA457 /* DBTestDataFeed.m */; };
 		4823FA711888A41B0098E269 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA701888A41B0098E269 /* Foundation.framework */; };
 		4823FA731888A41B0098E269 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA721888A41B0098E269 /* CoreGraphics.framework */; };
 		4823FA751888A41B0098E269 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA741888A41B0098E269 /* UIKit.framework */; };
@@ -68,6 +71,11 @@
 		122B69F018D46468004AF481 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		122B69F318D475A2004AF481 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		122B69F418D475A2004AF481 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		12AE5F4E18F934EB00DDA457 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		12AE5F4F18F934EB00DDA457 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		12AE5F5118F9562700DDA457 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		12AE5F5318F9693900DDA457 /* DBTestDataFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBTestDataFeed.h; sourceTree = "<group>"; };
+		12AE5F5418F9693900DDA457 /* DBTestDataFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBTestDataFeed.m; sourceTree = "<group>"; };
 		4823FA6D1888A41B0098E269 /* flexi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flexi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4823FA701888A41B0098E269 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4823FA721888A41B0098E269 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -124,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12AE5F5218F9562700DDA457 /* CoreLocation.framework in Frameworks */,
 				488AFA2918F2C40B00621DDE /* CouchbaseLite.framework in Frameworks */,
 				122B69D418D452FC004AF481 /* libz.dylib in Frameworks */,
 				122B69F118D46468004AF481 /* FacebookSDK.framework in Frameworks */,
@@ -178,6 +187,7 @@
 		4823FA6F1888A41B0098E269 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				12AE5F5118F9562700DDA457 /* CoreLocation.framework */,
 				488AFA2818F2C40B00621DDE /* CouchbaseLite.framework */,
 				122B69F018D46468004AF481 /* FacebookSDK.framework */,
 				4823FAB31888A8020098E269 /* libz.dylib */,
@@ -212,6 +222,8 @@
 				4823FA791888A41B0098E269 /* InfoPlist.strings */,
 				4823FA7C1888A41B0098E269 /* main.m */,
 				4823FA7E1888A41B0098E269 /* flexi-Prefix.pch */,
+				12AE5F5318F9693900DDA457 /* DBTestDataFeed.h */,
+				12AE5F5418F9693900DDA457 /* DBTestDataFeed.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -239,6 +251,8 @@
 			children = (
 				488AFA2B18F2C67F00621DDE /* Profile.h */,
 				488AFA2C18F2C68A00621DDE /* Profile.m */,
+				12AE5F4E18F934EB00DDA457 /* Note.h */,
+				12AE5F4F18F934EB00DDA457 /* Note.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -439,8 +453,10 @@
 				122B69ED18D454C4004AF481 /* CBLSyncManager.m in Sources */,
 				488AFA2D18F2C68A00621DDE /* Profile.m in Sources */,
 				488AFA3218F8269100621DDE /* ProfileViewController.m in Sources */,
+				12AE5F5518F9693900DDA457 /* DBTestDataFeed.m in Sources */,
 				4823FA7D1888A41B0098E269 /* main.m in Sources */,
 				4823FA811888A41B0098E269 /* flexiAppDelegate.m in Sources */,
+				12AE5F5018F934EB00DDA457 /* Note.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
