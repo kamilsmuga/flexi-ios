@@ -28,7 +28,7 @@
         [view setMapBlock: MAPBLOCK({
             if ([doc[@"type"] isEqualToString:kProfileDocType] &&
                 [doc[@"subject"] isEqualToString:subject] &&
-                [doc[@"owner"] isEqualToString:userID])
+                [doc[@"ownerID"] isEqualToString:userID])
                 
                 emit(doc[@"_id"], doc[@"subject"]);
         }) reduceBlock: nil version: @"1"]; // bump version any time you change the MAPBLOCK body!
