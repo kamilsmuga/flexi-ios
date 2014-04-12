@@ -41,7 +41,7 @@
             NSLog(@"Oops. Sth went wrong while trying to persist notes!");
         }
         else {
-            NSLog(@"Succesfully added note with subject %@ to DB!", subjects[i]);
+            NSLog(@"Succesfully added note with ID: %@ to DB!", note.document.documentID);
         }
     }
 }

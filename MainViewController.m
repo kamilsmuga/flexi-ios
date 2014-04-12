@@ -11,6 +11,7 @@
 #import <CouchbaseLite/CouchbaseLite.h>
 #import "flexiAppDelegate.h"
 #import "DBTestDataFeed.h"
+#import "Note.h"
 
 @interface MainViewController ()
 @property (nonatomic, weak) CBLDatabase *db;
@@ -60,7 +61,7 @@
         
         if (self.debug) {
            NSLog(@"This is an existing user.");
-           NSLog(@"profile id: %@", existingProfile.userID);
+           NSLog(@"profile email: %@", existingProfile.userID);
            NSLog(@"member since: %@", existingProfile.joined);
            NSLog(@"last login: %@", existingProfile.lastLogin);
         }
@@ -68,9 +69,16 @@
     if (error) {
         NSLog(@"Error while trying to save the profile. This is bad!");
     }
-    
+   
+    /*
     [DBTestDataFeed populateRandomNotesInDB:self.db forUserID:email];
     
+    CBLQuery *q = [Note allNotesInDB:self.db forUserID:email];
+    CBLQueryEnumerator *rowEnum = [q run:&error];
+    for (CBLQueryRow* row in rowEnum) {
+        NSLog(@"Doc id = %@ and subject = %@", row.key, row.value);
+    }
+    */
     self.FBPicOutlet.profileID = user.id;
     self.nameLabel.text = user.name;
 }

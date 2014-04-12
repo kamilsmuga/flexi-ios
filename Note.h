@@ -11,7 +11,6 @@
 
 @interface Note : CBLModel
 
-
 +(CBLQuery*) noteInDB: (CBLDatabase*)db
                forUserID: (NSString*)userID
              withSubject: (NSString*)subject;

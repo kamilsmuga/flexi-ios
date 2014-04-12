@@ -46,8 +46,8 @@
     if (!view.mapBlock) {
         // Register the map function, the first time we access the view:
         [view setMapBlock: MAPBLOCK({
-            if ([doc[@"type"] isEqualToString:kProfileDocType] &&
-                [doc[@"owner"] isEqualToString:userID])
+            if ([doc[@"type"] isEqualToString:kProfileDocType]
+               &&[doc[@"ownerID"] isEqualToString:userID])
             
                 emit(doc[@"_id"], doc[@"subject"]);
         }) reduceBlock: nil version: @"1"]; // bump version any time you change the MAPBLOCK body!
@@ -81,10 +81,9 @@
         self.updated = self.created;
         self.longitude = longitude;
         self.latitute = latitude;
+        self.members = [[NSArray alloc] initWithObjects:userID, nil];
     }
-    
     return self;
-
 }
 
 @end
