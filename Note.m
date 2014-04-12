@@ -86,4 +86,15 @@
     return self;
 }
 
+-(instancetype) getNoteFromDB: (CBLDatabase*) db
+                       withID: (NSString*) noteID
+{
+    NSParameterAssert(db);
+    NSParameterAssert(noteID);
+    
+    CBLDocument *doc = [db existingDocumentWithID:noteID];
+    
+    return doc ? [Note modelForDocument: doc] : nil;
+}
+
 @end

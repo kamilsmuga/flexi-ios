@@ -25,6 +25,9 @@
                withLongitute: (NSString*)longitude
                 withLatitude: (NSString*)latitude;
 
+-(instancetype) getNoteFromDB: (CBLDatabase*) db
+                       withID: (NSString*) noteID;
+
 // headline
 @property (readwrite) NSString *subject;
 

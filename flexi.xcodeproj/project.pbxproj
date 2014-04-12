@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		122B699E18D44FB7004AF481 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA701888A41B0098E269 /* Foundation.framework */; };
-		122B699F18D44FB7004AF481 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA721888A41B0098E269 /* CoreGraphics.framework */; };
-		122B69A018D44FB7004AF481 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA741888A41B0098E269 /* UIKit.framework */; };
-		122B69BD18D44FB8004AF481 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA8F1888A41B0098E269 /* XCTest.framework */; };
-		122B69BE18D44FB8004AF481 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA701888A41B0098E269 /* Foundation.framework */; };
-		122B69BF18D44FB8004AF481 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA741888A41B0098E269 /* UIKit.framework */; };
 		122B69D018D452D3004AF481 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FAAD1888A7E00098E269 /* Security.framework */; };
 		122B69D118D452DB004AF481 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FAAB1888A7D60098E269 /* CFNetwork.framework */; };
 		122B69D218D452E5004AF481 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FAAF1888A7EC0098E269 /* SystemConfiguration.framework */; };
@@ -47,13 +41,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		122B69C018D44FB8004AF481 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4823FA651888A41B0098E269 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 122B699C18D44FB7004AF481;
-			remoteInfo = wtf;
-		};
 		4823FA931888A41B0098E269 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4823FA651888A41B0098E269 /* Project object */;
@@ -64,8 +51,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		122B699D18D44FB7004AF481 /* wtf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wtf.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		122B69BC18D44FB8004AF481 /* wtfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wtfTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		122B69EB18D454C4004AF481 /* CBLSyncManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBLSyncManager.h; path = "../ToDoLite-iOS/TodoLite7/CBLSyncManager.h"; sourceTree = "<group>"; };
 		122B69EC18D454C4004AF481 /* CBLSyncManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBLSyncManager.m; path = "../ToDoLite-iOS/TodoLite7/CBLSyncManager.m"; sourceTree = "<group>"; };
 		122B69F018D46468004AF481 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
@@ -108,26 +93,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		122B699A18D44FB7004AF481 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				122B699F18D44FB7004AF481 /* CoreGraphics.framework in Frameworks */,
-				122B69A018D44FB7004AF481 /* UIKit.framework in Frameworks */,
-				122B699E18D44FB7004AF481 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		122B69B918D44FB8004AF481 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				122B69BD18D44FB8004AF481 /* XCTest.framework in Frameworks */,
-				122B69BF18D44FB8004AF481 /* UIKit.framework in Frameworks */,
-				122B69BE18D44FB8004AF481 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4823FA6A1888A41B0098E269 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -178,8 +143,6 @@
 			children = (
 				4823FA6D1888A41B0098E269 /* flexi.app */,
 				4823FA8E1888A41B0098E269 /* flexiTests.xctest */,
-				122B699D18D44FB7004AF481 /* wtf.app */,
-				122B69BC18D44FB8004AF481 /* wtfTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -282,41 +245,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		122B699C18D44FB7004AF481 /* wtf */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 122B69CE18D44FB8004AF481 /* Build configuration list for PBXNativeTarget "wtf" */;
-			buildPhases = (
-				122B699918D44FB7004AF481 /* Sources */,
-				122B699A18D44FB7004AF481 /* Frameworks */,
-				122B699B18D44FB7004AF481 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = wtf;
-			productName = wtf;
-			productReference = 122B699D18D44FB7004AF481 /* wtf.app */;
-			productType = "com.apple.product-type.application";
-		};
-		122B69BB18D44FB8004AF481 /* wtfTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 122B69CF18D44FB8004AF481 /* Build configuration list for PBXNativeTarget "wtfTests" */;
-			buildPhases = (
-				122B69B818D44FB8004AF481 /* Sources */,
-				122B69B918D44FB8004AF481 /* Frameworks */,
-				122B69BA18D44FB8004AF481 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				122B69C118D44FB8004AF481 /* PBXTargetDependency */,
-			);
-			name = wtfTests;
-			productName = wtfTests;
-			productReference = 122B69BC18D44FB8004AF481 /* wtfTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		4823FA6C1888A41B0098E269 /* flexi */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4823FA9F1888A41C0098E269 /* Build configuration list for PBXNativeTarget "flexi" */;
@@ -362,9 +290,6 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "iOSGo!";
 				TargetAttributes = {
-					122B69BB18D44FB8004AF481 = {
-						TestTargetID = 4823FA6C1888A41B0098E269;
-					};
 					4823FA6C1888A41B0098E269 = {
 						DevelopmentTeam = QJJ8RUJ7UW;
 					};
@@ -388,27 +313,11 @@
 			targets = (
 				4823FA6C1888A41B0098E269 /* flexi */,
 				4823FA8D1888A41B0098E269 /* flexiTests */,
-				122B699C18D44FB7004AF481 /* wtf */,
-				122B69BB18D44FB8004AF481 /* wtfTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		122B699B18D44FB7004AF481 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		122B69BA18D44FB8004AF481 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4823FA6B1888A41B0098E269 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -430,20 +339,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		122B699918D44FB7004AF481 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		122B69B818D44FB8004AF481 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4823FA691888A41B0098E269 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -473,11 +368,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		122B69C118D44FB8004AF481 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 122B699C18D44FB7004AF481 /* wtf */;
-			targetProxy = 122B69C018D44FB8004AF481 /* PBXContainerItemProxy */;
-		};
 		4823FA941888A41B0098E269 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4823FA6C1888A41B0098E269 /* flexi */;
@@ -513,86 +403,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		122B69CA18D44FB8004AF481 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "wtf/wtf-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "wtf/wtf-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		122B69CB18D44FB8004AF481 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "wtf/wtf-Prefix.pch";
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "wtf/wtf-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		122B69CC18D44FB8004AF481 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/flexi.app/flexi";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "wtf/wtf-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "wtfTests/wtfTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		122B69CD18D44FB8004AF481 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/flexi.app/flexi";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "wtf/wtf-Prefix.pch";
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = "wtfTests/wtfTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 		4823FA9D1888A41C0098E269 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -676,8 +486,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/ks/workspace/flexi/pkg/couchbase-lite-community-ios_1.0-beta2",
-					"/Users/ksmuga/Downloads/couchbase-lite-community-ios_1.0-beta3",
 					"$(PROJECT_DIR)",
 					/Users/ks/workspace/flexi,
 				);
@@ -700,8 +508,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/ks/workspace/flexi/pkg/couchbase-lite-community-ios_1.0-beta2",
-					"/Users/ksmuga/Downloads/couchbase-lite-community-ios_1.0-beta3",
 					"$(PROJECT_DIR)",
 					/Users/ks/workspace/flexi,
 				);
@@ -762,24 +568,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		122B69CE18D44FB8004AF481 /* Build configuration list for PBXNativeTarget "wtf" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				122B69CA18D44FB8004AF481 /* Debug */,
-				122B69CB18D44FB8004AF481 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		122B69CF18D44FB8004AF481 /* Build configuration list for PBXNativeTarget "wtfTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				122B69CC18D44FB8004AF481 /* Debug */,
-				122B69CD18D44FB8004AF481 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4823FA681888A41B0098E269 /* Build configuration list for PBXProject "flexi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
