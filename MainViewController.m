@@ -33,61 +33,26 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    if (!self.picture.image) {
+        [self loadPictureAndName];
+    }
 }
+
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
-    
-    self.debug = YES;
-    NSError *error = nil;
-    
-    NSString *email = [user objectForKey:@"email"];
-    
-    Profile *existingProfile = [Profile profileInDatabase:self.db  forUserID:email];
-
-    if (!existingProfile) {
-        Profile *profile = [[Profile alloc] initCurrentUserProfileInDatabase:self.db withName:user.name andUserID:email];
-        [profile save:&error];
-        if (self.debug) {
-            NSLog(@"New user created!");
-            NSLog(@"profile email: %@", profile.userID);
-            NSLog(@"member since: %@", profile.joined);
-            NSLog(@"profile id: %@", [profile getValueOfProperty: @"_id"]);
-        }
+    if (!self.picture.image) {
+        [self loadPictureAndName];
     }
-    else {
-        existingProfile.lastLogin = [NSDate date];
-        [existingProfile save:&error];
-        
-        if (self.debug) {
-           NSLog(@"This is an existing user.");
-           NSLog(@"profile email: %@", existingProfile.userID);
-           NSLog(@"member since: %@", existingProfile.joined);
-           NSLog(@"last login: %@", existingProfile.lastLogin);
-        }
-    }
-    if (error) {
-        NSLog(@"Error while trying to save the profile. This is bad!");
-    }
-   
-    /*
-    [DBTestDataFeed populateRandomNotesInDB:self.db forUserID:email];
-    
-    CBLQuery *q = [Note allNotesInDB:self.db forUserID:email];
-    CBLQueryEnumerator *rowEnum = [q run:&error];
-    for (CBLQueryRow* row in rowEnum) {
-        NSLog(@"Doc id = %@ and subject = %@", row.key, row.value);
-    }
-    */
-    self.FBPicOutlet.profileID = user.id;
-    self.nameLabel.text = user.name;
-    
 }
 
-- (void)didReceiveMemoryWarning
+-(void)loadPictureAndName
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    Profile *profile = [Profile profileInDatabase:self.db forUserID:self.userID];
+    CBLAttachment *at = [profile attachmentNamed:@"profilePicture"];
+    NSData *imgData = [at content];
+    UIImage *img = [UIImage imageWithData:imgData];
+    self.picture = [self.picture initWithImage:img];
+    self.nameLabel.text = profile.name;
 }
 
 @end

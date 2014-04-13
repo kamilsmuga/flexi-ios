@@ -21,6 +21,7 @@
 		12AE5F5018F934EB00DDA457 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AE5F4F18F934EB00DDA457 /* Note.m */; };
 		12AE5F5218F9562700DDA457 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AE5F5118F9562700DDA457 /* CoreLocation.framework */; };
 		12AE5F5518F9693900DDA457 /* DBTestDataFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AE5F5418F9693900DDA457 /* DBTestDataFeed.m */; };
+		12C55B7A18FABB92001BF3CB /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C55B7918FABB92001BF3CB /* SearchViewController.m */; };
 		4823FA711888A41B0098E269 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA701888A41B0098E269 /* Foundation.framework */; };
 		4823FA731888A41B0098E269 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA721888A41B0098E269 /* CoreGraphics.framework */; };
 		4823FA751888A41B0098E269 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA741888A41B0098E269 /* UIKit.framework */; };
@@ -61,6 +62,8 @@
 		12AE5F5118F9562700DDA457 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		12AE5F5318F9693900DDA457 /* DBTestDataFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBTestDataFeed.h; sourceTree = "<group>"; };
 		12AE5F5418F9693900DDA457 /* DBTestDataFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBTestDataFeed.m; sourceTree = "<group>"; };
+		12C55B7818FABB92001BF3CB /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		12C55B7918FABB92001BF3CB /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		4823FA6D1888A41B0098E269 /* flexi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flexi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4823FA701888A41B0098E269 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4823FA721888A41B0098E269 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -229,6 +232,8 @@
 				122B69F418D475A2004AF481 /* MainViewController.m */,
 				488AFA3018F8269100621DDE /* ProfileViewController.h */,
 				488AFA3118F8269100621DDE /* ProfileViewController.m */,
+				12C55B7818FABB92001BF3CB /* SearchViewController.h */,
+				12C55B7918FABB92001BF3CB /* SearchViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 			files = (
 				4823FA871888A41B0098E269 /* LoginViewController.m in Sources */,
 				122B69F518D475A2004AF481 /* MainViewController.m in Sources */,
+				12C55B7A18FABB92001BF3CB /* SearchViewController.m in Sources */,
 				122B69ED18D454C4004AF481 /* CBLSyncManager.m in Sources */,
 				488AFA2D18F2C68A00621DDE /* Profile.m in Sources */,
 				488AFA3218F8269100621DDE /* ProfileViewController.m in Sources */,

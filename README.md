@@ -10,3 +10,5 @@ Mobile data storage in cloud.
 
 # TODO:
 - use this controller for fancy menu: https://github.com/pkluz/PKRevealController
+or
+- this one: https://github.com/ECSlidingViewController/ECSlidingViewController

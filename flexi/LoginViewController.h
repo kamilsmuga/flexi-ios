@@ -11,6 +11,4 @@
 
 @interface LoginViewController : UIViewController <FBLoginViewDelegate, NSURLConnectionDelegate>
 
-@property (strong, nonatomic) NSString *name;
-
 @end

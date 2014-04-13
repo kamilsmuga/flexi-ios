@@ -10,16 +10,19 @@
 #import "MainViewController.h"
 #import "flexiAppDelegate.h"
 #import "Profile.h"
+#import "DBTestDataFeed.h"
+#import "Note.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import <CouchbaseLite/CouchbaseLite.h>
 
 
 @interface LoginViewController ()
-@property (strong, nonatomic) IBOutlet FBProfilePictureView *profilePictureView;
 @property (strong, nonatomic) FBLoginView *fbView;
 @property (strong, nonatomic) NSMutableData* imageData;
-@property (nonatomic, weak) CBLDatabase *db;
+@property (weak, nonatomic) CBLDatabase *db;
 @property (strong, nonatomic) NSString *email;
+@property (strong, nonatomic) NSString *name;
+@property (nonatomic) BOOL debug;
 @end
 
 @implementation LoginViewController
@@ -35,19 +38,64 @@
 // Logged-in user experience
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
     self.fbView = loginView;
-    [self performSegueWithIdentifier:@"toMainView" sender:self];
-    
 }
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
     self.email = [user objectForKey:@"email"];
+    self.fbView = loginView;
+    
+    self.debug = YES;
+    NSError *error = nil;
+    
+    NSString *email = [user objectForKey:@"email"];
+    
+    Profile *existingProfile = [Profile profileInDatabase:self.db  forUserID:email];
+    
+    if (!existingProfile) {
+        Profile *profile = [[Profile alloc] initCurrentUserProfileInDatabase:self.db withName:user.name andUserID:email];
+        [profile save:&error];
+        if (self.debug) {
+            NSLog(@"New user created!");
+            NSLog(@"profile email: %@", profile.userID);
+            NSLog(@"member since: %@", profile.joined);
+            NSLog(@"profile id: %@", [profile getValueOfProperty: @"_id"]);
+        }
+    }
+    else {
+        existingProfile.lastLogin = [NSDate date];
+        [existingProfile save:&error];
+        
+        if (self.debug) {
+            NSLog(@"This is an existing user.");
+            NSLog(@"profile email: %@", existingProfile.userID);
+            NSLog(@"member since: %@", existingProfile.joined);
+            NSLog(@"last login: %@", existingProfile.lastLogin);
+        }
+    }
+    if (error) {
+        NSLog(@"Error while trying to save the profile. This is bad!");
+    }
+    
+    /*
+    [DBTestDataFeed populateRandomNotesInDB:self.db forUserID:email];
+    CBLQuery *q = [Note allNotesInDB:self.db forUserID:email];
+    CBLQueryEnumerator *rowEnum = [q run:&error];
+    for (CBLQueryRow* row in rowEnum) {
+        NSLog(@"Doc id = %@ and subject = %@", row.key, row.value);
+    }
+    */
+    
+    
+    // download user FB profile picture
     self.imageData = [[NSMutableData alloc] init];
     NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", user.id]];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:pictureURL
                                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                           timeoutInterval:2.0f];
     NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+    
+    [self performSegueWithIdentifier:@"toMainView" sender:self];
 }
 
 // Called every time a chunk of the data is received
@@ -73,7 +121,6 @@
 // Logged-out user experience
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
     
-    self.profilePictureView.profileID = nil;
     self.name = nil;
 }
 
@@ -126,6 +173,7 @@
     if ([[segue identifier] isEqualToString:@"toMainView"]) {
         MainViewController *secondController = [segue destinationViewController];
         self.fbView.delegate = secondController;
+        secondController.userID = self.email;
     }
 }
 

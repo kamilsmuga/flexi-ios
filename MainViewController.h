@@ -12,8 +12,7 @@
 @interface MainViewController : UIViewController <FBLoginViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
-@property (strong, nonatomic) IBOutlet FBProfilePictureView *FBPicOutlet;
-
-
+@property (strong, nonatomic) IBOutlet UIImageView *picture;
+@property (strong, nonatomic) NSString* userID;
 
 @end
