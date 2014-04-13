@@ -67,12 +67,8 @@
         if (error) {
             NSLog(@"Error while trying to save attachment under profile %@", self.email);
         }
-        NSLog(@"Finished loading image. Wooohooo!");
     }
-    
 }
-
-
 
 // Logged-out user experience
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
