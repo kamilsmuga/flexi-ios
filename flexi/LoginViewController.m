@@ -8,24 +8,28 @@
 
 #import "LoginViewController.h"
 #import "MainViewController.h"
+#import "flexiAppDelegate.h"
+#import "Profile.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import <CouchbaseLite/CouchbaseLite.h>
+
 
 @interface LoginViewController ()
 @property (strong, nonatomic) IBOutlet FBProfilePictureView *profilePictureView;
 @property (strong, nonatomic) FBLoginView *fbView;
+@property (strong, nonatomic) NSMutableData* imageData;
+@property (nonatomic, weak) CBLDatabase *db;
+@property (strong, nonatomic) NSString *email;
 @end
 
 @implementation LoginViewController
 
-- (void)viewDidLoad
+-(CBLDatabase *)db
 {
-    [super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    if (!_db) {
+        _db = ((flexiAppDelegate*)[UIApplication sharedApplication].delegate).database;
+    }
+    return _db;
 }
 
 // Logged-in user experience
@@ -34,6 +38,40 @@
     [self performSegueWithIdentifier:@"toMainView" sender:self];
     
 }
+
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
+                            user:(id<FBGraphUser>)user {
+    self.email = [user objectForKey:@"email"];
+    self.imageData = [[NSMutableData alloc] init];
+    NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", user.id]];
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:pictureURL
+                                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                          timeoutInterval:2.0f];
+    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+}
+
+// Called every time a chunk of the data is received
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [self.imageData appendData:data]; // Build the image
+}
+
+// Called when the entire image is finished downloading
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    // Set the image in the header imageView
+   // headerImageView.image = [UIImage imageWithData:imageData];
+    Profile *existingProfile = [Profile profileInDatabase:self.db  forUserID:self.email];
+    if (existingProfile && ![existingProfile attachmentNamed:@"profilePicture"]) {
+        NSError *error;
+        [existingProfile setAttachmentNamed:@"profilePicture" withContentType:@"image/jpeg" content:self.imageData];
+        [existingProfile save:&error];
+        if (error) {
+            NSLog(@"Error while trying to save attachment under profile %@", self.email);
+        }
+        NSLog(@"Finished loading image. Wooohooo!");
+    }
+    
+}
+
 
 
 // Logged-out user experience

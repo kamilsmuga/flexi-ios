@@ -81,6 +81,7 @@
     */
     self.FBPicOutlet.profileID = user.id;
     self.nameLabel.text = user.name;
+    
 }
 
 - (void)didReceiveMemoryWarning

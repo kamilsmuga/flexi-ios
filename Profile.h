@@ -22,6 +22,8 @@
                                          withName: (NSString*)name
                                         andUserID: (NSString*)userId;
 
+
+
 // full user name
 @property (readwrite) NSString* name;
 
@@ -36,5 +38,8 @@
 
 // last login
 @property (readwrite) NSDate* lastLogin;
+
+// picture
+@property (readwrite) NSData* picture;
 
 @end

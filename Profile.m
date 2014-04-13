@@ -12,7 +12,7 @@
 
 @implementation Profile
 
-@dynamic userID, name, type, joined;
+@dynamic userID, name, type, joined, lastLogin, picture;
 
 + (CBLQuery*) queryProfilesInDatabase: (CBLDatabase*)db {
     CBLView* view = [db viewNamed: @"profiles"];
