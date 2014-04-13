@@ -12,6 +12,8 @@
 	<dict>
 		<key>27E79296-9648-4A7D-80C1-EC1655C7C07E</key>
 		<string>https://github.com/kamilsmuga/flexi.git</string>
+		<key>43073DB1-6344-4418-874E-02978DE0A9C5</key>
+		<string>https://github.com/pkluz/PKRevealController.git</string>
 		<key>6763CD52-5D12-4C99-B8B6-11817BDEB52F</key>
 		<string>https://github.com/couchbaselabs/ToDoLite-iOS.git</string>
 	</dict>
@@ -21,6 +23,8 @@
 	<dict>
 		<key>27E79296-9648-4A7D-80C1-EC1655C7C07E</key>
 		<string>../..</string>
+		<key>43073DB1-6344-4418-874E-02978DE0A9C5</key>
+		<string>../../PKRevealController</string>
 		<key>6763CD52-5D12-4C99-B8B6-11817BDEB52F</key>
 		<string>../../../ToDoLite-iOS</string>
 	</dict>
@@ -39,6 +43,14 @@
 			<string>27E79296-9648-4A7D-80C1-EC1655C7C07E</string>
 			<key>IDESourceControlWCCName</key>
 			<string>flexi</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>43073DB1-6344-4418-874E-02978DE0A9C5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PKRevealController</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>

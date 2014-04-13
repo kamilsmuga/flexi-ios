@@ -12,6 +12,7 @@
 #import "flexiAppDelegate.h"
 #import "DBTestDataFeed.h"
 #import "Note.h"
+#import "PKRevealController.h"
 
 @interface MainViewController ()
 @property (nonatomic, weak) CBLDatabase *db;

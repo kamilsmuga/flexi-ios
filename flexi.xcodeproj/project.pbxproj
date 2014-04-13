@@ -22,6 +22,8 @@
 		12AE5F5218F9562700DDA457 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AE5F5118F9562700DDA457 /* CoreLocation.framework */; };
 		12AE5F5518F9693900DDA457 /* DBTestDataFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AE5F5418F9693900DDA457 /* DBTestDataFeed.m */; };
 		12C55B7A18FABB92001BF3CB /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C55B7918FABB92001BF3CB /* SearchViewController.m */; };
+		12E24EB218FAEB3E008C20CB /* libPKRevealController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E24E5918FAE870008C20CB /* libPKRevealController.a */; };
+		12E24EB518FAF473008C20CB /* PKRevealControllerCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E24EB418FAF473008C20CB /* PKRevealControllerCustom.m */; };
 		4823FA711888A41B0098E269 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA701888A41B0098E269 /* Foundation.framework */; };
 		4823FA731888A41B0098E269 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA721888A41B0098E269 /* CoreGraphics.framework */; };
 		4823FA751888A41B0098E269 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA741888A41B0098E269 /* UIKit.framework */; };
@@ -42,6 +44,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		12E24E5818FAE870008C20CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12E24E5418FAE870008C20CB /* PKRevealController.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F9621E7B1815246000469E41;
+			remoteInfo = PKRevealController;
+		};
 		4823FA931888A41B0098E269 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4823FA651888A41B0098E269 /* Project object */;
@@ -64,6 +73,13 @@
 		12AE5F5418F9693900DDA457 /* DBTestDataFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBTestDataFeed.m; sourceTree = "<group>"; };
 		12C55B7818FABB92001BF3CB /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		12C55B7918FABB92001BF3CB /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		12E24E5418FAE870008C20CB /* PKRevealController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PKRevealController.xcodeproj; path = PKRevealController/Source/PKRevealController.xcodeproj; sourceTree = "<group>"; };
+		12E24E5B18FAE8F6008C20CB /* PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKRevealController.h; path = PKRevealController/Headers/PKRevealController.h; sourceTree = "<group>"; };
+		12E24E5C18FAE8F6008C20CB /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+PKRevealController.h"; path = "PKRevealController/Headers/UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
+		12E24E6318FAE9E7008C20CB /* PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKRevealController.h; path = Headers/PKRevealController.h; sourceTree = "<group>"; };
+		12E24E6418FAE9E7008C20CB /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+PKRevealController.h"; path = "Headers/UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
+		12E24EB318FAF473008C20CB /* PKRevealControllerCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKRevealControllerCustom.h; sourceTree = "<group>"; };
+		12E24EB418FAF473008C20CB /* PKRevealControllerCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKRevealControllerCustom.m; sourceTree = "<group>"; };
 		4823FA6D1888A41B0098E269 /* flexi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flexi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4823FA701888A41B0098E269 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4823FA721888A41B0098E269 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -100,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12E24EB218FAEB3E008C20CB /* libPKRevealController.a in Frameworks */,
 				12AE5F5218F9562700DDA457 /* CoreLocation.framework in Frameworks */,
 				488AFA2918F2C40B00621DDE /* CouchbaseLite.framework in Frameworks */,
 				122B69D418D452FC004AF481 /* libz.dylib in Frameworks */,
@@ -128,6 +145,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12E24E5518FAE870008C20CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				12E24E5918FAE870008C20CB /* libPKRevealController.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		12E24E5D18FAE9E7008C20CB /* PKRevealController */ = {
+			isa = PBXGroup;
+			children = (
+				12E24E6318FAE9E7008C20CB /* PKRevealController.h */,
+				12E24E6418FAE9E7008C20CB /* UIViewController+PKRevealController.h */,
+			);
+			path = PKRevealController;
+			sourceTree = "<group>";
+		};
 		4823FA641888A41B0098E269 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +187,8 @@
 		4823FA6F1888A41B0098E269 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				12E24E5D18FAE9E7008C20CB /* PKRevealController */,
+				12E24E5418FAE870008C20CB /* PKRevealController.xcodeproj */,
 				12AE5F5118F9562700DDA457 /* CoreLocation.framework */,
 				488AFA2818F2C40B00621DDE /* CouchbaseLite.framework */,
 				122B69F018D46468004AF481 /* FacebookSDK.framework */,
@@ -226,6 +262,8 @@
 		488AFA2E18F2F88700621DDE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				12E24E5B18FAE8F6008C20CB /* PKRevealController.h */,
+				12E24E5C18FAE8F6008C20CB /* UIViewController+PKRevealController.h */,
 				4823FA851888A41B0098E269 /* LoginViewController.h */,
 				4823FA861888A41B0098E269 /* LoginViewController.m */,
 				122B69F318D475A2004AF481 /* MainViewController.h */,
@@ -234,6 +272,8 @@
 				488AFA3118F8269100621DDE /* ProfileViewController.m */,
 				12C55B7818FABB92001BF3CB /* SearchViewController.h */,
 				12C55B7918FABB92001BF3CB /* SearchViewController.m */,
+				12E24EB318FAF473008C20CB /* PKRevealControllerCustom.h */,
+				12E24EB418FAF473008C20CB /* PKRevealControllerCustom.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -314,6 +354,12 @@
 			mainGroup = 4823FA641888A41B0098E269;
 			productRefGroup = 4823FA6E1888A41B0098E269 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 12E24E5518FAE870008C20CB /* Products */;
+					ProjectRef = 12E24E5418FAE870008C20CB /* PKRevealController.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				4823FA6C1888A41B0098E269 /* flexi */,
@@ -321,6 +367,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		12E24E5918FAE870008C20CB /* libPKRevealController.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPKRevealController.a;
+			remoteRef = 12E24E5818FAE870008C20CB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4823FA6B1888A41B0098E269 /* Resources */ = {
@@ -349,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4823FA871888A41B0098E269 /* LoginViewController.m in Sources */,
+				12E24EB518FAF473008C20CB /* PKRevealControllerCustom.m in Sources */,
 				122B69F518D475A2004AF481 /* MainViewController.m in Sources */,
 				12C55B7A18FABB92001BF3CB /* SearchViewController.m in Sources */,
 				122B69ED18D454C4004AF481 /* CBLSyncManager.m in Sources */,
