@@ -78,8 +78,9 @@
         NSLog(@"Error while trying to save the profile. This is bad!");
     }
     
-    /*
+    
     [DBTestDataFeed populateRandomNotesInDB:self.db forUserID:email];
+    /*
     CBLQuery *q = [Note allNotesInDB:self.db forUserID:email];
     CBLQueryEnumerator *rowEnum = [q run:&error];
     for (CBLQueryRow* row in rowEnum) {
@@ -95,9 +96,8 @@
                                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                           timeoutInterval:2.0f];
     NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
-    MainCVC *main = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mainVC"];
+    MainCVC *main = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mainCVC"];
     main.userID = self.email;
-    [[self.revealController navigationController] setTitle:@"DUPA"];
     [self.revealController setFrontViewController:main];
 
 }

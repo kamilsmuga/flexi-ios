@@ -17,10 +17,19 @@
 @interface MainCVC ()
 @property (nonatomic, weak) CBLDatabase *db;
 @property (nonatomic) BOOL debug;
+@property (nonatomic) NSMutableArray *data;
+@property (nonatomic) Profile *profile;
 @end
 
 @implementation MainCVC
 
+-(NSMutableArray*) data
+{
+    if (!_data) {
+        _data = [[NSMutableArray alloc] init];
+    }
+    return _data;
+}
 
 -(CBLDatabase *)db
 {
@@ -30,13 +39,31 @@
     return _db;
 }
 
+-(Profile*) profile
+{
+    if (!_profile) {
+        _profile = [Profile profileInDatabase:self.db forUserID:self.userID];
+    }
+    return _profile;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.revealController.frontViewController.revealController.recognizesPanningOnFrontView = YES;
     if (!self.picture.image) {
         [self loadPictureAndName];
     }
+    
+    NSError *error;
+    CBLQuery *notes = [Note allNotesInDB:self.db forUserID:self.userID];
+    CBLQueryEnumerator *rowEnum = [notes run:&error];
+    for (CBLQueryRow* row in rowEnum) {
+        [self.data addObject:row.value];
+        NSLog(@"COOL!");
+    }
+
 }
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
@@ -48,13 +75,12 @@
 
 -(void)loadPictureAndName
 {
-    Profile *profile = [Profile profileInDatabase:self.db forUserID:self.userID];
-    CBLAttachment *at = [profile attachmentNamed:@"profilePicture"];
+    CBLAttachment *at = [self.profile attachmentNamed:@"profilePicture"];
     NSData *imgData = [at content];
     UIImage *img = [UIImage imageWithData:imgData];
     self.picture = [self.picture initWithImage:img];
     self.picture.userInteractionEnabled = YES;
-    self.nameLabel.text = [profile.name componentsSeparatedByString:@" "][0];
+    self.nameLabel.text = [self.profile.name componentsSeparatedByString:@" "][0];
 }
 
 -(void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
@@ -64,6 +90,35 @@
     if ([touch view] == self.picture) {
         [self.revealController showViewController:self.revealController.leftViewController];
     }
+}
+
+#pragma mark Collection View Methods
+
+-(NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+-(NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    
+    return [self.data count];
+    
+}
+
+-(UICollectionViewCell*) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    UILabel *label = (UILabel*) [cell viewWithTag:100];
+    
+ //   label.text = [self.data objectAtIndex:indexPath];
+    
+    [cell.layer setBorderWidth:2.0f];
+    [cell.layer setBorderColor:[UIColor whiteColor].CGColor];
+    
+    return cell;
+    
 }
 
 @end

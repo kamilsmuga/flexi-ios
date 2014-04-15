@@ -75,11 +75,6 @@
     self.window.rootViewController = self.revealController;
     
     [self.window makeKeyAndVisible];
-
-    
-    
-        return YES;
-    
     
     return YES;
 }
