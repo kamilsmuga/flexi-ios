@@ -16,12 +16,12 @@
 		122B69EE18D454C4004AF481 /* CBLSyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 122B69EC18D454C4004AF481 /* CBLSyncManager.m */; };
 		122B69F118D46468004AF481 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 122B69F018D46468004AF481 /* FacebookSDK.framework */; };
 		122B69F218D46468004AF481 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 122B69F018D46468004AF481 /* FacebookSDK.framework */; };
-		122B69F518D475A2004AF481 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 122B69F418D475A2004AF481 /* MainViewController.m */; };
-		122B69F618D475A2004AF481 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 122B69F418D475A2004AF481 /* MainViewController.m */; };
+		122B69F518D475A2004AF481 /* MainCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 122B69F418D475A2004AF481 /* MainCVC.m */; };
+		122B69F618D475A2004AF481 /* MainCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 122B69F418D475A2004AF481 /* MainCVC.m */; };
 		12AE5F5018F934EB00DDA457 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AE5F4F18F934EB00DDA457 /* Note.m */; };
 		12AE5F5218F9562700DDA457 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AE5F5118F9562700DDA457 /* CoreLocation.framework */; };
 		12AE5F5518F9693900DDA457 /* DBTestDataFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AE5F5418F9693900DDA457 /* DBTestDataFeed.m */; };
-		12C55B7A18FABB92001BF3CB /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C55B7918FABB92001BF3CB /* SearchViewController.m */; };
+		12C55B7A18FABB92001BF3CB /* SearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C55B7918FABB92001BF3CB /* SearchVC.m */; };
 		12E24EB218FAEB3E008C20CB /* libPKRevealController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E24E5918FAE870008C20CB /* libPKRevealController.a */; };
 		4823FA711888A41B0098E269 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA701888A41B0098E269 /* Foundation.framework */; };
 		4823FA731888A41B0098E269 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA721888A41B0098E269 /* CoreGraphics.framework */; };
@@ -30,7 +30,7 @@
 		4823FA7D1888A41B0098E269 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4823FA7C1888A41B0098E269 /* main.m */; };
 		4823FA811888A41B0098E269 /* flexiAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4823FA801888A41B0098E269 /* flexiAppDelegate.m */; };
 		4823FA841888A41B0098E269 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4823FA821888A41B0098E269 /* Main.storyboard */; };
-		4823FA871888A41B0098E269 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4823FA861888A41B0098E269 /* LoginViewController.m */; };
+		4823FA871888A41B0098E269 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4823FA861888A41B0098E269 /* LoginVC.m */; };
 		4823FA891888A41B0098E269 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4823FA881888A41B0098E269 /* Images.xcassets */; };
 		4823FA901888A41B0098E269 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA8F1888A41B0098E269 /* XCTest.framework */; };
 		4823FA911888A41B0098E269 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA701888A41B0098E269 /* Foundation.framework */; };
@@ -39,7 +39,7 @@
 		4823FA9C1888A41B0098E269 /* flexiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4823FA9B1888A41B0098E269 /* flexiTests.m */; };
 		488AFA2918F2C40B00621DDE /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 488AFA2818F2C40B00621DDE /* CouchbaseLite.framework */; };
 		488AFA2D18F2C68A00621DDE /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 488AFA2C18F2C68A00621DDE /* Profile.m */; };
-		488AFA3218F8269100621DDE /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 488AFA3118F8269100621DDE /* ProfileViewController.m */; };
+		488AFA3218F8269100621DDE /* ProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 488AFA3118F8269100621DDE /* ProfileVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,15 +63,15 @@
 		122B69EB18D454C4004AF481 /* CBLSyncManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBLSyncManager.h; path = "../ToDoLite-iOS/TodoLite7/CBLSyncManager.h"; sourceTree = "<group>"; };
 		122B69EC18D454C4004AF481 /* CBLSyncManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBLSyncManager.m; path = "../ToDoLite-iOS/TodoLite7/CBLSyncManager.m"; sourceTree = "<group>"; };
 		122B69F018D46468004AF481 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		122B69F318D475A2004AF481 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		122B69F418D475A2004AF481 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		122B69F318D475A2004AF481 /* MainCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCVC.h; sourceTree = "<group>"; };
+		122B69F418D475A2004AF481 /* MainCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCVC.m; sourceTree = "<group>"; };
 		12AE5F4E18F934EB00DDA457 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
 		12AE5F4F18F934EB00DDA457 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		12AE5F5118F9562700DDA457 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		12AE5F5318F9693900DDA457 /* DBTestDataFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBTestDataFeed.h; sourceTree = "<group>"; };
 		12AE5F5418F9693900DDA457 /* DBTestDataFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBTestDataFeed.m; sourceTree = "<group>"; };
-		12C55B7818FABB92001BF3CB /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		12C55B7918FABB92001BF3CB /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		12C55B7818FABB92001BF3CB /* SearchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchVC.h; sourceTree = "<group>"; };
+		12C55B7918FABB92001BF3CB /* SearchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchVC.m; sourceTree = "<group>"; };
 		12E24E5418FAE870008C20CB /* PKRevealController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PKRevealController.xcodeproj; path = PKRevealController/Source/PKRevealController.xcodeproj; sourceTree = "<group>"; };
 		12E24E5B18FAE8F6008C20CB /* PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKRevealController.h; path = PKRevealController/Headers/PKRevealController.h; sourceTree = "<group>"; };
 		12E24E5C18FAE8F6008C20CB /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+PKRevealController.h"; path = "PKRevealController/Headers/UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
@@ -88,8 +88,8 @@
 		4823FA7F1888A41B0098E269 /* flexiAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = flexiAppDelegate.h; sourceTree = "<group>"; };
 		4823FA801888A41B0098E269 /* flexiAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = flexiAppDelegate.m; sourceTree = "<group>"; };
 		4823FA831888A41B0098E269 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4823FA851888A41B0098E269 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = flexi/LoginViewController.h; sourceTree = "<group>"; };
-		4823FA861888A41B0098E269 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = flexi/LoginViewController.m; sourceTree = "<group>"; };
+		4823FA851888A41B0098E269 /* LoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginVC.h; path = flexi/LoginVC.h; sourceTree = "<group>"; };
+		4823FA861888A41B0098E269 /* LoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoginVC.m; path = flexi/LoginVC.m; sourceTree = "<group>"; };
 		4823FA881888A41B0098E269 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4823FA8E1888A41B0098E269 /* flexiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = flexiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4823FA8F1888A41B0098E269 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -104,8 +104,8 @@
 		488AFA2818F2C40B00621DDE /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLite.framework; sourceTree = "<group>"; };
 		488AFA2B18F2C67F00621DDE /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
 		488AFA2C18F2C68A00621DDE /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
-		488AFA3018F8269100621DDE /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
-		488AFA3118F8269100621DDE /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		488AFA3018F8269100621DDE /* ProfileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileVC.h; sourceTree = "<group>"; };
+		488AFA3118F8269100621DDE /* ProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,14 +261,14 @@
 			children = (
 				12E24E5B18FAE8F6008C20CB /* PKRevealController.h */,
 				12E24E5C18FAE8F6008C20CB /* UIViewController+PKRevealController.h */,
-				4823FA851888A41B0098E269 /* LoginViewController.h */,
-				4823FA861888A41B0098E269 /* LoginViewController.m */,
-				122B69F318D475A2004AF481 /* MainViewController.h */,
-				122B69F418D475A2004AF481 /* MainViewController.m */,
-				488AFA3018F8269100621DDE /* ProfileViewController.h */,
-				488AFA3118F8269100621DDE /* ProfileViewController.m */,
-				12C55B7818FABB92001BF3CB /* SearchViewController.h */,
-				12C55B7918FABB92001BF3CB /* SearchViewController.m */,
+				4823FA851888A41B0098E269 /* LoginVC.h */,
+				4823FA861888A41B0098E269 /* LoginVC.m */,
+				122B69F318D475A2004AF481 /* MainCVC.h */,
+				122B69F418D475A2004AF481 /* MainCVC.m */,
+				488AFA3018F8269100621DDE /* ProfileVC.h */,
+				488AFA3118F8269100621DDE /* ProfileVC.m */,
+				12C55B7818FABB92001BF3CB /* SearchVC.h */,
+				12C55B7918FABB92001BF3CB /* SearchVC.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -399,12 +399,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4823FA871888A41B0098E269 /* LoginViewController.m in Sources */,
-				122B69F518D475A2004AF481 /* MainViewController.m in Sources */,
-				12C55B7A18FABB92001BF3CB /* SearchViewController.m in Sources */,
+				4823FA871888A41B0098E269 /* LoginVC.m in Sources */,
+				122B69F518D475A2004AF481 /* MainCVC.m in Sources */,
+				12C55B7A18FABB92001BF3CB /* SearchVC.m in Sources */,
 				122B69ED18D454C4004AF481 /* CBLSyncManager.m in Sources */,
 				488AFA2D18F2C68A00621DDE /* Profile.m in Sources */,
-				488AFA3218F8269100621DDE /* ProfileViewController.m in Sources */,
+				488AFA3218F8269100621DDE /* ProfileVC.m in Sources */,
 				12AE5F5518F9693900DDA457 /* DBTestDataFeed.m in Sources */,
 				4823FA7D1888A41B0098E269 /* main.m in Sources */,
 				4823FA811888A41B0098E269 /* flexiAppDelegate.m in Sources */,
@@ -417,7 +417,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				122B69EE18D454C4004AF481 /* CBLSyncManager.m in Sources */,
-				122B69F618D475A2004AF481 /* MainViewController.m in Sources */,
+				122B69F618D475A2004AF481 /* MainCVC.m in Sources */,
 				4823FA9C1888A41B0098E269 /* flexiTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

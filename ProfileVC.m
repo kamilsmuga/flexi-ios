@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 iOSGo!. All rights reserved.
 //
 
-#import "ProfileViewController.h"
+#import "ProfileVC.h"
 
-@interface ProfileViewController ()
+@interface ProfileVC ()
 
 @end
 
-@implementation ProfileViewController
+@implementation ProfileVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

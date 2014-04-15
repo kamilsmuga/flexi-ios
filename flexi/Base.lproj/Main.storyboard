@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--LoginVC-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="loginVC" id="vXZ-lx-hvc" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" id="vXZ-lx-hvc" customClass="LoginVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xpG-xi-GzU"/>
                         <viewControllerLayoutGuide type="bottom" id="N2K-XQ-25i"/>
@@ -50,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="-305" y="-128"/>
         </scene>
-        <!--Main View Controller-->
+        <!--MainCVC-->
         <scene sceneID="GON-hO-lM2">
             <objects>
-                <viewController storyboardIdentifier="mainVC" id="Iga-eO-o82" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainVC" id="Iga-eO-o82" customClass="MainCVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="98j-tf-v8l"/>
                         <viewControllerLayoutGuide type="bottom" id="s0j-Ay-mG8"/>
@@ -111,10 +111,10 @@
             </objects>
             <point key="canvasLocation" x="582" y="-148"/>
         </scene>
-        <!--Search View Controller-->
+        <!--SearchVC-->
         <scene sceneID="4WR-O7-6wz">
             <objects>
-                <viewController id="S45-ug-fRm" customClass="SearchViewController" sceneMemberID="viewController">
+                <viewController id="S45-ug-fRm" customClass="SearchVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lSk-03-RoH"/>
                         <viewControllerLayoutGuide type="bottom" id="or5-Z6-sbd"/>
@@ -136,10 +136,10 @@
             </objects>
             <point key="canvasLocation" x="1002" y="216"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--ProfileVC-->
         <scene sceneID="Y6t-Rn-5Fk">
             <objects>
-                <viewController restorationIdentifier="frontViewController" storyboardIdentifier="frontViewController" id="Aj1-iZ-May" customClass="ProfileViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="frontViewController" storyboardIdentifier="frontViewController" id="Aj1-iZ-May" customClass="ProfileVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L4A-HJ-Eyl"/>
                         <viewControllerLayoutGuide type="bottom" id="Mek-KC-O9j"/>

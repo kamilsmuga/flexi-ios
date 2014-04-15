@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 iOSGo!. All rights reserved.
 //
 
-#import "LoginViewController.h"
-#import "MainViewController.h"
+#import "LoginVC.h"
+#import "MainVC.h"
 #import "flexiAppDelegate.h"
 #import "Profile.h"
 #import "DBTestDataFeed.h"
@@ -17,7 +17,7 @@
 #import "PKRevealController.h"
 
 
-@interface LoginViewController ()
+@interface LoginVC ()
 @property (strong, nonatomic) FBLoginView *fbView;
 @property (strong, nonatomic) NSMutableData* imageData;
 @property (weak, nonatomic) CBLDatabase *db;
@@ -26,7 +26,7 @@
 @property (nonatomic) BOOL debug;
 @end
 
-@implementation LoginViewController
+@implementation LoginVC
 
 -(CBLDatabase *)db
 {
@@ -95,7 +95,7 @@
                                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                           timeoutInterval:2.0f];
     NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
-    MainViewController *main = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mainVC"];
+    MainCVC *main = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mainVC"];
     main.userID = self.email;
     [[self.revealController navigationController] setTitle:@"DUPA"];
     [self.revealController setFrontViewController:main];
@@ -175,7 +175,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"toMainView"]) {
-        MainViewController *secondController = [segue destinationViewController];
+        MainCVC *secondController = [segue destinationViewController];
         self.fbView.delegate = secondController;
         secondController.userID = self.email;
     }

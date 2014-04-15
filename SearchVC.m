@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 iOSGo!. All rights reserved.
 //
 
-#import "SearchViewController.h"
+#import "SearchVC.h"
 
-@interface SearchViewController ()
+@interface SearchVC ()
 
 @end
 
-@implementation SearchViewController
+@implementation SearchVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

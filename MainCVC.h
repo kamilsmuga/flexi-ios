@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 
-@interface MainViewController : UIViewController <FBLoginViewDelegate>
+@interface MainCVC : UICollectionViewController <FBLoginViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *picture;

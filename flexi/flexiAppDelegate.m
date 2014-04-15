@@ -7,12 +7,12 @@
 //
 
 #import "flexiAppDelegate.h"
-#import "LoginViewController.h"
+#import "LoginVC.h"
 #import <CouchbaseLite/CouchbaseLite.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import "PKRevealController.h"
-#import "SearchViewController.h"
-#import "ProfileViewController.h"
+#import "SearchVC.h"
+#import "ProfileVC.h"
 
 
 // name of local database stored in iOS
@@ -55,12 +55,12 @@
     
     // Step 1: Create your controllers.
 
-    LoginViewController *frontViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"loginVC"];
+    LoginVC *frontViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"loginVC"];
     
     UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
-    SearchViewController *rightViewController = [[SearchViewController alloc] init];
+    SearchVC *rightViewController = [[SearchVC alloc] init];
     rightViewController.view.backgroundColor = [UIColor redColor];
-    ProfileViewController *leftViewController = [[ProfileViewController alloc] init];
+    ProfileVC *leftViewController = [[ProfileVC alloc] init];
     
     
     // Step 2: Instantiate.

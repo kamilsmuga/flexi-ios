@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 iOSGo!. All rights reserved.
 //
 
-#import "MainViewController.h"
+#import "MainCVC.h"
 #import "Profile.h"
 #import <CouchbaseLite/CouchbaseLite.h>
 #import "flexiAppDelegate.h"
@@ -14,12 +14,12 @@
 #import "Note.h"
 #import "PKRevealController.h"
 
-@interface MainViewController ()
+@interface MainCVC ()
 @property (nonatomic, weak) CBLDatabase *db;
 @property (nonatomic) BOOL debug;
 @end
 
-@implementation MainViewController
+@implementation MainCVC
 
 
 -(CBLDatabase *)db
