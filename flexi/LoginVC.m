@@ -7,7 +7,7 @@
 //
 
 #import "LoginVC.h"
-#import "MainVC.h"
+#import "MainCVC.h"
 #import "flexiAppDelegate.h"
 #import "Profile.h"
 #import "DBTestDataFeed.h"

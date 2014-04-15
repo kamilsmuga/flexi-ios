@@ -12,3 +12,6 @@ Mobile data storage in cloud.
 - use this controller for fancy menu: https://github.com/pkluz/PKRevealController
 or
 - this one: https://github.com/ECSlidingViewController/ECSlidingViewController
+
+# Command to checkout with submodules:
+  git clone --recursive https://github.com/kamilsmuga/flexi.git
