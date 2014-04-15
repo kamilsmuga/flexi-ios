@@ -10,6 +10,9 @@
 #import "LoginViewController.h"
 #import <CouchbaseLite/CouchbaseLite.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "PKRevealController.h"
+#import "SearchViewController.h"
+#import "ProfileViewController.h"
 
 
 // name of local database stored in iOS
@@ -17,6 +20,12 @@
 // remote DB URL
 #define remoteDBUrl @"http://sync.couchbasecloud.com/flexidb/"
 // #define kFBAppId @"241876219329233"
+
+@interface flexiAppDelegate () <PKRevealing>
+
+@property (strong, nonatomic) PKRevealController *revealController;
+
+@end
 
 
 @implementation flexiAppDelegate
@@ -41,7 +50,37 @@
     if (error) {
         NSLog(@"error getting database %@",error);
         exit(-1);
-    }    
+    }
+    
+    
+    // Step 1: Create your controllers.
+
+    LoginViewController *frontViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"loginVC"];
+    
+    UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
+    SearchViewController *rightViewController = [[SearchViewController alloc] init];
+    rightViewController.view.backgroundColor = [UIColor redColor];
+    ProfileViewController *leftViewController = [[ProfileViewController alloc] init];
+    
+    
+    // Step 2: Instantiate.
+    self.revealController = [PKRevealController revealControllerWithFrontViewController:frontNavigationController
+                                                                     leftViewController:leftViewController
+                                                                    rightViewController:rightViewController];
+    // Step 3: Configure.
+    self.revealController.delegate = self;
+    self.revealController.animationDuration = 0.25;
+    
+    // Step 4: Apply.
+    self.window.rootViewController = self.revealController;
+    
+    [self.window makeKeyAndVisible];
+
+    
+    
+        return YES;
+    
+    
     return YES;
 }
 							

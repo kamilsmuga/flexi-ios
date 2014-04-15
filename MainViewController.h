@@ -14,5 +14,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *picture;
 @property (strong, nonatomic) NSString* userID;
+@property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 
 @end

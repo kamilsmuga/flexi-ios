@@ -18,6 +18,10 @@
 +(CBLQuery*) allNotesInDB: (CBLDatabase*)db
               forUserID: (NSString*)userID;
 
++(CBLQuery*) notesInDB: (CBLDatabase*)db
+             forUserID: (NSString*)userID
+               withTag: (NSString*)tag;
+
 -(instancetype) initNoteInDB: (CBLDatabase*)db
                    forUserID: (NSString*)userID
                  withSubject: (NSString*)subject
@@ -39,6 +43,9 @@
 
 // people to share doc with
 @property (readwrite) NSArray *members;
+
+// tags
+@property (readwrite) NSArray *tags;
 
 // coordinates of note creation
 @property (readwrite) NSString *latitute;

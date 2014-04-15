@@ -14,6 +14,7 @@
 #import "Note.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import <CouchbaseLite/CouchbaseLite.h>
+#import "PKRevealController.h"
 
 
 @interface LoginViewController ()
@@ -94,8 +95,11 @@
                                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                           timeoutInterval:2.0f];
     NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
-    
-    [self performSegueWithIdentifier:@"toMainView" sender:self];
+    MainViewController *main = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mainVC"];
+    main.userID = self.email;
+    [[self.revealController navigationController] setTitle:@"DUPA"];
+    [self.revealController setFrontViewController:main];
+
 }
 
 // Called every time a chunk of the data is received
@@ -176,5 +180,6 @@
         secondController.userID = self.email;
     }
 }
+
 
 @end

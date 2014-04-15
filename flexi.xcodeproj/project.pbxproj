@@ -23,7 +23,6 @@
 		12AE5F5518F9693900DDA457 /* DBTestDataFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AE5F5418F9693900DDA457 /* DBTestDataFeed.m */; };
 		12C55B7A18FABB92001BF3CB /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C55B7918FABB92001BF3CB /* SearchViewController.m */; };
 		12E24EB218FAEB3E008C20CB /* libPKRevealController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E24E5918FAE870008C20CB /* libPKRevealController.a */; };
-		12E24EB518FAF473008C20CB /* PKRevealControllerCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E24EB418FAF473008C20CB /* PKRevealControllerCustom.m */; };
 		4823FA711888A41B0098E269 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA701888A41B0098E269 /* Foundation.framework */; };
 		4823FA731888A41B0098E269 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA721888A41B0098E269 /* CoreGraphics.framework */; };
 		4823FA751888A41B0098E269 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA741888A41B0098E269 /* UIKit.framework */; };
@@ -78,8 +77,6 @@
 		12E24E5C18FAE8F6008C20CB /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+PKRevealController.h"; path = "PKRevealController/Headers/UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
 		12E24E6318FAE9E7008C20CB /* PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKRevealController.h; path = Headers/PKRevealController.h; sourceTree = "<group>"; };
 		12E24E6418FAE9E7008C20CB /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+PKRevealController.h"; path = "Headers/UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
-		12E24EB318FAF473008C20CB /* PKRevealControllerCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKRevealControllerCustom.h; sourceTree = "<group>"; };
-		12E24EB418FAF473008C20CB /* PKRevealControllerCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKRevealControllerCustom.m; sourceTree = "<group>"; };
 		4823FA6D1888A41B0098E269 /* flexi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flexi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4823FA701888A41B0098E269 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4823FA721888A41B0098E269 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -272,8 +269,6 @@
 				488AFA3118F8269100621DDE /* ProfileViewController.m */,
 				12C55B7818FABB92001BF3CB /* SearchViewController.h */,
 				12C55B7918FABB92001BF3CB /* SearchViewController.m */,
-				12E24EB318FAF473008C20CB /* PKRevealControllerCustom.h */,
-				12E24EB418FAF473008C20CB /* PKRevealControllerCustom.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -405,7 +400,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4823FA871888A41B0098E269 /* LoginViewController.m in Sources */,
-				12E24EB518FAF473008C20CB /* PKRevealControllerCustom.m in Sources */,
 				122B69F518D475A2004AF481 /* MainViewController.m in Sources */,
 				12C55B7A18FABB92001BF3CB /* SearchViewController.m in Sources */,
 				122B69ED18D454C4004AF481 /* CBLSyncManager.m in Sources */,

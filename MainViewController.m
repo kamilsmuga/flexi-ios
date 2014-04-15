@@ -53,7 +53,17 @@
     NSData *imgData = [at content];
     UIImage *img = [UIImage imageWithData:imgData];
     self.picture = [self.picture initWithImage:img];
-    self.nameLabel.text = profile.name;
+    self.picture.userInteractionEnabled = YES;
+    self.nameLabel.text = [profile.name componentsSeparatedByString:@" "][0];
+}
+
+-(void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
+    
+    UITouch *touch = [[event allTouches] anyObject];
+    [super touchesBegan:touches withEvent:event];
+    if ([touch view] == self.picture) {
+        [self.revealController showViewController:self.revealController.leftViewController];
+    }
 }
 
 @end

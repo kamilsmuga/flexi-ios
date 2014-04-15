@@ -12,7 +12,7 @@
 
 @implementation Note
 
-@dynamic subject, body, ownerID, members, latitute, longitude, created, updated, type;
+@dynamic subject, body, ownerID, members, latitute, longitude, created, updated, type, tags;
 
 +(CBLQuery*) noteInDB: (CBLDatabase*)db
                forUserID: (NSString*)userID
@@ -54,6 +54,29 @@
     }
     return [view createQuery];
 
+}
+
++(CBLQuery*) notesInDB: (CBLDatabase*)db
+             forUserID: (NSString*)userID
+               withTag: (NSString*)tag
+{
+    NSParameterAssert(db);
+    NSParameterAssert(userID);
+    NSParameterAssert(tag);
+    
+    CBLView* view = [db viewNamed: [@"notesForTag" stringByAppendingString:tag]];
+    if (!view.mapBlock) {
+        // Register the map function, the first time we access the view:
+        [view setMapBlock: MAPBLOCK({
+            if ([doc[@"type"] isEqualToString:kProfileDocType]
+                &&[doc[@"ownerID"] isEqualToString:userID]
+                &&[doc[@"tag"] isEqualToString:tag])
+                
+                emit(doc[@"_id"], doc[@"subject"]);
+        }) reduceBlock: nil version: @"1"]; // bump version any time you change the MAPBLOCK body!
+    }
+    return [view createQuery];
+    
 }
 
 -(instancetype) initNoteInDB: (CBLDatabase*)db
