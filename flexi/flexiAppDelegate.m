@@ -62,7 +62,6 @@
     rightViewController.view.backgroundColor = [UIColor redColor];
     ProfileVC *leftViewController = [[ProfileVC alloc] init];
     
-    
     // Step 2: Instantiate.
     self.revealController = [PKRevealController revealControllerWithFrontViewController:frontNavigationController
                                                                      leftViewController:leftViewController

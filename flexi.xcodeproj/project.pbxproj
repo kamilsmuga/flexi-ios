@@ -23,6 +23,7 @@
 		12AE5F5518F9693900DDA457 /* DBTestDataFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AE5F5418F9693900DDA457 /* DBTestDataFeed.m */; };
 		12C55B7A18FABB92001BF3CB /* SearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C55B7918FABB92001BF3CB /* SearchVC.m */; };
 		12E24EB218FAEB3E008C20CB /* libPKRevealController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E24E5918FAE870008C20CB /* libPKRevealController.a */; };
+		4811EFAF18FEE1DB00866113 /* NewNoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4811EFAE18FEE1DB00866113 /* NewNoteVC.m */; };
 		4823FA711888A41B0098E269 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA701888A41B0098E269 /* Foundation.framework */; };
 		4823FA731888A41B0098E269 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA721888A41B0098E269 /* CoreGraphics.framework */; };
 		4823FA751888A41B0098E269 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA741888A41B0098E269 /* UIKit.framework */; };
@@ -77,6 +78,8 @@
 		12E24E5C18FAE8F6008C20CB /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+PKRevealController.h"; path = "PKRevealController/Headers/UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
 		12E24E6318FAE9E7008C20CB /* PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKRevealController.h; path = Headers/PKRevealController.h; sourceTree = "<group>"; };
 		12E24E6418FAE9E7008C20CB /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+PKRevealController.h"; path = "Headers/UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
+		4811EFAD18FEE1DB00866113 /* NewNoteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNoteVC.h; sourceTree = "<group>"; };
+		4811EFAE18FEE1DB00866113 /* NewNoteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNoteVC.m; sourceTree = "<group>"; };
 		4823FA6D1888A41B0098E269 /* flexi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flexi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4823FA701888A41B0098E269 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4823FA721888A41B0098E269 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -113,8 +116,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12E24EB218FAEB3E008C20CB /* libPKRevealController.a in Frameworks */,
 				12AE5F5218F9562700DDA457 /* CoreLocation.framework in Frameworks */,
+				12E24EB218FAEB3E008C20CB /* libPKRevealController.a in Frameworks */,
 				488AFA2918F2C40B00621DDE /* CouchbaseLite.framework in Frameworks */,
 				122B69D418D452FC004AF481 /* libz.dylib in Frameworks */,
 				122B69F118D46468004AF481 /* FacebookSDK.framework in Frameworks */,
@@ -269,6 +272,8 @@
 				488AFA3118F8269100621DDE /* ProfileVC.m */,
 				12C55B7818FABB92001BF3CB /* SearchVC.h */,
 				12C55B7918FABB92001BF3CB /* SearchVC.m */,
+				4811EFAD18FEE1DB00866113 /* NewNoteVC.h */,
+				4811EFAE18FEE1DB00866113 /* NewNoteVC.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -407,6 +412,7 @@
 				488AFA3218F8269100621DDE /* ProfileVC.m in Sources */,
 				12AE5F5518F9693900DDA457 /* DBTestDataFeed.m in Sources */,
 				4823FA7D1888A41B0098E269 /* main.m in Sources */,
+				4811EFAF18FEE1DB00866113 /* NewNoteVC.m in Sources */,
 				4823FA811888A41B0098E269 /* flexiAppDelegate.m in Sources */,
 				12AE5F5018F934EB00DDA457 /* Note.m in Sources */,
 			);

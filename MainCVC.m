@@ -13,8 +13,10 @@
 #import "DBTestDataFeed.h"
 #import "Note.h"
 #import "PKRevealController.h"
+#import "NewNoteVC.h"
 
 @interface MainCVC ()
+@property (weak, nonatomic) IBOutlet UIImageView *addNote;
 @property (nonatomic, weak) CBLDatabase *db;
 @property (nonatomic) BOOL debug;
 @property (nonatomic) Profile *profile;
@@ -56,14 +58,31 @@
         [self loadPictureAndName];
     }
     
+    
+    // init data source object
     NSError *error;
     CBLQuery *notes = [Note allNotesInDB:self.db forUserID:self.userID];
+    notes.descending = YES;
     CBLQueryEnumerator *rowEnum = [notes run:&error];
     for (CBLQueryRow* row in rowEnum) {
-        NSArray *item = [[NSArray alloc] initWithObjects:row.value, row.key, nil];
-        [self.data addObject:item];
+        NSLog(@"id: %@", row.value);
+        Note *note = [Note getNoteFromDB:self.db withID:row.value];
+        [self.data addObject:note];
     }
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetected)];
+    singleTap.numberOfTapsRequired = 1;
+    self.addNote.userInteractionEnabled = YES;
+    [self.addNote addGestureRecognizer:singleTap];
+}
 
+
+-(void)addTapDetected {
+    NewNoteVC *new = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"newNoteVC"];
+    new.db = self.db;
+    new.userID = self.userID;
+    [self.revealController setFrontViewController:new];
+    
 }
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
@@ -101,8 +120,8 @@
 
 -(NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    NSArray *array = [_data objectAtIndex:section];
-    return [array count];
+
+    return 1;
     
 }
 
@@ -110,23 +129,15 @@
 {
     UICollectionViewCell *cell;
     Note *note;
-    if (indexPath.item % 2) {
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"bodyC" forIndexPath:indexPath];
-        note = [Note getNoteFromDB:self.db withID:[[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.item]];
-        UILabel *label = (UILabel*) [cell viewWithTag:100];
-        label.text = note.body;
-    }
-    else {
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"labelC" forIndexPath:indexPath];
-        UILabel *label = (UILabel*) [cell viewWithTag:100];
-        label.text = [[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.item];
-    }
+    cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"noteCell" forIndexPath:indexPath];
+    note = (Note*)[self.data objectAtIndex:indexPath.section];
     
+    UILabel *subject = (UILabel*) [cell viewWithTag:100];
+    UILabel *body = (UILabel*) [cell viewWithTag:101];
+    
+    subject.text = note.subject;
+    body.text = note.body;
 
-    // [NSString stringWithFormat:@"section:%d, Item: %d" , indexPath.section, indexPath.item];
-    //[cell.layer setBorderWidth:2.0f];
-    // [cell.layer setBorderColor:[UIColor blackColor].CGColor];
-    
     return cell;
     
 }

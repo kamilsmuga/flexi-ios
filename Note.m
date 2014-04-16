@@ -49,8 +49,8 @@
             if ([doc[@"type"] isEqualToString:kProfileDocType]
                &&[doc[@"ownerID"] isEqualToString:userID])
             
-                emit(doc[@"_id"], doc[@"subject"]);
-        }) reduceBlock: nil version: @"1"]; // bump version any time you change the MAPBLOCK body!
+                emit(doc[@"updated"], doc[@"_id"]);
+        }) reduceBlock: nil version: @"2"]; // bump version any time you change the MAPBLOCK body!
     }
     return [view createQuery];
 
