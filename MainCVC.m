@@ -17,8 +17,8 @@
 @interface MainCVC ()
 @property (nonatomic, weak) CBLDatabase *db;
 @property (nonatomic) BOOL debug;
-@property (nonatomic) NSMutableArray *data;
 @property (nonatomic) Profile *profile;
+@property (nonatomic, readwrite) NSMutableArray *data;
 @end
 
 @implementation MainCVC
@@ -60,8 +60,8 @@
     CBLQuery *notes = [Note allNotesInDB:self.db forUserID:self.userID];
     CBLQueryEnumerator *rowEnum = [notes run:&error];
     for (CBLQueryRow* row in rowEnum) {
-        [self.data addObject:row.value];
-        NSLog(@"COOL!");
+        NSArray *item = [[NSArray alloc] initWithObjects:row.value, row.key, nil];
+        [self.data addObject:item];
     }
 
 }
@@ -96,26 +96,36 @@
 
 -(NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 1;
+    return [_data count];
 }
 
 -(NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    
-    return [self.data count];
+    NSArray *array = [_data objectAtIndex:section];
+    return [array count];
     
 }
 
 -(UICollectionViewCell*) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    UICollectionViewCell *cell;
+    Note *note;
+    if (indexPath.item % 2) {
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"bodyC" forIndexPath:indexPath];
+        note = [Note getNoteFromDB:self.db withID:[[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.item]];
+        UILabel *label = (UILabel*) [cell viewWithTag:100];
+        label.text = note.body;
+    }
+    else {
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"labelC" forIndexPath:indexPath];
+        UILabel *label = (UILabel*) [cell viewWithTag:100];
+        label.text = [[self.data objectAtIndex:indexPath.section] objectAtIndex:indexPath.item];
+    }
     
-    UILabel *label = (UILabel*) [cell viewWithTag:100];
-    
- //   label.text = [self.data objectAtIndex:indexPath];
-    
-    [cell.layer setBorderWidth:2.0f];
-    [cell.layer setBorderColor:[UIColor whiteColor].CGColor];
+
+    // [NSString stringWithFormat:@"section:%d, Item: %d" , indexPath.section, indexPath.item];
+    //[cell.layer setBorderWidth:2.0f];
+    // [cell.layer setBorderColor:[UIColor blackColor].CGColor];
     
     return cell;
     

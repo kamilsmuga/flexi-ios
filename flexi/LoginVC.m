@@ -78,9 +78,9 @@
         NSLog(@"Error while trying to save the profile. This is bad!");
     }
     
-    
-    [DBTestDataFeed populateRandomNotesInDB:self.db forUserID:email];
     /*
+    [DBTestDataFeed populateRandomNotesInDB:self.db forUserID:email];
+    
     CBLQuery *q = [Note allNotesInDB:self.db forUserID:email];
     CBLQueryEnumerator *rowEnum = [q run:&error];
     for (CBLQueryRow* row in rowEnum) {

@@ -109,7 +109,7 @@
     return self;
 }
 
--(instancetype) getNoteFromDB: (CBLDatabase*) db
++(instancetype) getNoteFromDB: (CBLDatabase*) db
                        withID: (NSString*) noteID
 {
     NSParameterAssert(db);
