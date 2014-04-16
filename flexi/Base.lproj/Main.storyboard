@@ -130,11 +130,16 @@
                                 <rect key="frame" x="260" y="510" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="MBH-tB-Np4">
+                                <rect key="frame" x="285" y="30" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="addNote" destination="Cjs-vd-0DG" id="xbG-QH-FMV"/>
+                        <outlet property="map" destination="MBH-tB-Np4" id="jiU-b2-68e"/>
                         <outlet property="nameLabel" destination="XPG-QP-9nf" id="SsR-Ty-dZa"/>
                         <outlet property="navBar" destination="HWd-SG-HNY" id="6YC-xN-d23"/>
                         <outlet property="picture" destination="ztY-LO-w5q" id="VpQ-km-ofx"/>
@@ -273,9 +278,26 @@
             </objects>
             <point key="canvasLocation" x="1002" y="-496"/>
         </scene>
+        <!--MapVC-->
+        <scene sceneID="07W-qF-cZL">
+            <objects>
+                <viewController storyboardIdentifier="mapVC" id="AQ5-O7-Ivn" customClass="MapVC" sceneMemberID="viewController">
+                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="4Dr-qQ-KBM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </mapView>
+                    <connections>
+                        <outlet property="mapView" destination="4Dr-qQ-KBM" id="nuJ-9v-AgA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HOo-4r-V30" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="551" y="607"/>
+        </scene>
     </scenes>
     <resources>
         <image name="background" width="640" height="1136"/>
+        <image name="map" width="50" height="50"/>
         <image name="plus" width="50" height="50"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

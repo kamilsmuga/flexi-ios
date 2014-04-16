@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface MainCVC : UICollectionViewController <FBLoginViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+@interface MainCVC : UICollectionViewController <FBLoginViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *picture;
 @property (strong, nonatomic) NSString* userID;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end

@@ -15,6 +15,7 @@
 @interface NewNoteVC ()
 @property (weak, nonatomic) IBOutlet UITextView *bodyText;
 @property (weak, nonatomic) IBOutlet UITextView *subjectText;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 - (IBAction)cancel:(id)sender;
 - (IBAction)done:(id)sender;
 @end
@@ -28,6 +29,14 @@
         _db = ((flexiAppDelegate*)[UIApplication sharedApplication].delegate).database;
     }
     return _db;
+}
+
+-(CLLocationManager*) locationManager
+{
+    if (!_locationManager) {
+        _locationManager = [[CLLocationManager alloc] init];
+    }
+    return _locationManager;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -63,6 +72,8 @@
     }
     MainCVC *main = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mainCVC"];
     main.userID = self.userID;
+    self.locationManager.delegate = main;
+    main.locationManager = self.locationManager;
     [self.revealController setFrontViewController:main];
     
     
@@ -74,12 +85,11 @@
 }
 
 -(CLLocationCoordinate2D) getLocation{
-    CLLocationManager *locationManager = [[CLLocationManager alloc] init];
-    locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    locationManager.distanceFilter = kCLDistanceFilterNone;
-    [locationManager startUpdatingLocation];
-    CLLocation *location = [locationManager location];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    [self.locationManager startUpdatingLocation];
+    CLLocation *location = [self.locationManager location];
     CLLocationCoordinate2D coordinate = [location coordinate];
     return coordinate;
 }

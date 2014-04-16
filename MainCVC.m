@@ -20,6 +20,7 @@
 @property (nonatomic, weak) CBLDatabase *db;
 @property (nonatomic) BOOL debug;
 @property (nonatomic) Profile *profile;
+@property (weak, nonatomic) IBOutlet UIImageView *map;
 @property (nonatomic, readwrite) NSMutableArray *data;
 @end
 
@@ -65,24 +66,30 @@
     notes.descending = YES;
     CBLQueryEnumerator *rowEnum = [notes run:&error];
     for (CBLQueryRow* row in rowEnum) {
-        NSLog(@"id: %@", row.value);
         Note *note = [Note getNoteFromDB:self.db withID:row.value];
         [self.data addObject:note];
     }
     
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetected)];
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForNew)];
     singleTap.numberOfTapsRequired = 1;
     self.addNote.userInteractionEnabled = YES;
     [self.addNote addGestureRecognizer:singleTap];
+    singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForMap)];
+    self.map.userInteractionEnabled = YES;
+    [self.map addGestureRecognizer:singleTap];
 }
 
+-(void)addTapDetectedForMap {
+    
+    [self.revealController setRightViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mapVC"]];
+    [self.revealController showViewController:[self.revealController rightViewController]];
+}
 
--(void)addTapDetected {
+-(void)addTapDetectedForNew {
     NewNoteVC *new = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"newNoteVC"];
     new.db = self.db;
     new.userID = self.userID;
     [self.revealController setFrontViewController:new];
-    
 }
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
