@@ -15,3 +15,5 @@ or
 
 # Command to checkout with submodules:
   git clone --recursive https://github.com/kamilsmuga/flexi.git
+
+MapKit reference: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/LocationAwarenessPG/AnnotatingMaps/AnnotatingMaps.html#//apple_ref/doc/uid/TP40009497-CH6-SW1

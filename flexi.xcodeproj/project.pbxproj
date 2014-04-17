@@ -23,6 +23,7 @@
 		12AE5F5518F9693900DDA457 /* DBTestDataFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AE5F5418F9693900DDA457 /* DBTestDataFeed.m */; };
 		12C55B7A18FABB92001BF3CB /* SearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C55B7918FABB92001BF3CB /* SearchVC.m */; };
 		12E24EB218FAEB3E008C20CB /* libPKRevealController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E24E5918FAE870008C20CB /* libPKRevealController.a */; };
+		12E24EB919003D69008C20CB /* NoteMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E24EB819003D69008C20CB /* NoteMapAnnotation.m */; };
 		4811EFAF18FEE1DB00866113 /* NewNoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4811EFAE18FEE1DB00866113 /* NewNoteVC.m */; };
 		4811EFB318FF3A0200866113 /* MapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4811EFB218FF3A0200866113 /* MapVC.m */; };
 		4811EFB518FF3A5F00866113 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4811EFB418FF3A5F00866113 /* MapKit.framework */; };
@@ -80,6 +81,8 @@
 		12E24E5C18FAE8F6008C20CB /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+PKRevealController.h"; path = "PKRevealController/Headers/UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
 		12E24E6318FAE9E7008C20CB /* PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKRevealController.h; path = Headers/PKRevealController.h; sourceTree = "<group>"; };
 		12E24E6418FAE9E7008C20CB /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+PKRevealController.h"; path = "Headers/UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
+		12E24EB719003D69008C20CB /* NoteMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteMapAnnotation.h; sourceTree = "<group>"; };
+		12E24EB819003D69008C20CB /* NoteMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteMapAnnotation.m; sourceTree = "<group>"; };
 		4811EFAD18FEE1DB00866113 /* NewNoteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNoteVC.h; sourceTree = "<group>"; };
 		4811EFAE18FEE1DB00866113 /* NewNoteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNoteVC.m; sourceTree = "<group>"; };
 		4811EFB118FF3A0200866113 /* MapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapVC.h; sourceTree = "<group>"; };
@@ -262,6 +265,8 @@
 				488AFA2C18F2C68A00621DDE /* Profile.m */,
 				12AE5F4E18F934EB00DDA457 /* Note.h */,
 				12AE5F4F18F934EB00DDA457 /* Note.m */,
+				12E24EB719003D69008C20CB /* NoteMapAnnotation.h */,
+				12E24EB819003D69008C20CB /* NoteMapAnnotation.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -424,6 +429,7 @@
 				4811EFAF18FEE1DB00866113 /* NewNoteVC.m in Sources */,
 				4811EFB318FF3A0200866113 /* MapVC.m in Sources */,
 				4823FA811888A41B0098E269 /* flexiAppDelegate.m in Sources */,
+				12E24EB919003D69008C20CB /* NoteMapAnnotation.m in Sources */,
 				12AE5F5018F934EB00DDA457 /* Note.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
