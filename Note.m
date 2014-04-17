@@ -12,7 +12,7 @@
 
 @implementation Note
 
-@dynamic subject, body, ownerID, members, latitute, longitude, created, updated, type, tags;
+@dynamic subject, body, ownerID, members, latitute, longitude, created, updated, type, tags, isFav;
 
 +(CBLQuery*) noteInDB: (CBLDatabase*)db
                forUserID: (NSString*)userID
@@ -105,6 +105,7 @@
         self.longitude = longitude;
         self.latitute = latitude;
         self.members = [[NSArray alloc] initWithObjects:userID, nil];
+        self.isFav = NO;
     }
     return self;
 }

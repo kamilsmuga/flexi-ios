@@ -14,6 +14,7 @@
 #import "Note.h"
 #import "PKRevealController.h"
 #import "NewNoteVC.h"
+#import "MapVC.h"
 
 @interface MainCVC ()
 @property (weak, nonatomic) IBOutlet UIImageView *addNote;
@@ -76,12 +77,14 @@
     [self.addNote addGestureRecognizer:singleTap];
     singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForMap)];
     self.map.userInteractionEnabled = YES;
+    
     [self.map addGestureRecognizer:singleTap];
 }
 
 -(void)addTapDetectedForMap {
-    
-    [self.revealController setRightViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mapVC"]];
+    MapVC *map = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mapVC"];
+    map.data = self.data;
+    [self.revealController setRightViewController:map];
     [self.revealController showViewController:[self.revealController rightViewController]];
 }
 
@@ -141,10 +144,20 @@
     
     UILabel *subject = (UILabel*) [cell viewWithTag:100];
     UILabel *body = (UILabel*) [cell viewWithTag:101];
+    UILabel *date = (UILabel*) [cell viewWithTag:102];
+    UIImageView *fav = (UIImageView*) [cell viewWithTag:200];
     
     subject.text = note.subject;
     body.text = note.body;
-
+    date.text = [NSDateFormatter localizedStringFromDate:note.updated
+                                               dateStyle:NSDateFormatterShortStyle
+                                               timeStyle:NSDateFormatterShortStyle];
+    if (note.isFav) {
+        fav.image = [UIImage imageNamed:@"star-on"];
+    }
+    else {
+        fav.image = [UIImage imageNamed:@"star-off"];
+    }
     return cell;
     
 }

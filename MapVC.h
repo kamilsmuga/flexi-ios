@@ -10,5 +10,5 @@
 #import <MapKit/MapKit.h>
 
 @interface MapVC : UIViewController <MKMapViewDelegate>
-
+@property (nonatomic, readwrite) NSMutableArray *data;
 @end

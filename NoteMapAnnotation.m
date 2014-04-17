@@ -9,5 +9,22 @@
 #import "NoteMapAnnotation.h"
 
 @implementation NoteMapAnnotation
+@synthesize coordinate;
+
+- (void)setCoordinate:(CLLocationCoordinate2D)coord
+{
+
+    self.coordinate = coord;
+    
+}
+
+- (id)initWithLocation:(CLLocationCoordinate2D)coord {
+    self = [super init];
+    if (self) {
+        coordinate = coord;
+    }
+    return self;
+}
+
 
 @end
