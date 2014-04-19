@@ -32,26 +32,37 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    NSMutableArray *annots = [[NSMutableArray alloc] init];
-    for (Note* note in self.data)
-    {
-        if (!(note.latitute && note.longitude)) {
-            continue;
-        }
-        CLLocationCoordinate2D coord;
-        coord.longitude = [note.longitude floatValue];
-        coord.latitude = [note.latitute floatValue];
-        
-        NoteMapAnnotation *annotation = [[NoteMapAnnotation alloc] initWithLocation:coord];
-        annotation.title = note.subject;
-        annotation.subtitle = [NSDateFormatter localizedStringFromDate:note.created
-                                                         dateStyle:NSDateFormatterShortStyle
-                                                         timeStyle:NSDateFormatterShortStyle];
-        annotation.note = note.body;
-        [annots addObject:annotation];
-    }
-    [self.mapView addAnnotations:annots];
+    [self loadDataAsynch];
 }
+
+- (void) loadDataAsynch
+{
+    // run in the background, on the default priority queue
+    dispatch_async( dispatch_get_global_queue(0, 0), ^{
+    
+        NSMutableArray *annots = [[NSMutableArray alloc] init];
+        for (Note* note in self.data)
+        {
+            if (!(note.latitute && note.longitude)) {
+                continue;
+            }
+            CLLocationCoordinate2D coord;
+            coord.longitude = [note.longitude floatValue];
+            coord.latitude = [note.latitute floatValue];
+            
+            NoteMapAnnotation *annotation = [[NoteMapAnnotation alloc] initWithLocation:coord];
+            annotation.title = note.subject;
+            annotation.subtitle = [NSDateFormatter localizedStringFromDate:note.created
+                                                                 dateStyle:NSDateFormatterShortStyle
+                                                                 timeStyle:NSDateFormatterShortStyle];
+            annotation.note = note.body;
+            [annots addObject:annotation];
+        }
+        [self.mapView addAnnotations:annots];
+    
+    });
+}
+
 
 -(MKAnnotationView*) mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
@@ -87,6 +98,7 @@
     
     return pinView;
 }
+
 
 -(void)showDetails:(UIButton *)sender
 {

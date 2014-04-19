@@ -131,12 +131,12 @@
         // Register the map function, the first time we access the view:
         [view setMapBlock: MAPBLOCK({
             if ([doc[@"type"] isEqualToString:kProfileDocType]
-                &&[doc[@"ownerID"] isEqualToString:userID]
-                &&[doc[@"isFav"] isEqualToString:[NSString stringWithFormat: @"%d", 1]]
+                && [doc[@"ownerID"] isEqualToString:userID]
+                && [doc[@"isFav"] boolValue]
                 )
                 
                 emit(doc[@"updated"], doc[@"_id"]);
-        }) reduceBlock: nil version: @"2"]; // bump version any time you change the MAPBLOCK body!
+        }) reduceBlock: nil version: @"3"]; // bump version any time you change the MAPBLOCK body!
     }
     return [view createQuery];
 }

@@ -108,13 +108,16 @@
 -(void)addTapDetectedForFavs {
 
     NSError *error;
+    NSMutableArray *newData = [[NSMutableArray alloc]init];
     CBLQuery *notes = [Note favNotesFromDB:self.db forUserID:self.userID];
     notes.descending = YES;
     CBLQueryEnumerator *rowEnum = [notes run:&error];
     for (CBLQueryRow* row in rowEnum) {
         Note *note = [Note getNoteFromDB:self.db withID:row.value];
-        [self.data addObject:note];
+        [newData addObject:note];
     }
+    self.data = newData;
+    [self.collView reloadData];
 }
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
@@ -134,14 +137,6 @@
     self.nameLabel.text = [self.profile.name componentsSeparatedByString:@" "][0];
 }
 
--(void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
-    
-    UITouch *touch = [[event allTouches] anyObject];
-    [super touchesBegan:touches withEvent:event];
-    if ([touch view] == self.picture) {
-        [self.revealController showViewController:self.revealController.leftViewController];
-    }
-}
 
 #pragma mark Collection View Methods
 

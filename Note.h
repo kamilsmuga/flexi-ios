@@ -63,6 +63,6 @@
 // type - note
 @property (readwrite) NSString* type;
 
-@property (readwrite) BOOL isFav;
+@property (readwrite) bool isFav;
 
 @end
