@@ -1,3 +1,6 @@
 [submodule "PKRevealController"]
 	path = PKRevealController
 	url = https://github.com/pkluz/PKRevealController.git
+[submodule "TITokenField"]
+	path = TITokenField
+	url = https://github.com/thermogl/TITokenField.git

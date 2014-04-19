@@ -10,8 +10,9 @@
 #import <CouchbaseLite/CouchbaseLite.h>
 #import <CoreLocation/CoreLocation.h>
 #import "PKRevealController.h"
+#import <Cocoa/Cocoa.h>
 
-@interface NewNoteVC : UIViewController <CLLocationManagerDelegate>
+@interface NewNoteVC : UIViewController <CLLocationManagerDelegate, NSTokenFieldDelegate>
 @property (nonatomic, weak) CBLDatabase *db;
 @property (strong, nonatomic) NSString* userID;
 @end
