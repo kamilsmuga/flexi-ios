@@ -22,6 +22,9 @@
              forUserID: (NSString*)userID
                withTag: (NSString*)tag;
 
++(CBLQuery*) favNotesFromDB:(CBLDatabase *)db
+                  forUserID:(NSString *)userID;
+
 -(instancetype) initNoteInDB: (CBLDatabase*)db
                    forUserID: (NSString*)userID
                  withSubject: (NSString*)subject

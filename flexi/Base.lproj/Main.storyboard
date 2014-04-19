@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--LoginVC-->
@@ -158,12 +158,17 @@
                                 <rect key="frame" x="285" y="30" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star-off" translatesAutoresizingMaskIntoConstraints="NO" id="YH3-ZI-ZDO">
+                                <rect key="frame" x="250" y="29" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="addNote" destination="Cjs-vd-0DG" id="xbG-QH-FMV"/>
                         <outlet property="collView" destination="Zpz-CG-XlV" id="0T8-UN-Ubq"/>
+                        <outlet property="favsView" destination="YH3-ZI-ZDO" id="jkM-tW-9Pj"/>
                         <outlet property="map" destination="MBH-tB-Np4" id="jiU-b2-68e"/>
                         <outlet property="nameLabel" destination="XPG-QP-9nf" id="SsR-Ty-dZa"/>
                         <outlet property="navBar" destination="HWd-SG-HNY" id="6YC-xN-d23"/>
@@ -172,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ppd-6R-HL0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="89" y="-128"/>
+            <point key="canvasLocation" x="121" y="-128"/>
         </scene>
         <!--New NoteVC-->
         <scene sceneID="xGj-RT-s1Z">
@@ -325,6 +330,7 @@
         <image name="background" width="640" height="1136"/>
         <image name="map" width="50" height="50"/>
         <image name="plus" width="50" height="50"/>
+        <image name="star-off" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

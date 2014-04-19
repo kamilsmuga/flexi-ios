@@ -53,7 +53,6 @@
         }) reduceBlock: nil version: @"2"]; // bump version any time you change the MAPBLOCK body!
     }
     return [view createQuery];
-
 }
 
 +(CBLQuery*) notesInDB: (CBLDatabase*)db
@@ -119,6 +118,27 @@
     CBLDocument *doc = [db existingDocumentWithID:noteID];
     
     return doc ? [Note modelForDocument: doc] : nil;
+}
+
++(CBLQuery*) favNotesFromDB:(CBLDatabase *)db
+                forUserID:(NSString *)userID
+{
+    NSParameterAssert(db);
+    NSParameterAssert(userID);
+    
+    CBLView* view = [db viewNamed: @"favNotesForUser"];
+    if (!view.mapBlock) {
+        // Register the map function, the first time we access the view:
+        [view setMapBlock: MAPBLOCK({
+            if ([doc[@"type"] isEqualToString:kProfileDocType]
+                &&[doc[@"ownerID"] isEqualToString:userID]
+                &&[doc[@"isFav"] isEqualToString:[NSString stringWithFormat: @"%d", 1]]
+                )
+                
+                emit(doc[@"updated"], doc[@"_id"]);
+        }) reduceBlock: nil version: @"2"]; // bump version any time you change the MAPBLOCK body!
+    }
+    return [view createQuery];
 }
 
 @end

@@ -23,6 +23,7 @@
 @property (nonatomic) Profile *profile;
 @property (nonatomic, weak) IBOutlet UIButton *favButton;
 @property (weak, nonatomic) IBOutlet UIImageView *map;
+@property (weak, nonatomic) IBOutlet UIImageView *favsView;
 @property (nonatomic, readwrite) NSMutableArray *data;
 @end
 
@@ -73,17 +74,21 @@
     for (CBLQueryRow* row in rowEnum) {
         Note *note = [Note getNoteFromDB:self.db withID:row.value];
         [self.data addObject:note];
-        NSLog(@"isNoteFav: %d noteSubject: %@", note.isFav, note.subject);
     }
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForNew)];
+    
     singleTap.numberOfTapsRequired = 1;
     self.addNote.userInteractionEnabled = YES;
     [self.addNote addGestureRecognizer:singleTap];
+    
     singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForMap)];
     self.map.userInteractionEnabled = YES;
-    
     [self.map addGestureRecognizer:singleTap];
+    
+    singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForFavs)];
+    self.favsView.userInteractionEnabled = YES;
+    [self.favsView addGestureRecognizer:singleTap];
 }
 
 -(void)addTapDetectedForMap {
@@ -98,6 +103,18 @@
     new.db = self.db;
     new.userID = self.userID;
     [self.revealController setFrontViewController:new];
+}
+
+-(void)addTapDetectedForFavs {
+
+    NSError *error;
+    CBLQuery *notes = [Note favNotesFromDB:self.db forUserID:self.userID];
+    notes.descending = YES;
+    CBLQueryEnumerator *rowEnum = [notes run:&error];
+    for (CBLQueryRow* row in rowEnum) {
+        Note *note = [Note getNoteFromDB:self.db withID:row.value];
+        [self.data addObject:note];
+    }
 }
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
@@ -163,7 +180,6 @@
     if (note.isFav > 0) {
         fav.selected = YES;
         [fav setImage:btnImageOn forState:UIControlStateSelected];
-        
     }
     else {
         fav.selected = NO;
