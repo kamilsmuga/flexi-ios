@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *picture;
 @property (strong, nonatomic) NSString* userID;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
+@property (weak, nonatomic) IBOutlet UICollectionView *collView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end

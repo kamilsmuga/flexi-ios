@@ -79,10 +79,11 @@
     
 }
 - (IBAction)cancel:(id)sender {
+    
     MainCVC *main = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mainCVC"];
     main.userID = self.userID;
     [self.revealController setFrontViewController:main];
-}
+   }
 
 -(CLLocationCoordinate2D) getLocation{
     self.locationManager.delegate = self;

@@ -128,10 +128,17 @@
                                                     <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" tag="200" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RnV-WJ-W8v">
-                                                    <rect key="frame" x="258" y="152" width="28" height="28"/>
+                                                <button opaque="NO" tag="200" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZE-zc-mXS">
+                                                    <rect key="frame" x="255" y="150" width="32" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="doFavButton:" destination="Iga-eO-o82" eventType="touchUpInside" id="zQc-Uv-QQr"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -156,6 +163,7 @@
                     </view>
                     <connections>
                         <outlet property="addNote" destination="Cjs-vd-0DG" id="xbG-QH-FMV"/>
+                        <outlet property="collView" destination="Zpz-CG-XlV" id="0T8-UN-Ubq"/>
                         <outlet property="map" destination="MBH-tB-Np4" id="jiU-b2-68e"/>
                         <outlet property="nameLabel" destination="XPG-QP-9nf" id="SsR-Ty-dZa"/>
                         <outlet property="navBar" destination="HWd-SG-HNY" id="6YC-xN-d23"/>
@@ -201,12 +209,10 @@
                                 <items>
                                     <navigationItem id="hcP-Xp-u15">
                                         <barButtonItem key="leftBarButtonItem" style="done" id="gmz-BK-4v9">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" id="94i-b5-Rfh">
-                                                <rect key="frame" x="16" y="7" width="50" height="30"/>
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="94i-b5-Rfh">
+                                                <rect key="frame" x="16" y="6" width="88" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Cancel">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
+                                                <state key="normal" title="Cancel"/>
                                                 <connections>
                                                     <action selector="cancel:" destination="bTI-eG-FCg" eventType="touchUpInside" id="M64-MB-kCY"/>
                                                 </connections>

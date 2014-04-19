@@ -21,6 +21,7 @@
 @property (nonatomic, weak) CBLDatabase *db;
 @property (nonatomic) BOOL debug;
 @property (nonatomic) Profile *profile;
+@property (nonatomic, weak) IBOutlet UIButton *favButton;
 @property (weak, nonatomic) IBOutlet UIImageView *map;
 @property (nonatomic, readwrite) NSMutableArray *data;
 @end
@@ -51,6 +52,9 @@
     return _profile;
 }
 
+- (IBAction)clickFavButton:(id)sender {
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -69,6 +73,7 @@
     for (CBLQueryRow* row in rowEnum) {
         Note *note = [Note getNoteFromDB:self.db withID:row.value];
         [self.data addObject:note];
+        NSLog(@"isNoteFav: %d noteSubject: %@", note.isFav, note.subject);
     }
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForNew)];
@@ -145,21 +150,55 @@
     UILabel *subject = (UILabel*) [cell viewWithTag:100];
     UILabel *body = (UILabel*) [cell viewWithTag:101];
     UILabel *date = (UILabel*) [cell viewWithTag:102];
-    UIImageView *fav = (UIImageView*) [cell viewWithTag:200];
+    UIButton *fav = (UIButton*) [cell viewWithTag:200];
     
     subject.text = note.subject;
     body.text = note.body;
     date.text = [NSDateFormatter localizedStringFromDate:note.updated
                                                dateStyle:NSDateFormatterShortStyle
                                                timeStyle:NSDateFormatterShortStyle];
-    if (note.isFav) {
-        fav.image = [UIImage imageNamed:@"star-on"];
+    
+    UIImage *btnImageOn = [UIImage imageNamed:@"star-on"];
+    UIImage *btnImageOff = [UIImage imageNamed:@"star-off"];
+    if (note.isFav > 0) {
+        fav.selected = YES;
+        [fav setImage:btnImageOn forState:UIControlStateSelected];
+        
     }
     else {
-        fav.image = [UIImage imageNamed:@"star-off"];
+        fav.selected = NO;
+        [fav setImage:btnImageOff forState:UIControlStateNormal];
     }
+  
     return cell;
     
+}
+
+
+- (IBAction)doFavButton:(UIButton*)sender
+{
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.collView];
+    NSIndexPath *indexPath = [self.collView indexPathForItemAtPoint:buttonPosition];
+    Note *note;
+    note = (Note*)[self.data objectAtIndex:indexPath.section];
+    NSError *error;
+    if (note.isFav) {
+        ((Note*)[self.data objectAtIndex:indexPath.section]).isFav = NO;
+        [note save:&error];
+        UIImage *btnImage = [UIImage imageNamed:@"star-off"];
+        sender.selected = NO;
+        [sender setImage:btnImage forState:UIControlStateNormal];
+    }
+    else {
+        ((Note*)[self.data objectAtIndex:indexPath.section]).isFav = YES;
+        [note save:&error];
+        UIImage *btnImage = [UIImage imageNamed:@"star-on"];
+        sender.selected = YES;
+        [sender setImage:btnImage forState:UIControlStateSelected];
+    }
+    if (error) {
+        NSLog(@"Error while trying to add to favorites");
+    }
 }
 
 @end
