@@ -29,11 +29,12 @@
     
     NSArray *latitudes = [NSArray arrayWithObjects:@"53.3243201", @"53.3198362", @"41.9100711", nil];
     NSArray *longitudes = [NSArray arrayWithObjects:@"-6.251695", @"-6.2566939", @"12.5359979", nil];
+    NSArray *tags = [NSArray arrayWithObjects:[NSArray arrayWithObjects:@"tag1", nil], [NSArray arrayWithObjects:@"tag2", @"tag3", nil], [NSArray arrayWithObjects:@"tag1",@"tag2", nil], nil];
     
     NSError *error;
     
     for (int i = 0; i < [subjects count]; i++) {
-        Note* note = [[Note alloc] initNoteInDB:db forUserID:userID withSubject:subjects[i] withBody:bodies[i] withLongitute:longitudes[i] withLatitude:latitudes[i]];
+        Note* note = [[Note alloc] initNoteInDB:db forUserID:userID withSubject:subjects[i] withBody:bodies[i] withLongitute:longitudes[i] withLatitude:latitudes[i] withTags:tags[i]];
     
         [note save:&error];
         

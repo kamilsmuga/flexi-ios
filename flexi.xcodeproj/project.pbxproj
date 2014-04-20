@@ -24,9 +24,10 @@
 		12C55B7A18FABB92001BF3CB /* SearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C55B7918FABB92001BF3CB /* SearchVC.m */; };
 		12E24EB218FAEB3E008C20CB /* libPKRevealController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E24E5918FAE870008C20CB /* libPKRevealController.a */; };
 		12E24EB919003D69008C20CB /* NoteMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E24EB819003D69008C20CB /* NoteMapAnnotation.m */; };
-		4811EFAF18FEE1DB00866113 /* NewNoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4811EFAE18FEE1DB00866113 /* NewNoteVC.m */; };
+		4811EFAF18FEE1DB00866113 /* NoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4811EFAE18FEE1DB00866113 /* NoteVC.m */; };
 		4811EFB318FF3A0200866113 /* MapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4811EFB218FF3A0200866113 /* MapVC.m */; };
 		4811EFB518FF3A5F00866113 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4811EFB418FF3A5F00866113 /* MapKit.framework */; };
+		4811EFC61903218500866113 /* TITokenField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4811EFC21903218500866113 /* TITokenField.m */; };
 		4823FA711888A41B0098E269 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA701888A41B0098E269 /* Foundation.framework */; };
 		4823FA731888A41B0098E269 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA721888A41B0098E269 /* CoreGraphics.framework */; };
 		4823FA751888A41B0098E269 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4823FA741888A41B0098E269 /* UIKit.framework */; };
@@ -83,11 +84,13 @@
 		12E24E6418FAE9E7008C20CB /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+PKRevealController.h"; path = "Headers/UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
 		12E24EB719003D69008C20CB /* NoteMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteMapAnnotation.h; sourceTree = "<group>"; };
 		12E24EB819003D69008C20CB /* NoteMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteMapAnnotation.m; sourceTree = "<group>"; };
-		4811EFAD18FEE1DB00866113 /* NewNoteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNoteVC.h; sourceTree = "<group>"; };
-		4811EFAE18FEE1DB00866113 /* NewNoteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNoteVC.m; sourceTree = "<group>"; };
+		4811EFAD18FEE1DB00866113 /* NoteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteVC.h; sourceTree = "<group>"; };
+		4811EFAE18FEE1DB00866113 /* NoteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteVC.m; sourceTree = "<group>"; };
 		4811EFB118FF3A0200866113 /* MapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapVC.h; sourceTree = "<group>"; };
 		4811EFB218FF3A0200866113 /* MapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapVC.m; sourceTree = "<group>"; };
 		4811EFB418FF3A5F00866113 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4811EFC21903218500866113 /* TITokenField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TITokenField.m; sourceTree = "<group>"; };
+		4811EFC31903218500866113 /* TITokenField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TITokenField.h; sourceTree = "<group>"; };
 		4823FA6D1888A41B0098E269 /* flexi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flexi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4823FA701888A41B0098E269 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4823FA721888A41B0098E269 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -171,6 +174,15 @@
 			path = PKRevealController;
 			sourceTree = "<group>";
 		};
+		4811EFBB1903213700866113 /* TITokenField */ = {
+			isa = PBXGroup;
+			children = (
+				4811EFC21903218500866113 /* TITokenField.m */,
+				4811EFC31903218500866113 /* TITokenField.h */,
+			);
+			name = TITokenField;
+			sourceTree = "<group>";
+		};
 		4823FA641888A41B0098E269 = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +242,7 @@
 		4823FA771888A41B0098E269 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4811EFBB1903213700866113 /* TITokenField */,
 				4823FA781888A41B0098E269 /* flexi-Info.plist */,
 				4823FA791888A41B0098E269 /* InfoPlist.strings */,
 				4823FA7C1888A41B0098E269 /* main.m */,
@@ -284,8 +297,8 @@
 				488AFA3118F8269100621DDE /* ProfileVC.m */,
 				12C55B7818FABB92001BF3CB /* SearchVC.h */,
 				12C55B7918FABB92001BF3CB /* SearchVC.m */,
-				4811EFAD18FEE1DB00866113 /* NewNoteVC.h */,
-				4811EFAE18FEE1DB00866113 /* NewNoteVC.m */,
+				4811EFAD18FEE1DB00866113 /* NoteVC.h */,
+				4811EFAE18FEE1DB00866113 /* NoteVC.m */,
 				4811EFB118FF3A0200866113 /* MapVC.h */,
 				4811EFB218FF3A0200866113 /* MapVC.m */,
 			);
@@ -426,9 +439,10 @@
 				488AFA3218F8269100621DDE /* ProfileVC.m in Sources */,
 				12AE5F5518F9693900DDA457 /* DBTestDataFeed.m in Sources */,
 				4823FA7D1888A41B0098E269 /* main.m in Sources */,
-				4811EFAF18FEE1DB00866113 /* NewNoteVC.m in Sources */,
+				4811EFAF18FEE1DB00866113 /* NoteVC.m in Sources */,
 				4811EFB318FF3A0200866113 /* MapVC.m in Sources */,
 				4823FA811888A41B0098E269 /* flexiAppDelegate.m in Sources */,
+				4811EFC61903218500866113 /* TITokenField.m in Sources */,
 				12E24EB919003D69008C20CB /* NoteMapAnnotation.m in Sources */,
 				12AE5F5018F934EB00DDA457 /* Note.m in Sources */,
 			);

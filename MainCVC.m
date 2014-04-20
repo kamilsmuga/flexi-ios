@@ -13,7 +13,7 @@
 #import "DBTestDataFeed.h"
 #import "Note.h"
 #import "PKRevealController.h"
-#import "NewNoteVC.h"
+#import "NoteVC.h"
 #import "MapVC.h"
 
 @interface MainCVC ()
@@ -53,8 +53,6 @@
     return _profile;
 }
 
-- (IBAction)clickFavButton:(id)sender {
-}
 
 - (void)viewDidLoad
 {
@@ -68,7 +66,7 @@
     
     // init data source object
     NSError *error;
-    CBLQuery *notes = [Note allNotesInDB:self.db forUserID:self.userID];
+    CBLQuery *notes = [Note getAllNotesInDB:self.db forUserID:self.userID];
     notes.descending = YES;
     CBLQueryEnumerator *rowEnum = [notes run:&error];
     for (CBLQueryRow* row in rowEnum) {
@@ -89,6 +87,28 @@
     singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForFavs)];
     self.favsView.userInteractionEnabled = YES;
     [self.favsView addGestureRecognizer:singleTap];
+    
+    UITapGestureRecognizer *doubleTapFolderGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(processDoubleTap:)];
+    [doubleTapFolderGesture setNumberOfTapsRequired:2];
+    [doubleTapFolderGesture setNumberOfTouchesRequired:1];
+    [self.collView addGestureRecognizer:doubleTapFolderGesture];
+}
+
+-(void) processDoubleTap:(UIGestureRecognizer *) sender
+{
+    if (sender.state == UIGestureRecognizerStateEnded)
+    {
+        CGPoint point = [sender locationInView:self.collView];
+        NSIndexPath *indexPath = [self.collView indexPathForItemAtPoint:point];
+        if (indexPath)
+        {
+            Note* note = (Note*)[self.data objectAtIndex:indexPath.section];
+            NoteVC *new = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"newNoteVC"];
+            new.userID = self.userID;
+            new.note = note;
+            [self.revealController setFrontViewController:new];
+        }
+    }
 }
 
 -(void)addTapDetectedForMap {
@@ -99,9 +119,9 @@
 }
 
 -(void)addTapDetectedForNew {
-    NewNoteVC *new = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"newNoteVC"];
-    new.db = self.db;
+    NoteVC *new = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"newNoteVC"];
     new.userID = self.userID;
+    new.note = nil;
     [self.revealController setFrontViewController:new];
 }
 
@@ -109,7 +129,7 @@
 
     NSError *error;
     NSMutableArray *newData = [[NSMutableArray alloc]init];
-    CBLQuery *notes = [Note favNotesFromDB:self.db forUserID:self.userID];
+    CBLQuery *notes = [Note getFavNotesFromDB:self.db forUserID:self.userID];
     notes.descending = YES;
     CBLQueryEnumerator *rowEnum = [notes run:&error];
     for (CBLQueryRow* row in rowEnum) {

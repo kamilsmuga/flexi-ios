@@ -14,7 +14,7 @@
 
 @dynamic subject, body, ownerID, members, latitute, longitude, created, updated, type, tags, isFav;
 
-+(CBLQuery*) noteInDB: (CBLDatabase*)db
++(CBLQuery*) getNoteInDB: (CBLDatabase*)db
                forUserID: (NSString*)userID
              withSubject: (NSString*)subject
 {
@@ -36,7 +36,7 @@
     return [view createQuery];
 }
 
-+(CBLQuery*) allNotesInDB:(CBLDatabase *)db
++(CBLQuery*) getAllNotesInDB:(CBLDatabase *)db
                 forUserID:(NSString *)userID
 {
     NSParameterAssert(db);
@@ -55,7 +55,7 @@
     return [view createQuery];
 }
 
-+(CBLQuery*) notesInDB: (CBLDatabase*)db
++(CBLQuery*) getNotesInDB: (CBLDatabase*)db
              forUserID: (NSString*)userID
                withTag: (NSString*)tag
 {
@@ -84,6 +84,7 @@
                     withBody: (NSString*)body
                withLongitute: (NSString*)longitude
                 withLatitude: (NSString*)latitude
+                    withTags:(NSArray *)tags
 {
     NSParameterAssert(db);
     NSParameterAssert(userID);
@@ -105,6 +106,7 @@
         self.latitute = latitude;
         self.members = [[NSArray alloc] initWithObjects:userID, nil];
         self.isFav = NO;
+        self.tags = tags;
     }
     return self;
 }
@@ -120,7 +122,7 @@
     return doc ? [Note modelForDocument: doc] : nil;
 }
 
-+(CBLQuery*) favNotesFromDB:(CBLDatabase *)db
++(CBLQuery*) getFavNotesFromDB:(CBLDatabase *)db
                 forUserID:(NSString *)userID
 {
     NSParameterAssert(db);
@@ -139,6 +141,28 @@
         }) reduceBlock: nil version: @"3"]; // bump version any time you change the MAPBLOCK body!
     }
     return [view createQuery];
+}
+
++(CBLQuery*) getTagsFromDB:(CBLDatabase *)db
+                 forUserID:(NSString *)userID
+{
+    NSParameterAssert(db);
+    NSParameterAssert(userID);
+    
+    CBLView* view = [db viewNamed: @"tagsForUser"];
+    if (!view.mapBlock) {
+        // Register the map function, the first time we access the view:
+        [view setMapBlock: MAPBLOCK({
+            if ([doc[@"type"] isEqualToString:kProfileDocType]
+                && [doc[@"ownerID"] isEqualToString:userID]
+                && doc[@"tags"]
+                )
+                
+                emit(doc[@"tags"], doc[@"_id"]);
+        }) reduceBlock: nil version: @"2"]; // bump version any time you change the MAPBLOCK body!
+    }
+    return [view createQuery];
+
 }
 
 @end

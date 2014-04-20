@@ -11,26 +11,30 @@
 
 @interface Note : CBLModel
 
-+(CBLQuery*) noteInDB: (CBLDatabase*)db
++(CBLQuery*) getNoteInDB: (CBLDatabase*)db
                forUserID: (NSString*)userID
              withSubject: (NSString*)subject;
 
-+(CBLQuery*) allNotesInDB: (CBLDatabase*)db
++(CBLQuery*) getNotesInDB: (CBLDatabase*)db
+                forUserID: (NSString*)userID
+                  withTag: (NSString*)tag;
+
++(CBLQuery*) getAllNotesInDB: (CBLDatabase*)db
               forUserID: (NSString*)userID;
 
-+(CBLQuery*) notesInDB: (CBLDatabase*)db
-             forUserID: (NSString*)userID
-               withTag: (NSString*)tag;
-
-+(CBLQuery*) favNotesFromDB:(CBLDatabase *)db
++(CBLQuery*) getFavNotesFromDB:(CBLDatabase *)db
                   forUserID:(NSString *)userID;
+
++(CBLQuery*) getTagsFromDB:(CBLDatabase *)db
+                 forUserID:(NSString *)userID;
 
 -(instancetype) initNoteInDB: (CBLDatabase*)db
                    forUserID: (NSString*)userID
                  withSubject: (NSString*)subject
                     withBody: (NSString*)body
                withLongitute: (NSString*)longitude
-                withLatitude: (NSString*)latitude;
+                withLatitude: (NSString*)latitude
+                    withTags: (NSArray*)tags;
 
 +(instancetype) getNoteFromDB: (CBLDatabase*) db
                        withID: (NSString*) noteID;
