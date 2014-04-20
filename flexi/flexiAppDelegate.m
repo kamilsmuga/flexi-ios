@@ -57,13 +57,14 @@
 
     LoginVC *frontViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"loginVC"];
     
-    UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
+    //UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
+    
     SearchVC *rightViewController = [[SearchVC alloc] init];
     rightViewController.view.backgroundColor = [UIColor redColor];
-    ProfileVC *leftViewController = [[ProfileVC alloc] init];
+    ProfileVC *leftViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"profileVC"];
     
     // Step 2: Instantiate.
-    self.revealController = [PKRevealController revealControllerWithFrontViewController:frontNavigationController
+    self.revealController = [PKRevealController revealControllerWithFrontViewController:frontViewController
                                                                      leftViewController:leftViewController
                                                                     rightViewController:rightViewController];
     // Step 3: Configure.

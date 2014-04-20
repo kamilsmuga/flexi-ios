@@ -12,9 +12,9 @@
 #import "Profile.h"
 #import "DBTestDataFeed.h"
 #import "Note.h"
+#import "ProfileVC.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import <CouchbaseLite/CouchbaseLite.h>
-#import "PKRevealController.h"
 
 
 @interface LoginVC ()
@@ -23,6 +23,7 @@
 @property (weak, nonatomic) CBLDatabase *db;
 @property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) PKRevealController *pk;
 @property (nonatomic) BOOL debug;
 @end
 
@@ -35,6 +36,14 @@
     }
     return _db;
 }
+
+
+-(void)viewDidLoad
+{
+    [self.navigationController setNavigationBarHidden:YES];
+
+}
+
 
 // Logged-in user experience
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
@@ -69,7 +78,7 @@
         
         if (self.debug) {
             NSLog(@"This is an existing user.");
-            NSLog(@"profile email: %@", existingProfile.userID);
+            NSLog(@"profile name: %@", existingProfile.name);
             NSLog(@"member since: %@", existingProfile.joined);
             NSLog(@"last login: %@", existingProfile.lastLogin);
         }
@@ -98,6 +107,9 @@
     NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
     MainCVC *main = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mainCVC"];
     main.userID = self.email;
+    
+    ((ProfileVC*)self.revealController.leftViewController).profile = existingProfile;
+    self.pk = self.revealController;
     [self.revealController setFrontViewController:main];
 
 }
@@ -120,6 +132,8 @@
             NSLog(@"Error while trying to save attachment under profile %@", self.email);
         }
     }
+    NSLog(@"self revealcontroller: %@" , self.pk);
+    ((ProfileVC*)self.pk.leftViewController).picture = self.imageData;
 }
 
 // Logged-out user experience
@@ -169,15 +183,6 @@
                                    delegate:nil
                           cancelButtonTitle:@"OK"
                           otherButtonTitles:nil] show];
-    }
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if ([[segue identifier] isEqualToString:@"toMainView"]) {
-        MainCVC *secondController = [segue destinationViewController];
-        self.fbView.delegate = secondController;
-        secondController.userID = self.email;
     }
 }
 

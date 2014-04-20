@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "Profile.h"
 
 @interface ProfileVC : UIViewController 
+@property (strong, nonatomic) IBOutlet UIImageView *profilePic;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (strong, nonatomic) Profile *profile;
+@property (strong, nonatomic) NSMutableData *picture;
 
 @end
