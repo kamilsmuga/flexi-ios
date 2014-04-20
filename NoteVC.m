@@ -12,8 +12,6 @@
 
 
 @interface NoteVC ()
-@property (strong, nonatomic) IBOutlet UITextView *bodyText;
-@property (weak, nonatomic) IBOutlet UITextView *subjectText;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSArray *newTags;
 @property (strong, nonatomic) NSArray *existingTags;
@@ -43,7 +41,6 @@
                     continue;
                 }
                 [self.tagsSource addObject:tag];
-                NSLog(@"tag: %@", tag);
             }
         }
     }
@@ -112,7 +109,15 @@
 	[_tokenFieldView.tokenField setPlaceholder:@"Enter associated tags"];
     
     [_tokenFieldView.tokenField addTokensWithTitleArray:self.existingTags];
-
+    
+    if (self.note) {
+        self.bodyText.text = self.note.body;
+        self.subjectText.text = self.note.subject;
+    }
+    
+    [self.view addSubview:self.bodyText];
+    [self.view addSubview:self.subjectText];
+    [self.subjectText becomeFirstResponder];
 }
 
 

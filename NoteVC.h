@@ -17,4 +17,6 @@
 @property (nonatomic, weak) CBLDatabase *db;
 @property (strong, nonatomic) NSString* userID;
 @property (strong, nonatomic) Note* note;
+@property (strong, nonatomic) IBOutlet UITextView *bodyText;
+@property (weak, nonatomic) IBOutlet UITextView *subjectText;
 @end
