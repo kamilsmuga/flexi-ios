@@ -12,7 +12,6 @@
 #import "flexiAppDelegate.h"
 #import "DBTestDataFeed.h"
 #import "Note.h"
-#import "PKRevealController.h"
 #import "NoteVC.h"
 #import "MapVC.h"
 
@@ -26,7 +25,6 @@
 @property (nonatomic, weak) IBOutlet UIButton *favButton;
 @property (weak, nonatomic) IBOutlet UIImageView *map;
 @property (weak, nonatomic) IBOutlet UIImageView *favsView;
-@property (nonatomic, readwrite) NSMutableArray *data;
 @end
 
 @implementation MainCVC

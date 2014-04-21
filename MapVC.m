@@ -9,9 +9,11 @@
 #import "MapVC.h"
 #import "Note.h"
 #import "NoteMapAnnotation.h"
+#import "MainCVC.h"
 
 @interface MapVC ()
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIImageView *back;
 @property (nonatomic, strong) id<MKAnnotation> annotation;
 @end
 
@@ -32,7 +34,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForBack)];
+    self.back.userInteractionEnabled = YES;
+    [self.back addGestureRecognizer:singleTap];
     [self loadDataAsynch];
+}
+
+-(void) addTapDetectedForBack
+{
+    
+    MainCVC *main = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mainCVC"];
+    main.userID = self.userID;
+    [self.revealController setFrontViewController:main];
+    [self.revealController showViewController:[self.revealController frontViewController] animated:YES completion:nil];
 }
 
 - (void) loadDataAsynch
@@ -79,7 +93,7 @@
         // if an existing pin view was not available, create one
         MKPinAnnotationView *customPinView = [[MKPinAnnotationView alloc]
                                               initWithAnnotation:annotation reuseIdentifier:pinIdentifier];
-        customPinView.pinColor = MKPinAnnotationColorGreen;
+        customPinView.pinColor = MKPinAnnotationColorPurple;
         customPinView.animatesDrop = YES;
         customPinView.canShowCallout = YES;
         

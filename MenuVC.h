@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import "Profile.h"
+#import "PKRevealController.h"
 
-@interface ProfileVC : UIViewController 
+@interface MenuVC : UIViewController 
 @property (strong, nonatomic) IBOutlet UIImageView *profilePic;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (strong, nonatomic) Profile *profile;

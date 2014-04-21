@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "PKRevealController.h"
 
 @interface MapVC : UIViewController <MKMapViewDelegate>
 @property (nonatomic, readwrite) NSMutableArray *data;
+@property (nonatomic, strong) NSString *userID;
 @end

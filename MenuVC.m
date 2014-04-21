@@ -6,14 +6,16 @@
 //  Copyright (c) 2014 iOSGo!. All rights reserved.
 //
 
-#import "ProfileVC.h"
+#import "MenuVC.h"
+#import "MapVC.h"
+#import "MainCVC.h"
 
-@interface ProfileVC ()
-
+@interface MenuVC ()
+@property (weak, nonatomic) IBOutlet UIView *places;
 
 @end
 
-@implementation ProfileVC
+@implementation MenuVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,6 +30,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForPlaces)];
+    self.places.userInteractionEnabled = YES;
+    [self.places addGestureRecognizer:singleTap];
+
+}
+
+-(void)addTapDetectedForPlaces
+{
+    MapVC *map = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mapVC"];
+    map.data = ((MainCVC*)self.revealController.frontViewController).data;
+    map.userID = ((MainCVC*)self.revealController.frontViewController).userID;
+    [self.revealController setFrontViewController:map];
+    [self.revealController showViewController:[self.revealController frontViewController] animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

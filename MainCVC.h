@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import <CoreLocation/CoreLocation.h>
+#import "PKRevealController.h"
 
 @interface MainCVC : UICollectionViewController <FBLoginViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate>
 
@@ -18,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (weak, nonatomic) IBOutlet UICollectionView *collView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
+@property (nonatomic, readwrite) NSMutableArray *data;
 
 @end

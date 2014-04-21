@@ -12,7 +12,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "PKRevealController.h"
 #import "SearchVC.h"
-#import "ProfileVC.h"
+#import "MenuVC.h"
 
 
 // name of local database stored in iOS
@@ -33,6 +33,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [FBProfilePictureView class];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
     // store remoteDBUrl in UserDefaults
     #ifdef remoteDBUrl
@@ -64,7 +66,7 @@
     
     SearchVC *rightViewController = [[SearchVC alloc] init];
     rightViewController.view.backgroundColor = [UIColor redColor];
-    ProfileVC *leftViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"profileVC"];
+    MenuVC *leftViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"profileVC"];
     
     // Step 2: Instantiate.
     self.revealController = [PKRevealController revealControllerWithFrontViewController:frontViewController

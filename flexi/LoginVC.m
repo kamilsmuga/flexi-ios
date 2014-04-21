@@ -12,7 +12,7 @@
 #import "Profile.h"
 #import "DBTestDataFeed.h"
 #import "Note.h"
-#import "ProfileVC.h"
+#import "MenuVC.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import <CouchbaseLite/CouchbaseLite.h>
 
@@ -131,7 +131,7 @@
     main.userID = self.email;
     
     Profile *existingProfile = [Profile profileInDatabase:self.db  forUserID:email];
-    ((ProfileVC*)self.revealController.leftViewController).profile = existingProfile;
+    ((MenuVC*)self.revealController.leftViewController).profile = existingProfile;
     self.pk = self.revealController;
     [self.revealController setFrontViewController:main];
 }
@@ -154,7 +154,7 @@
             NSLog(@"Error while trying to save attachment under profile %@", self.email);
         }
     }
-    ((ProfileVC*)self.pk.leftViewController).picture = self.imageData;
+    ((MenuVC*)self.pk.leftViewController).picture = self.imageData;
 }
 
 // Logged-out user experience
