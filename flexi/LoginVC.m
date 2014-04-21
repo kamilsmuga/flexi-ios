@@ -75,7 +75,6 @@
     self.fbView = loginView;
     
     self.debug = YES;
-    NSError *error = nil;
     
     NSString *email = [user objectForKey:@"email"];
     
@@ -127,6 +126,7 @@
                                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                           timeoutInterval:2.0f];
     NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+    [urlConnection self];
     MainCVC *main = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mainCVC"];
     main.userID = self.email;
     

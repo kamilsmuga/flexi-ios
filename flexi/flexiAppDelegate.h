@@ -22,6 +22,4 @@
 @property (strong, nonatomic) CBLSyncManager *cblSync;
 @property (strong, nonatomic) UINavigationController *navigationController;
 
-- (void)loginAndSync:(void (^)())complete;
-
 @end

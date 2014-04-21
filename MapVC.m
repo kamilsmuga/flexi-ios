@@ -102,9 +102,7 @@
 
 -(void)showDetails:(UIButton *)sender
 {
-  //  MKPinAnnotationView *view = (MKPinAnnotationView*)[sender superview];
-    
-    NSLog(@"Showing details: %@");
+
 }
 
 - (void)didReceiveMemoryWarning
