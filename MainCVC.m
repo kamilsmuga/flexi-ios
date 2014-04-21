@@ -18,6 +18,7 @@
 
 
 @interface MainCVC ()
+@property (weak, nonatomic) IBOutlet UIImageView *menu;
 @property (weak, nonatomic) IBOutlet UIImageView *addNote;
 @property (nonatomic, weak) CBLDatabase *db;
 @property (nonatomic) BOOL debug;
@@ -58,13 +59,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self setNeedsStatusBarAppearanceUpdate];
     // Do any additional setup after loading the view.
     
     self.revealController.frontViewController.revealController.recognizesPanningOnFrontView = YES;
     if (!self.picture.image) {
         [self loadPictureAndName];
     }
-    
     
     // init data source object
     NSError *error;
@@ -77,7 +79,6 @@
     }
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForNew)];
-    
     singleTap.numberOfTapsRequired = 1;
     self.addNote.userInteractionEnabled = YES;
     [self.addNote addGestureRecognizer:singleTap];
@@ -90,11 +91,24 @@
     self.favsView.userInteractionEnabled = YES;
     [self.favsView addGestureRecognizer:singleTap];
     
+    singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForMenu)];
+    self.menu.userInteractionEnabled = YES;
+    [self.menu addGestureRecognizer:singleTap];
+    
     UITapGestureRecognizer *doubleTapFolderGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(processDoubleTap:)];
     [doubleTapFolderGesture setNumberOfTapsRequired:2];
     [doubleTapFolderGesture setNumberOfTouchesRequired:1];
     [self.collView addGestureRecognizer:doubleTapFolderGesture];
     
+}
+
+
+#pragma mark Button related methods
+
+
+-(void) addTapDetectedForMenu
+{
+    [self.revealController showViewController:[self.revealController leftViewController]];
 }
 
 -(void) processDoubleTap:(UIGestureRecognizer *) sender
@@ -142,6 +156,37 @@
     self.data = newData;
     [self.collView reloadData];
 }
+
+
+- (IBAction)doFavButton:(UIButton*)sender
+{
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.collView];
+    NSIndexPath *indexPath = [self.collView indexPathForItemAtPoint:buttonPosition];
+    Note *note;
+    note = (Note*)[self.data objectAtIndex:indexPath.section];
+    NSError *error;
+    if (note.isFav) {
+        ((Note*)[self.data objectAtIndex:indexPath.section]).isFav = NO;
+        [note save:&error];
+        UIImage *btnImage = [UIImage imageNamed:@"star-off"];
+        sender.selected = NO;
+        [sender setImage:btnImage forState:UIControlStateNormal];
+    }
+    else {
+        ((Note*)[self.data objectAtIndex:indexPath.section]).isFav = YES;
+        [note save:&error];
+        UIImage *btnImage = [UIImage imageNamed:@"star-on"];
+        sender.selected = YES;
+        [sender setImage:btnImage forState:UIControlStateSelected];
+    }
+    if (error) {
+        NSLog(@"Error while trying to add to favorites");
+    }
+}
+
+
+
+#pragma mark other
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
@@ -208,31 +253,8 @@
     
 }
 
-
-- (IBAction)doFavButton:(UIButton*)sender
-{
-    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.collView];
-    NSIndexPath *indexPath = [self.collView indexPathForItemAtPoint:buttonPosition];
-    Note *note;
-    note = (Note*)[self.data objectAtIndex:indexPath.section];
-    NSError *error;
-    if (note.isFav) {
-        ((Note*)[self.data objectAtIndex:indexPath.section]).isFav = NO;
-        [note save:&error];
-        UIImage *btnImage = [UIImage imageNamed:@"star-off"];
-        sender.selected = NO;
-        [sender setImage:btnImage forState:UIControlStateNormal];
-    }
-    else {
-        ((Note*)[self.data objectAtIndex:indexPath.section]).isFav = YES;
-        [note save:&error];
-        UIImage *btnImage = [UIImage imageNamed:@"star-on"];
-        sender.selected = YES;
-        [sender setImage:btnImage forState:UIControlStateSelected];
-    }
-    if (error) {
-        NSLog(@"Error while trying to add to favorites");
-    }
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
 }
 
 @end
