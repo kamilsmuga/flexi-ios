@@ -16,10 +16,10 @@
 
 
 // name of local database stored in iOS
-#define localDBName @"flexi-sync"
+#define localDBName @"flexi"
 // remote DB URL
-#define remoteDBUrl @"http://sync.couchbasecloud.com/flexidb/"
-// #define kFBAppId @"241876219329233"
+#define remoteDBUrl @"http://192.168.1.11:4985/flexi/"
+#define kFBAppId @"241876219329233"
 
 @interface flexiAppDelegate () <PKRevealing>
 
@@ -46,11 +46,14 @@
     // create or attach to a local DB in iOS
     CBLManager *manager = [CBLManager sharedInstance];
     NSError *error;
-    self.database = [manager databaseNamed: @"flexi" error: &error];
+    self.database = [manager databaseNamed: localDBName error: &error];
     if (error) {
         NSLog(@"error getting database %@",error);
         exit(-1);
     }
+    
+    // setup local <-> remote DB synch    
+    // [self setupCBLSync];
     
     
     // Step 1: Create your controllers.
@@ -104,6 +107,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}  
+}
 
 @end

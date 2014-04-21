@@ -25,7 +25,16 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) PKRevealController *pk;
 @property (nonatomic) BOOL debug;
+@property (strong, nonatomic) CBLDatabase *database;
+@property (strong, nonatomic) CBLSyncManager *cblSync;
+@property (nonatomic) BOOL visited;
 @end
+
+// name of local database stored in iOS
+#define localDBName @"flexi"
+// remote DB URL
+#define remoteDBUrl @"http://192.168.1.11:4985/flexi/"
+#define kFBAppId @"241876219329233"
 
 @implementation LoginVC
 
@@ -41,6 +50,7 @@
 -(void)viewDidLoad
 {
     [self.navigationController setNavigationBarHidden:YES];
+    self.visited = NO;
 
 }
 
@@ -52,6 +62,15 @@
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
+    
+    [self setupCBLSync];
+    if (!self.visited) {
+        self.visited = YES;
+        [self loginAndSync: ^(){
+            NSLog(@"called complete loginAndSync");
+        }];
+    }
+    
     self.email = [user objectForKey:@"email"];
     self.fbView = loginView;
     
@@ -60,6 +79,7 @@
     
     NSString *email = [user objectForKey:@"email"];
     
+    /*
     Profile *existingProfile = [Profile profileInDatabase:self.db  forUserID:email];
     
     if (!existingProfile) {
@@ -83,9 +103,11 @@
             NSLog(@"last login: %@", existingProfile.lastLogin);
         }
     }
+     
     if (error) {
         NSLog(@"Error while trying to save the profile. This is bad!");
     }
+    */
     
     /*
     [DBTestDataFeed populateRandomNotesInDB:self.db forUserID:email];
@@ -108,10 +130,10 @@
     MainCVC *main = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mainCVC"];
     main.userID = self.email;
     
+    Profile *existingProfile = [Profile profileInDatabase:self.db  forUserID:email];
     ((ProfileVC*)self.revealController.leftViewController).profile = existingProfile;
     self.pk = self.revealController;
     [self.revealController setFrontViewController:main];
-
 }
 
 // Called every time a chunk of the data is received
@@ -132,7 +154,6 @@
             NSLog(@"Error while trying to save attachment under profile %@", self.email);
         }
     }
-    NSLog(@"self revealcontroller: %@" , self.pk);
     ((ProfileVC*)self.pk.leftViewController).picture = self.imageData;
 }
 
@@ -183,6 +204,57 @@
                                    delegate:nil
                           cancelButtonTitle:@"OK"
                           otherButtonTitles:nil] show];
+    }
+}
+
+#pragma mark - CouchDB synch
+
+- (void)setupCBLSync {
+    _cblSync = [[CBLSyncManager alloc] initSyncForDatabase:self.db withURL:[NSURL URLWithString:remoteDBUrl]];
+    
+    // Tell the Sync Manager to use Facebook for login.
+    _cblSync.authenticator = [[CBLFacebookAuthenticator alloc] initWithAppID:kFBAppId];
+    
+    if (_cblSync.userID) {
+        // we are logged in, go ahead and sync
+        [_cblSync start];
+    } else {
+        // Application callback to create the user profile.
+        // this will be triggered after we call [_cblSync start]
+        
+        [_cblSync beforeFirstSync:^(NSString *userID, NSDictionary *userData,  NSError **outError) {
+            [self performSelectorOnMainThread:@selector(runBlock:) withObject:^{
+                [self updateMyLists:userID userData:userData outError:outError];
+            } waitUntilDone:YES];
+        }];
+        
+    }
+}
+
+- (void)runBlock:(void (^)())block {
+    block();
+}
+
+- (void)updateMyLists:(NSString *)userID userData:(NSDictionary *)userData outError:(NSError **)outError {
+    // This is a first run, setup the profile but don't save it yet.
+    
+    Profile *myProfile = [[Profile alloc] initCurrentUserProfileInDatabase:self.db withName:userData[@"name"] andUserID:userID];
+    
+    // Sync doesn't start until after this block completes, so
+    // all this data will be tagged.
+    if (!outError) {
+        [myProfile save:outError];
+    }
+}
+
+- (void)loginAndSync:(void (^)())complete {
+    if (_cblSync.userID) {
+        complete();
+    } else {
+        [_cblSync beforeFirstSync:^(NSString *userID, NSDictionary *userData, NSError **outError) {
+            complete();
+        }];
+        [_cblSync start];
     }
 }
 

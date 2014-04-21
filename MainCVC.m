@@ -16,6 +16,7 @@
 #import "NoteVC.h"
 #import "MapVC.h"
 
+
 @interface MainCVC ()
 @property (weak, nonatomic) IBOutlet UIImageView *addNote;
 @property (nonatomic, weak) CBLDatabase *db;
@@ -58,6 +59,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     self.revealController.frontViewController.revealController.recognizesPanningOnFrontView = YES;
     if (!self.picture.image) {
         [self loadPictureAndName];
@@ -92,6 +94,7 @@
     [doubleTapFolderGesture setNumberOfTapsRequired:2];
     [doubleTapFolderGesture setNumberOfTouchesRequired:1];
     [self.collView addGestureRecognizer:doubleTapFolderGesture];
+    
 }
 
 -(void) processDoubleTap:(UIGestureRecognizer *) sender
