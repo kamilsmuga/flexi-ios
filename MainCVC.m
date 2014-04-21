@@ -23,7 +23,6 @@
 @property (nonatomic) BOOL debug;
 @property (nonatomic) Profile *profile;
 @property (nonatomic, weak) IBOutlet UIButton *favButton;
-@property (weak, nonatomic) IBOutlet UIImageView *map;
 @property (weak, nonatomic) IBOutlet UIImageView *favsView;
 @end
 
@@ -62,9 +61,6 @@
     // Do any additional setup after loading the view.
     
     self.revealController.frontViewController.revealController.recognizesPanningOnFrontView = YES;
-    if (!self.picture.image) {
-        [self loadPictureAndName];
-    }
     
     // init data source object
     NSError *error;
@@ -80,10 +76,6 @@
     singleTap.numberOfTapsRequired = 1;
     self.addNote.userInteractionEnabled = YES;
     [self.addNote addGestureRecognizer:singleTap];
-    
-    singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForMap)];
-    self.map.userInteractionEnabled = YES;
-    [self.map addGestureRecognizer:singleTap];
     
     singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForFavs)];
     self.favsView.userInteractionEnabled = YES;
@@ -124,13 +116,6 @@
             [self.revealController setFrontViewController:new];
         }
     }
-}
-
--(void)addTapDetectedForMap {
-    MapVC *map = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mapVC"];
-    map.data = self.data;
-    [self.revealController setRightViewController:map];
-    [self.revealController showViewController:[self.revealController rightViewController]];
 }
 
 -(void)addTapDetectedForNew {
@@ -186,22 +171,6 @@
 
 #pragma mark other
 
-- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
-                            user:(id<FBGraphUser>)user {
-    if (!self.picture.image) {
-        [self loadPictureAndName];
-    }
-}
-
--(void)loadPictureAndName
-{
-    CBLAttachment *at = [self.profile attachmentNamed:@"profilePicture"];
-    NSData *imgData = [at content];
-    UIImage *img = [UIImage imageWithData:imgData];
-    self.picture = [self.picture initWithImage:img];
-    self.picture.userInteractionEnabled = YES;
-    self.nameLabel.text = [self.profile.name componentsSeparatedByString:@" "][0];
-}
 
 
 #pragma mark Collection View Methods

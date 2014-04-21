@@ -260,7 +260,7 @@
         <!--MenuVC-->
         <scene sceneID="Y6t-Rn-5Fk">
             <objects>
-                <viewController storyboardIdentifier="profileVC" id="Aj1-iZ-May" customClass="MenuVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menuVC" id="Aj1-iZ-May" customClass="MenuVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L4A-HJ-Eyl"/>
                         <viewControllerLayoutGuide type="bottom" id="Mek-KC-O9j"/>
@@ -288,6 +288,64 @@
                                 <color key="backgroundColor" red="0.28627450980000002" green="0.12549019610000001" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.28627450980000002" green="0.12549019610000001" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k1r-0o-3IT">
+                                <rect key="frame" x="0.0" y="98" width="320" height="70"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tags" translatesAutoresizingMaskIntoConstraints="NO" id="bFh-j5-Cg0">
+                                        <rect key="frame" x="18" y="25" width="22" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tags" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kbx-sh-khF">
+                                        <rect key="frame" x="48" y="10" width="280" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.28627450980000002" green="0.12549019610000001" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.28627450980000002" green="0.12549019610000001" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7zE-wT-C3o">
+                                <rect key="frame" x="46" y="176" width="254" height="311"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.28627450980000002" green="0.12549019610000001" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.28627450980000002" green="0.12549019610000001" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tQr-m7-m1X">
+                                    <size key="itemSize" width="253" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tagCell" id="YsX-mZ-mDi">
+                                        <rect key="frame" x="1" y="0.0" width="253" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="253" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyw-5l-pPb">
+                                                    <rect key="frame" x="5" y="14" width="22" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" tag="300" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjz-Oh-0bV">
+                                                    <rect key="frame" x="29" y="14" width="224" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.28627450980000002" green="0.12549019610000001" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.28627450980000002" green="0.12549019610000001" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -362,6 +420,7 @@
         <image name="mini_logo" width="22" height="15"/>
         <image name="new_note" width="85" height="29"/>
         <image name="places" width="16" height="22"/>
+        <image name="tags" width="22" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

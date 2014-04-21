@@ -11,10 +11,10 @@
 #import "Profile.h"
 #import "PKRevealController.h"
 
-@interface MenuVC : UIViewController 
-@property (strong, nonatomic) IBOutlet UIImageView *profilePic;
-@property (weak, nonatomic) IBOutlet UILabel *name;
+@interface MenuVC : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+
 @property (strong, nonatomic) Profile *profile;
 @property (strong, nonatomic) NSMutableData *picture;
+@property (nonatomic, readwrite) NSMutableArray *data;
 
 @end

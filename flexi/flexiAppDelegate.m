@@ -65,8 +65,7 @@
     //UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
     
     SearchVC *rightViewController = [[SearchVC alloc] init];
-    rightViewController.view.backgroundColor = [UIColor redColor];
-    MenuVC *leftViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"profileVC"];
+    MenuVC *leftViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"menuVC"];
     
     // Step 2: Instantiate.
     self.revealController = [PKRevealController revealControllerWithFrontViewController:frontViewController
