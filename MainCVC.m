@@ -171,7 +171,16 @@
 
 #pragma mark other
 
-
+-(void) displayForTag:(NSString*)tag
+{
+    NSMutableArray *new_data = [[NSMutableArray alloc] init];
+    for (Note* note in self.data) {
+        if ([note.tags containsObject:tag])
+            [new_data addObject:note];
+    }
+    self.data = new_data;
+    [self.collView reloadData];
+}
 
 #pragma mark Collection View Methods
 

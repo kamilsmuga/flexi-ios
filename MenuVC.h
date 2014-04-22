@@ -18,3 +18,9 @@
 @property (nonatomic, readwrite) NSMutableArray *data;
 
 @end
+
+@interface MYTapGestureRecognizer : UITapGestureRecognizer
+
+@property (nonatomic, strong) NSString *name;
+
+@end

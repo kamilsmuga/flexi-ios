@@ -15,6 +15,11 @@
 @interface MenuVC ()
 @property (weak, nonatomic) IBOutlet UIView *places;
 @property (strong, nonatomic) NSMutableDictionary *tagsSource;
+@property (weak, nonatomic) IBOutlet UIView *tag1;
+@property (weak, nonatomic) IBOutlet UIView *tag2;
+@property (weak, nonatomic) IBOutlet UIView *tag3;
+@property (weak, nonatomic) IBOutlet UIView *tag4;
+@property (weak, nonatomic) IBOutlet UIView *tag5;
 @property (strong, nonatomic) CBLDatabase *db;
 @end
 
@@ -27,6 +32,14 @@
         _db = ((flexiAppDelegate*)[UIApplication sharedApplication].delegate).database;
     }
     return _db;
+}
+
+-(NSMutableArray*) data
+{
+    if (!_data) {
+        _data = [[NSMutableArray alloc] init];
+    }
+    return _data;
 }
 
 -(NSMutableDictionary*) tagsSource
@@ -70,7 +83,13 @@
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForPlaces)];
     self.places.userInteractionEnabled = YES;
     [self.places addGestureRecognizer:singleTap];
+    
+    }
 
+-(void)addTapDetectedForTag:(MYTapGestureRecognizer *)sender
+{
+    MainCVC *main = ((MainCVC*)self.revealController.frontViewController);
+    [main displayForTag:sender.name];
 }
 
 -(void)addTapDetectedForPlaces
@@ -107,21 +126,69 @@
     UICollectionViewCell *cell;
 
     cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"tagCell" forIndexPath:indexPath];
-  //  note = (Note*)[self.data objectAtIndex:indexPath.section];
-
+    
+    UILabel *tag = (UILabel*) [cell viewWithTag:300];
+    [tag setText:[self.data objectAtIndex:indexPath.section]];
     
     return cell;
     
 }
 
+
 -(void) viewDidAppear:(BOOL)animated
 {
     
     self.tagsSource = nil;
-     for (id key in self.tagsSource) {
-     NSLog(@"key: %@, value: %@ \n", key, [self.tagsSource objectForKey:key]);
-     }
     
+    [self.data addObjectsFromArray:[self sortedTags]];
+    [self updateTagsOnUI];
+    
+    MYTapGestureRecognizer *mySingleTap = [[MYTapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForTag:)];
+    MYTapGestureRecognizer *mySingleTap2 = [[MYTapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForTag:)];
+    MYTapGestureRecognizer *mySingleTap3 = [[MYTapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForTag:)];
+    MYTapGestureRecognizer *mySingleTap4 = [[MYTapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForTag:)];
+    MYTapGestureRecognizer *mySingleTap5 = [[MYTapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForTag:)];
+    
+    mySingleTap.name = ((UILabel*) [self.view viewWithTag:1]).text;
+    self.tag1.userInteractionEnabled = YES;
+    [self.tag1 addGestureRecognizer:mySingleTap];
+    
+    mySingleTap2.name = ((UILabel*) [self.view viewWithTag:2]).text;
+    self.tag2.userInteractionEnabled = YES;
+    [self.tag2 addGestureRecognizer:mySingleTap2];
+    
+    mySingleTap3.name = ((UILabel*) [self.view viewWithTag:3]).text;
+    self.tag3.userInteractionEnabled = YES;
+    [self.tag3 addGestureRecognizer:mySingleTap3];
+    
+    mySingleTap4.name = ((UILabel*) [self.view viewWithTag:4]).text;
+    self.tag4.userInteractionEnabled = YES;
+    [self.tag4 addGestureRecognizer:mySingleTap4];
+    
+    mySingleTap5.name = ((UILabel*) [self.view viewWithTag:5]).text;
+    self.tag5.userInteractionEnabled = YES;
+    [self.tag5 addGestureRecognizer:mySingleTap5];
+
+}
+
+-(void) updateTagsOnUI
+{
+    if ([self.data count] == 0) {
+        [self.data addObjectsFromArray:[self sortedTags]];
+    }
+    int size = [self.data count];
+    if (size > 5) {
+        size = 5;
+    }
+    for (int i=0; i<size; i++) {
+        NSString *tag = [self.data objectAtIndex:i];
+        UILabel *label = (UILabel*) [self.view viewWithTag:i+1];
+        [label setText:tag];
+    }
+}
+
+-(NSArray*) sortedTags
+{
     NSArray *myArray;
     
     myArray = [self.tagsSource keysSortedByValueUsingComparator: ^(id obj1, id obj2) {
@@ -138,9 +205,13 @@
         return (NSComparisonResult)NSOrderedSame;
     }];
     
-    for (id obj in myArray) {
-        NSLog(@"sorted obj: %@", obj);
-    }
+    return myArray;
 }
+
+@end
+
+
+
+@implementation MYTapGestureRecognizer
 
 @end

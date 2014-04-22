@@ -19,4 +19,6 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (nonatomic, readwrite) NSMutableArray *data;
 
+-(void) displayForTag:(NSString*)tag;
+
 @end

@@ -5,15 +5,17 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>D36ECD35-D67A-4403-A24F-FF4374DECFCC</string>
+	<string>523C98D6-EDC2-434E-81DD-F6E2AF452880</string>
 	<key>IDESourceControlProjectName</key>
 	<string>flexi</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>27E79296-9648-4A7D-80C1-EC1655C7C07E</key>
 		<string>https://github.com/kamilsmuga/flexi.git</string>
-		<key>6763CD52-5D12-4C99-B8B6-11817BDEB52F</key>
-		<string>https://github.com/couchbaselabs/ToDoLite-iOS.git</string>
+		<key>8BEBB98C-99F4-48D0-AFC8-783FE818139A</key>
+		<string>https://github.com/pkluz/PKRevealController.git</string>
+		<key>A8C6B49E-242E-43C3-897F-BD713007AE87</key>
+		<string>https://github.com/kamilsmuga/ToDoLite-iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>flexi.xcodeproj/project.xcworkspace</string>
@@ -21,11 +23,13 @@
 	<dict>
 		<key>27E79296-9648-4A7D-80C1-EC1655C7C07E</key>
 		<string>../..</string>
-		<key>6763CD52-5D12-4C99-B8B6-11817BDEB52F</key>
+		<key>8BEBB98C-99F4-48D0-AFC8-783FE818139A</key>
+		<string>../../PKRevealController</string>
+		<key>A8C6B49E-242E-43C3-897F-BD713007AE87</key>
 		<string>../../../ToDoLite-iOS</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>file:///Users/ks/workspace/flexi/flexi.xcodeproj/project.xcworkspace/</string>
+	<string>https://github.com/kamilsmuga/flexi.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -44,7 +48,15 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>6763CD52-5D12-4C99-B8B6-11817BDEB52F</string>
+			<string>8BEBB98C-99F4-48D0-AFC8-783FE818139A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PKRevealController</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>A8C6B49E-242E-43C3-897F-BD713007AE87</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ToDoLite-iOS</string>
 		</dict>
