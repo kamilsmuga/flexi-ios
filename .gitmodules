@@ -4,3 +4,6 @@
 [submodule "TITokenField"]
 	path = TITokenField
 	url = https://github.com/thermogl/TITokenField.git
+[submodule "tapkulibrary"]
+	path = tapkulibrary
+	url = https://github.com/devinross/tapkulibrary.git
