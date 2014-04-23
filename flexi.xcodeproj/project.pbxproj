@@ -104,7 +104,6 @@
 		12C55B7918FABB92001BF3CB /* TimelineVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineVC.m; sourceTree = "<group>"; };
 		12E24E5418FAE870008C20CB /* PKRevealController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PKRevealController.xcodeproj; path = PKRevealController/Source/PKRevealController.xcodeproj; sourceTree = "<group>"; };
 		12E24E5B18FAE8F6008C20CB /* PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKRevealController.h; path = PKRevealController/Headers/PKRevealController.h; sourceTree = "<group>"; };
-		12E24E5C18FAE8F6008C20CB /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+PKRevealController.h"; path = "PKRevealController/Headers/UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
 		12E24E6318FAE9E7008C20CB /* PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKRevealController.h; path = Headers/PKRevealController.h; sourceTree = "<group>"; };
 		12E24E6418FAE9E7008C20CB /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+PKRevealController.h"; path = "Headers/UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
 		12E24EB719003D69008C20CB /* NoteMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteMapAnnotation.h; sourceTree = "<group>"; };
@@ -218,8 +217,6 @@
 		4823FA641888A41B0098E269 = {
 			isa = PBXGroup;
 			children = (
-				484EC4ED1907E6DD000FC165 /* TapkuLibrary.bundle */,
-				484EC4EE1907E6DD000FC165 /* TapkuLibrary.xcodeproj */,
 				488AFA2F18F2F8A500621DDE /* Synch */,
 				488AFA2E18F2F88700621DDE /* Controller */,
 				488AFA2A18F2C5FF00621DDE /* Model */,
@@ -242,6 +239,8 @@
 		4823FA6F1888A41B0098E269 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				484EC4ED1907E6DD000FC165 /* TapkuLibrary.bundle */,
+				484EC4EE1907E6DD000FC165 /* TapkuLibrary.xcodeproj */,
 				484EC4FB1907E7BE000FC165 /* QuartzCore.framework */,
 				4811EFB418FF3A5F00866113 /* MapKit.framework */,
 				12E24E5D18FAE9E7008C20CB /* PKRevealController */,
@@ -332,7 +331,6 @@
 			isa = PBXGroup;
 			children = (
 				12E24E5B18FAE8F6008C20CB /* PKRevealController.h */,
-				12E24E5C18FAE8F6008C20CB /* UIViewController+PKRevealController.h */,
 				4823FA851888A41B0098E269 /* LoginVC.h */,
 				4823FA861888A41B0098E269 /* LoginVC.m */,
 				122B69F318D475A2004AF481 /* MainCVC.h */,

@@ -22,7 +22,6 @@
 @property (nonatomic, weak) CBLDatabase *db;
 @property (nonatomic) BOOL debug;
 @property (nonatomic) Profile *profile;
-@property (nonatomic, weak) IBOutlet UIButton *favButton;
 @property (weak, nonatomic) IBOutlet UIImageView *favsView;
 @end
 
@@ -246,7 +245,7 @@
     UILabel *subject = (UILabel*) [cell viewWithTag:100];
     UILabel *body = (UILabel*) [cell viewWithTag:101];
     UILabel *date = (UILabel*) [cell viewWithTag:102];
-    UIButton *fav = (UIButton*) [cell viewWithTag:200];
+    UIButton *fav = (UIButton*) [cell viewWithTag:400];
     
     subject.text = note.subject;
     body.text = note.body;
