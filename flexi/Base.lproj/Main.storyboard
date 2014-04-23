@@ -644,7 +644,7 @@
         <image name="done" width="60" height="30"/>
         <image name="edit" width="590" height="486"/>
         <image name="favs" width="522" height="498"/>
-        <image name="launchimage-new" width="640" height="1136"/>
+        <image name="launchimage-new" width="640" height="960"/>
         <image name="logout" width="19" height="18"/>
         <image name="menu" width="43" height="29"/>
         <image name="mini_logo" width="22" height="15"/>

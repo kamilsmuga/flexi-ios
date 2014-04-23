@@ -122,7 +122,6 @@
 	
 	if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone){
 		[[UIApplication sharedApplication] setStatusBarHidden:YES];
-		[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
 	}
 	
 }
