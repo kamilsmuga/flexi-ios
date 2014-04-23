@@ -131,9 +131,17 @@
 - (IBAction)done:(id)sender {
     CLLocationCoordinate2D location = [self getLocation];
     self.newTags = _tokenFieldView.tokenTitles;
-    Note *note = [[Note alloc] initNoteInDB:self.db forUserID:self.userID withSubject:self.subjectText.text withBody:self.bodyText.text withLongitute:[NSString stringWithFormat:@"%lf", location.longitude] withLatitude:[NSString stringWithFormat:@"%lf", location.latitude ] withTags:self.newTags];
+    if (!self.note) {
+        self.note = [[Note alloc] initNoteInDB:self.db forUserID:self.userID withSubject:self.subjectText.text withBody:self.bodyText.text withLongitute:[NSString stringWithFormat:@"%lf", location.longitude] withLatitude:[NSString stringWithFormat:@"%lf", location.latitude ] withTags:self.newTags];
+    }
+    else {
+        self.note.subject = self.subjectText.text;
+        self.note.body = self.bodyText.text;
+        self.note.tags = self.newTags;
+        self.note.updated = [NSDate date];
+    }
     NSError *error;
-    [note save:&error];
+    [self.note save:&error];
     if (error) {
         NSLog(@"Error when saving new note. This is bad!");
     }

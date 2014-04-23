@@ -171,21 +171,10 @@
     Note *note;
     NSError *error;
     note = (Note*)[self.data objectAtIndex:indexPath.section];
-    NSLog(@"Subject: %@" , note.subject);
     
         [self.data removeObject:note];
         [note deleteDocument:&error];
- //       [self.collView deleteItemsAtIndexPaths:[NSArray arrayWithObject:indexPath.section]];
-    [self.collView reloadData];
-
-    
-    NSLog(@"adfas");
-    
-    /*
-    [self.data removeObjectAtIndex:indexPath.item];
-    [self.collView deleteItemsAtIndexPaths:[[NSArray alloc] initWithObjects:indexPath, nil]];
-    [note deleteDocument:&error];
-     */
+        [self.collView reloadData];
 }
 - (IBAction)doEditButton:(id)sender {
 }
@@ -193,7 +182,6 @@
 
 
 #pragma mark other
-
 
 -(void) reloadData
 {
