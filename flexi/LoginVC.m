@@ -46,14 +46,12 @@
     return _db;
 }
 
-
 -(void)viewDidLoad
 {
     [self.navigationController setNavigationBarHidden:YES];
     self.visited = NO;
 
 }
-
 
 // Logged-in user experience
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {

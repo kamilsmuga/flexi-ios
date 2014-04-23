@@ -22,7 +22,7 @@
 @property (nonatomic, weak) CBLDatabase *db;
 @property (nonatomic) BOOL debug;
 @property (nonatomic) Profile *profile;
-@property (weak, nonatomic) IBOutlet UIImageView *favsView;
+@property (nonatomic, strong) UILabel *tag;
 @end
 
 @implementation MainCVC
@@ -59,6 +59,13 @@
     return _cellViews;
 }
 
+-(UILabel*) tag
+{
+    if (!_tag) {
+        _tag = [[UILabel alloc] init];
+    }
+    return _tag;
+}
 
 - (void)viewDidLoad
 {
@@ -75,10 +82,6 @@
     singleTap.numberOfTapsRequired = 1;
     self.addNote.userInteractionEnabled = YES;
     [self.addNote addGestureRecognizer:singleTap];
-    
-    singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForFavs)];
-    self.favsView.userInteractionEnabled = YES;
-    [self.favsView addGestureRecognizer:singleTap];
     
     singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForMenu)];
     self.menu.userInteractionEnabled = YES;
@@ -249,9 +252,7 @@
 
 -(NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-
     return 1;
-    
 }
 
 -(UICollectionViewCell*) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -282,19 +283,21 @@
     CGPoint offset = CGPointMake(13.0, 160.0);
     
     for (int i=0; i<[note.tags count]; i++) {
-        UILabel *tag = [[UILabel alloc] initWithFrame:CGRectMake(offset.x, offset.y, 20.0, 15.0)];
+        self.tag = [[UILabel alloc] init];
+        self.tag.frame = CGRectMake(offset.x, offset.y, 20.0, 15.0);
         NSMutableString *str = [[NSMutableString alloc] initWithString:@" "];
         [str appendString:note.tags[i]];
         [str appendString:@" "];
-        tag.text = str;
-        tag.font = [UIFont boldSystemFontOfSize:10.0];
-        tag.textColor = [UIColor whiteColor];
-        tag.backgroundColor = [UIColor purpleColor];
-        [tag sizeToFit];
-        [tag.layer setMasksToBounds:YES];
-        [tag.layer setCornerRadius:5.0];
-        [cell addSubview:tag];
-        offset.x = offset.x + tag.frame.size.width +2;
+        self.tag.text = str;
+        self.tag.font = [UIFont boldSystemFontOfSize:10.0];
+        self.tag.textColor = [UIColor whiteColor];
+        self.tag.backgroundColor = [UIColor purpleColor];
+        [self.tag sizeToFit];
+        [self.tag.layer setMasksToBounds:YES];
+        [self.tag.layer setCornerRadius:5.0];
+        [cell addSubview:self.tag];
+        offset.x = offset.x + self.tag.frame.size.width +2;
+        
     }
     
     [self.cellViews addObject:cell];
