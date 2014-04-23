@@ -16,9 +16,9 @@
 @property (strong, nonatomic) NSArray *newTags;
 @property (strong, nonatomic) NSArray *existingTags;
 @property (strong, nonatomic) NSMutableArray *tagsSource;
-@property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
-- (IBAction)cancel:(id)sender;
-- (IBAction)done:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *done;
+@property (weak, nonatomic) IBOutlet UIImageView *cancel;
+
 @end
 
 @implementation NoteVC {
@@ -95,7 +95,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-   // _tokenFieldView = [[TITokenFieldView alloc] initWithFrame:CGRectMake(0.0, 20+self.navBar.frame.size.height, self.view.frame.size.width, 44.0)];
+ 
     _tokenFieldView = [[TITokenFieldView alloc] initWithFrame:CGRectMake(0.0, 64, self.view.frame.size.width, self.view.frame.size.height/2)];
     [_tokenFieldView setSourceArray:self.tagsSource];
 	[self.view addSubview:_tokenFieldView];
@@ -114,10 +114,22 @@
         self.bodyText.text = self.note.body;
         self.subjectText.text = self.note.subject;
     }
-    
+    /*
     [self.view addSubview:self.bodyText];
     [self.view addSubview:self.subjectText];
     [self.subjectText becomeFirstResponder];
+     */
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetectedForDone)];
+    singleTap.numberOfTapsRequired = 1;
+    [self.done addGestureRecognizer:singleTap];
+    
+    singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetectedForCancel)];
+    singleTap.numberOfTapsRequired = 1;
+    [self.cancel addGestureRecognizer:singleTap];
+    
+    [self.subjectText becomeFirstResponder];
+
 }
 
 
@@ -128,7 +140,7 @@
 }
 
 
-- (IBAction)done:(id)sender {
+-(void)tapDetectedForDone {
     CLLocationCoordinate2D location = [self getLocation];
     self.newTags = _tokenFieldView.tokenTitles;
     if (!self.note) {
@@ -150,10 +162,9 @@
     self.locationManager.delegate = main;
     main.locationManager = self.locationManager;
     [self.revealController setFrontViewController:main];
-    
-    
 }
-- (IBAction)cancel:(id)sender {
+
+-(void)tapDetectedForCancel {
     
     MainCVC *main = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mainCVC"];
     main.userID = self.userID;
