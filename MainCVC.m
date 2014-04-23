@@ -150,20 +150,44 @@
     if (note.isFav) {
         ((Note*)[self.data objectAtIndex:indexPath.section]).isFav = NO;
         [note save:&error];
-        UIImage *btnImage = [UIImage imageNamed:@"star-off"];
         sender.selected = NO;
-        [sender setImage:btnImage forState:UIControlStateNormal];
+        [sender reloadInputViews];
+
     }
     else {
         ((Note*)[self.data objectAtIndex:indexPath.section]).isFav = YES;
         [note save:&error];
-        UIImage *btnImage = [UIImage imageNamed:@"star-on"];
         sender.selected = YES;
-        [sender setImage:btnImage forState:UIControlStateSelected];
+        [sender reloadInputViews];
     }
     if (error) {
         NSLog(@"Error while trying to add to favorites");
     }
+}
+
+- (IBAction)doDeleteButton:(id)sender {
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.collView];
+    NSIndexPath *indexPath = [self.collView indexPathForItemAtPoint:buttonPosition];
+    Note *note;
+    NSError *error;
+    note = (Note*)[self.data objectAtIndex:indexPath.section];
+    NSLog(@"Subject: %@" , note.subject);
+    
+        [self.data removeObject:note];
+        [note deleteDocument:&error];
+ //       [self.collView deleteItemsAtIndexPaths:[NSArray arrayWithObject:indexPath.section]];
+    [self.collView reloadData];
+
+    
+    NSLog(@"adfas");
+    
+    /*
+    [self.data removeObjectAtIndex:indexPath.item];
+    [self.collView deleteItemsAtIndexPaths:[[NSArray alloc] initWithObjects:indexPath, nil]];
+    [note deleteDocument:&error];
+     */
+}
+- (IBAction)doEditButton:(id)sender {
 }
 
 
@@ -245,27 +269,20 @@
     UILabel *subject = (UILabel*) [cell viewWithTag:100];
     UILabel *body = (UILabel*) [cell viewWithTag:101];
     UILabel *date = (UILabel*) [cell viewWithTag:102];
-    UIButton *fav = (UIButton*) [cell viewWithTag:400];
+    UIButton *favs = (UIButton*) [cell viewWithTag:400];
     
     subject.text = note.subject;
     body.text = note.body;
     date.text = [NSDateFormatter localizedStringFromDate:note.updated
                                                dateStyle:NSDateFormatterShortStyle
                                                timeStyle:NSDateFormatterShortStyle];
-    
-    UIImage *btnImageOn = [UIImage imageNamed:@"star-on"];
-    UIImage *btnImageOff = [UIImage imageNamed:@"star-off"];
-    if (note.isFav > 0) {
-        fav.selected = YES;
-        [fav setImage:btnImageOn forState:UIControlStateSelected];
-    }
-    else {
-        fav.selected = NO;
-        [fav setImage:btnImageOff forState:UIControlStateNormal];
+
+    if (note.isFav) {
+        favs.selected = YES;
+        [favs reloadInputViews];
     }
     
     [self.cellViews addObject:cell];
-    
     return cell;
     
 }

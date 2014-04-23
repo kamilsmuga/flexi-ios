@@ -77,47 +77,15 @@
     self.debug = YES;
     
     NSString *email = [user objectForKey:@"email"];
-    
-    /*
-    Profile *existingProfile = [Profile profileInDatabase:self.db  forUserID:email];
-    
-    if (!existingProfile) {
-        Profile *profile = [[Profile alloc] initCurrentUserProfileInDatabase:self.db withName:user.name andUserID:email];
-        [profile save:&error];
-        if (self.debug) {
-            NSLog(@"New user created!");
-            NSLog(@"profile email: %@", profile.userID);
-            NSLog(@"member since: %@", profile.joined);
-            NSLog(@"profile id: %@", [profile getValueOfProperty: @"_id"]);
-        }
-    }
-    else {
-        existingProfile.lastLogin = [NSDate date];
-        [existingProfile save:&error];
-        
-        if (self.debug) {
-            NSLog(@"This is an existing user.");
-            NSLog(@"profile name: %@", existingProfile.name);
-            NSLog(@"member since: %@", existingProfile.joined);
-            NSLog(@"last login: %@", existingProfile.lastLogin);
-        }
-    }
-     
-    if (error) {
-        NSLog(@"Error while trying to save the profile. This is bad!");
-    }
-    */
 
     /*
     [DBTestDataFeed populateRandomNotesInDB:self.db forUserID:email];
-    
     CBLQuery *q = [Note allNotesInDB:self.db forUserID:email];
     CBLQueryEnumerator *rowEnum = [q run:&error];
     for (CBLQueryRow* row in rowEnum) {
         NSLog(@"Doc id = %@ and subject = %@", row.key, row.value);
     }
     */
-    
     
     // download user FB profile picture
     self.imageData = [[NSMutableData alloc] init];
