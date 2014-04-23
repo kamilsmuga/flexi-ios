@@ -115,7 +115,7 @@
 		4811EFB418FF3A5F00866113 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4811EFC21903218500866113 /* TITokenField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TITokenField.m; sourceTree = "<group>"; };
 		4811EFC31903218500866113 /* TITokenField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TITokenField.h; sourceTree = "<group>"; };
-		4823FA6D1888A41B0098E269 /* flexi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flexi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4823FA6D1888A41B0098E269 /* flexi.note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flexi.note.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4823FA701888A41B0098E269 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4823FA721888A41B0098E269 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4823FA741888A41B0098E269 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -230,7 +230,7 @@
 		4823FA6E1888A41B0098E269 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4823FA6D1888A41B0098E269 /* flexi.app */,
+				4823FA6D1888A41B0098E269 /* flexi.note.app */,
 				4823FA8E1888A41B0098E269 /* flexiTests.xctest */,
 			);
 			name = Products;
@@ -376,7 +376,7 @@
 			);
 			name = flexi;
 			productName = flexi;
-			productReference = 4823FA6D1888A41B0098E269 /* flexi.app */;
+			productReference = 4823FA6D1888A41B0098E269 /* flexi.note.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4823FA8D1888A41B0098E269 /* flexiTests */ = {
@@ -662,7 +662,7 @@
 				INFOPLIST_FILE = "flexi/flexi-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = flexi.note;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -690,7 +690,7 @@
 				INFOPLIST_FILE = "flexi/flexi-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = flexi.note;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};

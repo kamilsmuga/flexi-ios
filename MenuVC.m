@@ -11,6 +11,7 @@
 #import "MainCVC.h"
 #import "Note.h"
 #import "flexiAppDelegate.h"
+#import "LoginVC.h"
 
 @interface MenuVC ()
 @property (weak, nonatomic) IBOutlet UIView *places;
@@ -21,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIView *tag3;
 @property (weak, nonatomic) IBOutlet UIView *tag4;
 @property (weak, nonatomic) IBOutlet UIView *tag5;
+@property (weak, nonatomic) IBOutlet UIView *logout;
 @property (strong, nonatomic) CBLDatabase *db;
 @end
 
@@ -88,7 +90,11 @@
     singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForFavs)];
     self.favs.userInteractionEnabled = YES;
     [self.favs addGestureRecognizer:singleTap];
-    }
+    
+    singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForLogout)];
+    self.logout.userInteractionEnabled = YES;
+    [self.logout addGestureRecognizer:singleTap];
+}
 
 -(void)addTapDetectedForTag:(MYTapGestureRecognizer *)sender
 {
@@ -112,6 +118,16 @@
     map.userID = ((MainCVC*)self.revealController.frontViewController).userID;
     [self.revealController setFrontViewController:map];
     [self.revealController showViewController:[self.revealController frontViewController] animated:YES completion:nil];
+}
+
+-(void) addTapDetectedForLogout
+{
+    [[FBSession activeSession] close];
+    [[FBSession activeSession] closeAndClearTokenInformation];
+    LoginVC *login = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"loginVC"];
+    [self.revealController setFrontViewController:login];
+    [self.revealController showViewController:[self.revealController frontViewController] animated:YES completion:nil];
+
 }
 
 - (void)didReceiveMemoryWarning

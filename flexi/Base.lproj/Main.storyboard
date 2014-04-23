@@ -20,13 +20,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <button hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJh-VN-r28">
-                                        <rect key="frame" x="138" y="269" width="45" height="30"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="launchimage-new" translatesAutoresizingMaskIntoConstraints="NO" id="6kw-aM-GS2">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="segueInvisibleButton">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
+                                    </imageView>
                                     <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hAB-xa-scV" userLabel="FBLoginView" customClass="FBLoginView">
                                         <rect key="frame" x="20" y="496" width="280" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -567,6 +564,7 @@
                     </view>
                     <connections>
                         <outlet property="favs" destination="Nt3-f5-Li0" id="aHC-Q4-Toi"/>
+                        <outlet property="logout" destination="XoM-i0-6Rh" id="GeP-zR-Esd"/>
                         <outlet property="places" destination="LhS-tN-hLE" id="BMS-d2-CRy"/>
                         <outlet property="tag1" destination="YAE-h6-kJI" id="TwX-Xe-PGH"/>
                         <outlet property="tag2" destination="6Qs-Xh-JUd" id="Cxd-XV-3Sk"/>
@@ -646,6 +644,7 @@
         <image name="done" width="60" height="30"/>
         <image name="edit" width="590" height="486"/>
         <image name="favs" width="522" height="498"/>
+        <image name="launchimage-new" width="640" height="1136"/>
         <image name="logout" width="19" height="18"/>
         <image name="menu" width="43" height="29"/>
         <image name="mini_logo" width="22" height="15"/>
