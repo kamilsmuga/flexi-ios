@@ -62,15 +62,7 @@
     
     self.revealController.frontViewController.revealController.recognizesPanningOnFrontView = YES;
     
-    // init data source object
-    NSError *error;
-    CBLQuery *notes = [Note getAllNotesInDB:self.db forUserID:self.userID];
-    notes.descending = YES;
-    CBLQueryEnumerator *rowEnum = [notes run:&error];
-    for (CBLQueryRow* row in rowEnum) {
-        Note *note = [Note getNoteFromDB:self.db withID:row.value];
-        [self.data addObject:note];
-    }
+    [self initDataSource];
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForNew)];
     singleTap.numberOfTapsRequired = 1;
@@ -171,6 +163,37 @@
 
 #pragma mark other
 
+
+-(void) reloadData
+{
+    [self.collView reloadData];
+}
+
+-(void) initDataSource
+{
+    // init data source object
+    NSError *error;
+    CBLQuery *notes = [Note getAllNotesInDB:self.db forUserID:self.userID];
+    notes.descending = YES;
+    CBLQueryEnumerator *rowEnum = [notes run:&error];
+    for (CBLQueryRow* row in rowEnum) {
+        Note *note = [Note getNoteFromDB:self.db withID:row.value];
+        [self.data addObject:note];
+    }
+}
+
+-(void) initDataSourceRecent
+{
+    [self initDataSource];
+    NSMutableArray *new_data = [[NSMutableArray alloc] init];
+    for (Note* note in self.data) {
+        if (note.created >= [NSDate dateWithTimeIntervalSinceNow:-7*24*60*60]) {
+            [new_data addObject:note];
+        }
+    }
+    self.data = new_data;
+    }
+
 -(void) displayForTag:(NSString*)tag
 {
     NSMutableArray *new_data = [[NSMutableArray alloc] init];
@@ -179,7 +202,16 @@
             [new_data addObject:note];
     }
     self.data = new_data;
-    [self.collView reloadData];
+}
+
+-(void) displayFavs
+{
+    NSMutableArray *new_data = [[NSMutableArray alloc] init];
+    for (Note* note in self.data) {
+        if (note.isFav)
+            [new_data addObject:note];
+    }
+    self.data = new_data;
 }
 
 #pragma mark Collection View Methods

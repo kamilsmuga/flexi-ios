@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PKRevealController.h"
 
-@interface SearchVC : UIViewController
+@interface TimelineVC : UIViewController
 
 @end

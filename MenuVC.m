@@ -14,6 +14,7 @@
 
 @interface MenuVC ()
 @property (weak, nonatomic) IBOutlet UIView *places;
+@property (weak, nonatomic) IBOutlet UIView *favs;
 @property (strong, nonatomic) NSMutableDictionary *tagsSource;
 @property (weak, nonatomic) IBOutlet UIView *tag1;
 @property (weak, nonatomic) IBOutlet UIView *tag2;
@@ -84,12 +85,24 @@
     self.places.userInteractionEnabled = YES;
     [self.places addGestureRecognizer:singleTap];
     
+    singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForFavs)];
+    self.favs.userInteractionEnabled = YES;
+    [self.favs addGestureRecognizer:singleTap];
     }
 
 -(void)addTapDetectedForTag:(MYTapGestureRecognizer *)sender
 {
     MainCVC *main = ((MainCVC*)self.revealController.frontViewController);
     [main displayForTag:sender.name];
+    [main reloadData];
+}
+
+-(void)addTapDetectedForFavs
+{
+    MainCVC *main = ((MainCVC*)self.revealController.frontViewController);
+    [main displayFavs];
+    [main reloadData];
+    [[main revealController] showViewController:main];
 }
 
 -(void)addTapDetectedForPlaces

@@ -6,13 +6,18 @@
 //  Copyright (c) 2014 iOSGo!. All rights reserved.
 //
 
-#import "SearchVC.h"
+#import "TimelineVC.h"
+#import "MainCVC.h"
 
-@interface SearchVC ()
+@interface TimelineVC ()
+@property (weak, nonatomic) IBOutlet UIView *allNotes;
+@property (weak, nonatomic) IBOutlet UIView *recentNotes;
+@property (weak, nonatomic) IBOutlet UIView *calendar;
+@property (weak, nonatomic) IBOutlet UIView *dateRange;
 
 @end
 
-@implementation SearchVC
+@implementation TimelineVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,12 +32,28 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForAll)];
+    self.allNotes.userInteractionEnabled = YES;
+    [self.allNotes addGestureRecognizer:singleTap];
+}
+
+-(void) addTapDetectedForAll
+{
+    MainCVC *main = ((MainCVC*)self.revealController.frontViewController);
+    [main initDataSource];
+    [main reloadData];
+    [[main revealController] showViewController:main];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    
 }
 
 /*

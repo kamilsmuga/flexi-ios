@@ -21,7 +21,7 @@
 		12AE5F5018F934EB00DDA457 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AE5F4F18F934EB00DDA457 /* Note.m */; };
 		12AE5F5218F9562700DDA457 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AE5F5118F9562700DDA457 /* CoreLocation.framework */; };
 		12AE5F5518F9693900DDA457 /* DBTestDataFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AE5F5418F9693900DDA457 /* DBTestDataFeed.m */; };
-		12C55B7A18FABB92001BF3CB /* SearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C55B7918FABB92001BF3CB /* SearchVC.m */; };
+		12C55B7A18FABB92001BF3CB /* TimelineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C55B7918FABB92001BF3CB /* TimelineVC.m */; };
 		12E24EB218FAEB3E008C20CB /* libPKRevealController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E24E5918FAE870008C20CB /* libPKRevealController.a */; };
 		12E24EB919003D69008C20CB /* NoteMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E24EB819003D69008C20CB /* NoteMapAnnotation.m */; };
 		4811EFAF18FEE1DB00866113 /* NoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4811EFAE18FEE1DB00866113 /* NoteVC.m */; };
@@ -75,8 +75,8 @@
 		12AE5F5118F9562700DDA457 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		12AE5F5318F9693900DDA457 /* DBTestDataFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBTestDataFeed.h; sourceTree = "<group>"; };
 		12AE5F5418F9693900DDA457 /* DBTestDataFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBTestDataFeed.m; sourceTree = "<group>"; };
-		12C55B7818FABB92001BF3CB /* SearchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchVC.h; sourceTree = "<group>"; };
-		12C55B7918FABB92001BF3CB /* SearchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchVC.m; sourceTree = "<group>"; };
+		12C55B7818FABB92001BF3CB /* TimelineVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineVC.h; sourceTree = "<group>"; };
+		12C55B7918FABB92001BF3CB /* TimelineVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineVC.m; sourceTree = "<group>"; };
 		12E24E5418FAE870008C20CB /* PKRevealController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PKRevealController.xcodeproj; path = PKRevealController/Source/PKRevealController.xcodeproj; sourceTree = "<group>"; };
 		12E24E5B18FAE8F6008C20CB /* PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKRevealController.h; path = PKRevealController/Headers/PKRevealController.h; sourceTree = "<group>"; };
 		12E24E5C18FAE8F6008C20CB /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+PKRevealController.h"; path = "PKRevealController/Headers/UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
@@ -295,8 +295,8 @@
 				122B69F418D475A2004AF481 /* MainCVC.m */,
 				488AFA3018F8269100621DDE /* MenuVC.h */,
 				488AFA3118F8269100621DDE /* MenuVC.m */,
-				12C55B7818FABB92001BF3CB /* SearchVC.h */,
-				12C55B7918FABB92001BF3CB /* SearchVC.m */,
+				12C55B7818FABB92001BF3CB /* TimelineVC.h */,
+				12C55B7918FABB92001BF3CB /* TimelineVC.m */,
 				4811EFAD18FEE1DB00866113 /* NoteVC.h */,
 				4811EFAE18FEE1DB00866113 /* NoteVC.m */,
 				4811EFB118FF3A0200866113 /* MapVC.h */,
@@ -433,7 +433,7 @@
 			files = (
 				4823FA871888A41B0098E269 /* LoginVC.m in Sources */,
 				122B69F518D475A2004AF481 /* MainCVC.m in Sources */,
-				12C55B7A18FABB92001BF3CB /* SearchVC.m in Sources */,
+				12C55B7A18FABB92001BF3CB /* TimelineVC.m in Sources */,
 				122B69ED18D454C4004AF481 /* CBLSyncManager.m in Sources */,
 				488AFA2D18F2C68A00621DDE /* Profile.m in Sources */,
 				488AFA3218F8269100621DDE /* MenuVC.m in Sources */,

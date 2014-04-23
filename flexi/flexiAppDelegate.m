@@ -11,7 +11,7 @@
 #import <CouchbaseLite/CouchbaseLite.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import "PKRevealController.h"
-#import "SearchVC.h"
+#import "TimelineVC.h"
 #import "MenuVC.h"
 
 
@@ -64,7 +64,7 @@
     
     //UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
     
-    SearchVC *rightViewController = [[SearchVC alloc] init];
+    TimelineVC *rightViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"timelineVC"];
     MenuVC *leftViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"menuVC"];
     
     // Step 2: Instantiate.

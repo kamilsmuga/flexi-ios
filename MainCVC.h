@@ -20,5 +20,8 @@
 @property (nonatomic, readwrite) NSMutableArray *data;
 
 -(void) displayForTag:(NSString*)tag;
+-(void) displayFavs;
+-(void) initDataSource;
+-(void) reloadData;
 
 @end
