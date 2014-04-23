@@ -22,6 +22,7 @@
 -(void) displayForTag:(NSString*)tag;
 -(void) displayFavs;
 -(void) initDataSource;
+-(void) initDataSourceRecent;
 -(void) reloadData;
 
 @end

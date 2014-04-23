@@ -187,7 +187,7 @@
     [self initDataSource];
     NSMutableArray *new_data = [[NSMutableArray alloc] init];
     for (Note* note in self.data) {
-        if (note.created >= [NSDate dateWithTimeIntervalSinceNow:-7*24*60*60]) {
+        if ([note.created compare:[NSDate dateWithTimeIntervalSinceNow:-7*24*60*60]] == NSOrderedDescending) {
             [new_data addObject:note];
         }
     }

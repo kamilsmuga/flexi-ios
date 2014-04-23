@@ -35,12 +35,24 @@
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForAll)];
     self.allNotes.userInteractionEnabled = YES;
     [self.allNotes addGestureRecognizer:singleTap];
+    
+    singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForRecent)];
+    self.recentNotes.userInteractionEnabled = YES;
+    [self.recentNotes addGestureRecognizer:singleTap];
 }
 
 -(void) addTapDetectedForAll
 {
     MainCVC *main = ((MainCVC*)self.revealController.frontViewController);
     [main initDataSource];
+    [main reloadData];
+    [[main revealController] showViewController:main];
+}
+
+-(void) addTapDetectedForRecent
+{
+    MainCVC *main = ((MainCVC*)self.revealController.frontViewController);
+    [main initDataSourceRecent];
     [main reloadData];
     [[main revealController] showViewController:main];
 }
