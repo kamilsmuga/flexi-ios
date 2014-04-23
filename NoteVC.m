@@ -114,11 +114,13 @@
         self.bodyText.text = self.note.body;
         self.subjectText.text = self.note.subject;
     }
-    /*
-    [self.view addSubview:self.bodyText];
-    [self.view addSubview:self.subjectText];
-    [self.subjectText becomeFirstResponder];
-     */
+
+    [self.subjectText setDelegate:self];
+    [self.bodyText setDelegate:self];
+    
+    [_tokenFieldView.contentView addSubview:self.subjectText];
+    [_tokenFieldView.contentView addSubview:self.bodyText];
+    
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetectedForDone)];
     singleTap.numberOfTapsRequired = 1;
@@ -128,7 +130,7 @@
     singleTap.numberOfTapsRequired = 1;
     [self.cancel addGestureRecognizer:singleTap];
     
-    [self.subjectText becomeFirstResponder];
+    [self.bodyText becomeFirstResponder];
 
 }
 
