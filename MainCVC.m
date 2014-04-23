@@ -176,10 +176,17 @@
         [note deleteDocument:&error];
         [self.collView reloadData];
 }
+
 - (IBAction)doEditButton:(id)sender {
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.collView];
+    NSIndexPath *indexPath = [self.collView indexPathForItemAtPoint:buttonPosition];
+    Note *note;
+    note = (Note*)[self.data objectAtIndex:indexPath.section];
+    NoteVC *new = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"newNoteVC"];
+    new.userID = self.userID;
+    new.note = note;
+    [self.revealController setFrontViewController:new];
 }
-
-
 
 #pragma mark other
 
@@ -265,9 +272,29 @@
                                                dateStyle:NSDateFormatterShortStyle
                                                timeStyle:NSDateFormatterShortStyle];
 
+    // render proper image for favorites button
     if (note.isFav) {
         favs.selected = YES;
         [favs reloadInputViews];
+    }
+    
+    // display tags
+    CGPoint offset = CGPointMake(13.0, 160.0);
+    
+    for (int i=0; i<[note.tags count]; i++) {
+        UILabel *tag = [[UILabel alloc] initWithFrame:CGRectMake(offset.x, offset.y, 20.0, 15.0)];
+        NSMutableString *str = [[NSMutableString alloc] initWithString:@" "];
+        [str appendString:note.tags[i]];
+        [str appendString:@" "];
+        tag.text = str;
+        tag.font = [UIFont boldSystemFontOfSize:10.0];
+        tag.textColor = [UIColor whiteColor];
+        tag.backgroundColor = [UIColor purpleColor];
+        [tag sizeToFit];
+        [tag.layer setMasksToBounds:YES];
+        [tag.layer setCornerRadius:5.0];
+        [cell addSubview:tag];
+        offset.x = offset.x + tag.frame.size.width +2;
     }
     
     [self.cellViews addObject:cell];
