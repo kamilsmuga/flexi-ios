@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (nonatomic, readwrite) NSMutableArray *data;
+@property (strong, nonatomic) NSMutableArray *cellViews;
 
 -(void) displayForTag:(NSString*)tag;
 -(void) displayFavs;

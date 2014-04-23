@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PKRevealController.h"
+#import <TapkuLibrary/TapkuLibrary.h>
 
 @interface TimelineVC : UIViewController
 

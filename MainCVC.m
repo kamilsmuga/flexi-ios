@@ -52,6 +52,14 @@
     return _profile;
 }
 
+-(NSMutableArray*) cellViews
+{
+    if (!_cellViews) {
+        _cellViews = [[NSMutableArray alloc] init];
+    }
+    return _cellViews;
+}
+
 
 - (void)viewDidLoad
 {
@@ -256,7 +264,9 @@
         fav.selected = NO;
         [fav setImage:btnImageOff forState:UIControlStateNormal];
     }
-  
+    
+    [self.cellViews addObject:cell];
+    
     return cell;
     
 }

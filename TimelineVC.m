@@ -8,6 +8,7 @@
 
 #import "TimelineVC.h"
 #import "MainCVC.h"
+#import "CoverflowVC.h"
 
 @interface TimelineVC ()
 @property (weak, nonatomic) IBOutlet UIView *allNotes;
@@ -39,6 +40,19 @@
     singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForRecent)];
     self.recentNotes.userInteractionEnabled = YES;
     [self.recentNotes addGestureRecognizer:singleTap];
+    
+    singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTapDetectedForCalendar)];
+    self.calendar.userInteractionEnabled = YES;
+    [self.calendar addGestureRecognizer:singleTap];
+}
+
+-(void) addTapDetectedForCalendar
+{
+    CoverflowVC *vc = [[CoverflowVC alloc] init];
+    vc.notesData = ((MainCVC*)self.revealController.frontViewController).cellViews;
+    [vc setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self presentViewController:vc animated:YES completion:nil];
+
 }
 
 -(void) addTapDetectedForAll

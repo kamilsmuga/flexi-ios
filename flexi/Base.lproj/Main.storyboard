@@ -286,11 +286,11 @@
                                 <rect key="frame" x="60" y="160" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="calendar" translatesAutoresizingMaskIntoConstraints="NO" id="Sla-LE-uVD">
-                                        <rect key="frame" x="20" y="23" width="17" height="23"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="albums" translatesAutoresizingMaskIntoConstraints="NO" id="Sla-LE-uVD">
+                                        <rect key="frame" x="17" y="25" width="23" height="19"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calendar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hsg-a4-Vbp">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Album view" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hsg-a4-Vbp">
                                         <rect key="frame" x="48" y="10" width="280" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -602,9 +602,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="albums" width="602" height="482"/>
         <image name="all_notes" width="14" height="20"/>
         <image name="back" width="372" height="514"/>
-        <image name="calendar" width="17" height="19"/>
         <image name="dates" width="18" height="19"/>
         <image name="favs" width="522" height="498"/>
         <image name="logout" width="19" height="18"/>
