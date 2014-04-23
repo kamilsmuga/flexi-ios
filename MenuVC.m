@@ -127,7 +127,6 @@
     LoginVC *login = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"loginVC"];
     [self.revealController setFrontViewController:login];
     [self.revealController showViewController:[self.revealController frontViewController] animated:YES completion:nil];
-
 }
 
 - (void)didReceiveMemoryWarning

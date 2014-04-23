@@ -13,6 +13,7 @@
 #import "DBTestDataFeed.h"
 #import "Note.h"
 #import "MenuVC.h"
+#import "TimelineVC.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import <CouchbaseLite/CouchbaseLite.h>
 
@@ -50,7 +51,6 @@
 {
     [self.navigationController setNavigationBarHidden:YES];
     self.visited = NO;
-
 }
 
 // Logged-in user experience
@@ -93,13 +93,22 @@
                                                           timeoutInterval:2.0f];
     NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
     [urlConnection self];
+    
+    TimelineVC *rightViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"timelineVC"];
+    MenuVC *leftViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"menuVC"];
+    
+    Profile *existingProfile = [Profile profileInDatabase:self.db  forUserID:email];
+    leftViewController.profile = existingProfile;
+    
+    [self.revealController setRightViewController:rightViewController];
+    [self.revealController setLeftViewController:leftViewController];
+    
     MainCVC *main = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mainCVC"];
     main.userID = self.email;
     
-    Profile *existingProfile = [Profile profileInDatabase:self.db  forUserID:email];
-    ((MenuVC*)self.revealController.leftViewController).profile = existingProfile;
     self.pk = self.revealController;
     [self.revealController setFrontViewController:main];
+    
 }
 
 // Called every time a chunk of the data is received
@@ -125,7 +134,8 @@
 
 // Logged-out user experience
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
-    
+    [self.revealController setLeftViewController:nil];
+    [self.revealController setRightViewController:nil];
     self.name = nil;
 }
 
