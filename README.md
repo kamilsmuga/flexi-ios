@@ -1,4 +1,3 @@
-
 + Name: flexi.note
 + First_Name: Kamil Smuga
 + Student_Number: 12258018
@@ -22,7 +21,7 @@ Mobile data storage in cloud.
 
 # Checkout instructions
 
-[code] git clone --recursive git://github.com/foo/bar.git [/code]
+` git clone --recursive https://github.com/kamilsmuga/flexi.git `
 
 Note: TapkuLibrary requires to put absolute path in configuration - this have to
 be modified when project is checked out on different machine. Refer to https://github.com/devinross/tapkulibrary/wiki/Adding-Tapku-to-Your-Project-in-XCode-4
