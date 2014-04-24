@@ -34,7 +34,7 @@
 // name of local database stored in iOS
 #define localDBName @"flexi"
 // remote DB URL
-#define remoteDBUrl @"http://192.168.1.11:4985/flexi/"
+#define remoteDBUrl @"http://ec2-54-186-112-44.us-west-2.compute.amazonaws.com:4984/flexi/"
 #define kFBAppId @"241876219329233"
 
 @implementation LoginVC
