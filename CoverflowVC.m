@@ -108,11 +108,7 @@
             [self.covers addObject:img];
         }
     }
-/*
-	if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone){
-	//	self.covers = @[[UIImage imageNamed:@"star-on.png"],[UIImage imageNamed:@"star-off.png"]];
-        self.covers = self.notesData;
-	} */
+
 	[self.coverflow reloadData];
 	[self.coverflow setCurrentCoverAtIndex:9 animated:NO];
 

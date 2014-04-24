@@ -11,15 +11,9 @@
 #import "CBLSyncManager.h"
 
 @interface flexiAppDelegate : UIResponder <UIApplicationDelegate>
-{
-    CBLReplication* _pull;
-    CBLReplication* _push;
-    NSError *_syncError;
-}
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) CBLDatabase *database;
-@property (strong, nonatomic) CBLSyncManager *cblSync;
 @property (strong, nonatomic) UINavigationController *navigationController;
 
 @end
